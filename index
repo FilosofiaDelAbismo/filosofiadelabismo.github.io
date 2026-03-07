@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EstoicismoEnVena & LeyendasDelTerror</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07070f;
+    --gold: #c9a84c;
+    --gold-light: #e8c96c;
+    --red: #e63946;
+    --red-dim: #8b1c24;
+    --ai: #4c9ec9;
+    --ai-light: #7ac3e8;
+    --cream: #f0ece4;
+    --muted: #55555f;
+    --card: #0e0e18;
+    --border: #1e1e2c;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    min-height: 100vh;
+    font-family: 'Crimson Pro', serif;
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px 80px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  /* Radial glow bg */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Animated bg lines */
+  .bg-lines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .bg-lines span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.06), transparent);
+    transform-origin: top center;
+    animation: rotateLine 20s linear infinite;
+  }
+  .bg-lines span:nth-child(1) { height: 100vh; transform: rotate(0deg); animation-delay: 0s; }
+  .bg-lines span:nth-child(2) { height: 100vh; transform: rotate(45deg); animation-delay: -5s; }
+  .bg-lines span:nth-child(3) { height: 100vh; transform: rotate(90deg); animation-delay: -10s; }
+  .bg-lines span:nth-child(4) { height: 100vh; transform: rotate(135deg); animation-delay: -15s; }
+  @keyframes rotateLine {
+    from { opacity: 0.3; }
+    50% { opacity: 1; }
+    to { opacity: 0.3; }
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* AVATAR */
+  .avatar-ring {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    position: relative;
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .avatar-ring::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: conic-gradient(var(--gold), var(--red), var(--ai), var(--gold));
+    animation: spin 4s linear infinite;
+  }
+
+  .avatar-inner {
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #0e0e18, #1a1a28);
+    color: var(--gold);
+    z-index: 1;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* NAME */
+  .name {
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    animation: fadeDown 0.6s 0.1s ease both;
+    opacity: 0;
+  }
+
+  .tagline {
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--cream);
+    opacity: 0.7;
+    margin-bottom: 36px;
+    animation: fadeDown 0.6s 0.2s ease both;
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .divider-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* CARDS */
+  .card {
+    display: block;
+    text-decoration: none;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Gold card */
+  .card-gold { border-left: 3px solid var(--gold); }
+  .card-gold::before { background: radial-gradient(ellipse at left, rgba(201,168,76,0.06), transparent 70%); }
+  .card-gold:hover { border-color: var(--gold); box-shadow: 0 8px 32px rgba(201,168,76,0.1); }
+  .card-gold::before { opacity: 1; }
+
+  /* Red card */
+  .card-red { border-left: 3px solid var(--red); }
+  .card-red::before { background: radial-gradient(ellipse at left, rgba(230,57,70,0.06), transparent 70%); }
+  .card-red:hover { border-color: var(--red); box-shadow: 0 8px 32px rgba(230,57,70,0.1); }
+  .card-red::before { opacity: 1; }
+
+  /* AI card */
+  .card-ai { border-left: 3px solid var(--ai); }
+  .card-ai::before { background: radial-gradient(ellipse at left, rgba(76,158,201,0.06), transparent 70%); }
+  .card-ai:hover { border-color: var(--ai); box-shadow: 0 8px 32px rgba(76,158,201,0.1); }
+  .card-ai::before { opacity: 1; }
+
+  /* Neutral card */
+  .card-neutral { border-left: 3px solid var(--border); }
+  .card-neutral:hover { border-color: var(--muted); box-shadow: 0 8px 20px rgba(255,255,255,0.03); }
+
+  .card-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .card-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    width: 40px;
+    text-align: center;
+  }
+
+  .card-body { flex: 1; }
+
+  .card-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .label-gold { color: var(--gold); }
+  .label-red { color: var(--red); }
+  .label-ai { color: var(--ai); }
+  .label-muted { color: var(--muted); }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.2;
+  }
+
+  .card-sub {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 2px;
+    font-weight: 300;
+  }
+
+  .card-arrow {
+    font-size: 16px;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: transform 0.2s, color 0.2s;
+  }
+
+  .card:hover .card-arrow { transform: translateX(4px); }
+  .card-gold:hover .card-arrow { color: var(--gold); }
+  .card-red:hover .card-arrow { color: var(--red); }
+  .card-ai:hover .card-arrow { color: var(--ai); }
+
+  /* FREE badge */
+  .badge-free {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge-gold { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+  .badge-red-b { background: rgba(230,57,70,0.15); color: var(--red); border: 1px solid rgba(230,57,70,0.3); }
+
+  /* Section spacing */
+  .section { margin-bottom: 28px; }
+
+  /* Animations */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card:nth-child(1) { animation: fadeUp 0.5s 0.3s ease both; opacity: 0; }
+  .card:nth-child(2) { animation: fadeUp 0.5s 0.4s ease both; opacity: 0; }
+  .card:nth-child(3) { animation: fadeUp 0.5s 0.5s ease both; opacity: 0; }
+  .card:nth-child(4) { animation: fadeUp 0.5s 0.6s ease both; opacity: 0; }
+
+  /* Footer */
+  footer {
+    margin-top: 48px;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    opacity: 0.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-lines">
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<div class="wrapper">
+
+  <!-- AVATAR -->
+  <div class="avatar-ring">
+    <div class="avatar-inner">EV<br><span style="font-size:10px;color:var(--red)">LT</span></div>
+  </div>
+
+  <p class="name">EstoicismoEnVena · LeyendasDelTerror</p>
+  <p class="tagline">Filosofía que transforma · Historias que no olvidarás</p>
+
+  <!-- NEWSLETTERS -->
+  <div class="section">
+    <div class="divider" style="animation-delay:0.3s">
+      <div class="divider-line"></div>
+      <span class="divider-label">Newsletter · PDF Gratis</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <a class="card card-gold" href="TU_LINK_BEEHIIV_ESTOICISMO" target="_blank">
+      <div class="card-row">
+        <div class="card-icon">🏛️</div>
+        <div class="card-body">
+          <div class="card-label label-gold">Estoicismo en Vena</div>
+          <div class="card-title">
+            5 Hábitos Estoicos
+            <span class="badge-free badge-gold">GRATIS</span>
+          </div>
+          <div class="card-sub">PDF + reflexión semanal en tu correo</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <a class="card card-red" href="TU_LINK_BEEHIIV_TERROR" target="_blank">
+      <div class="card-row">
+        <div class="card-icon">👻</div>
+        <div class="card-body">
+          <div class="card-label label-red">Leyendas del Terror</div>
+          <div class="card-title">
+            5 Historias que No Olvidarás
+            <span class="badge-free badge-red-b">GRATIS</span>
+          </div>
+          <div class="card-sub">PDF + caso nuevo cada semana</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <a class="card card-ai" href="TU_LINK_CURSOS_IA" target="_blank">
+      <div class="card-row">
+        <div class="card-icon">🤖</div>
+        <div class="card-body">
+          <div class="card-label label-ai">Cursos IA</div>
+          <div class="card-title">Inteligencia Artificial</div>
+          <div class="card-sub">Aprende a usar IA para ganar dinero</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- YOUTUBE -->
+  <div class="section">
+    <div class="divider" style="animation-delay:0.5s">
+      <div class="divider-line"></div>
+      <span class="divider-label">Canales de YouTube</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <a class="card card-gold" href="TU_LINK_YOUTUBE_ESTOICISMO" target="_blank">
+      <div class="card-row">
+        <div class="card-icon">▶️</div>
+        <div class="card-body">
+          <div class="card-label label-gold">YouTube · Estoicismo en Vena</div>
+          <div class="card-title">Canal de Estoicismo</div>
+          <div class="card-sub">Vídeos semanales de filosofía práctica</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <a class="card card-red" href="TU_LINK_YOUTUBE_TERROR" target="_blank">
+      <div class="card-row">
+        <div class="card-icon">▶️</div>
+        <div class="card-body">
+          <div class="card-label label-red">YouTube · Leyendas del Terror</div>
+          <div class="card-title">Canal de Terror</div>
+          <div class="card-sub">Historias reales · Leyendas urbanas</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+<footer> FilosfiaDelAbismo primera version · 2025</footer>
+
+</body>
+</html>
