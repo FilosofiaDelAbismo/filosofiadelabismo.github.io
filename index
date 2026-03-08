@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="FilosofíaDelAbismo — Estoicismo que transforma. Terror que no olvidarás. Cursos de IA.">
+<meta name="description" content="FilosofíaDelAbismo — Estoicismo que transforma. Terror que no olvidarás.">
 <meta property="og:title" content="FilosofíaDelAbismo">
-<meta property="og:description" content="Estoicismo · Terror · Inteligencia Artificial">
+<meta property="og:description" content="Estoicismo · Terror ·">
 <title>FilosofíaDelAbismo</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -556,7 +556,7 @@
 <div class="hero">
   <div class="hero-grid"></div>
 
-  <p class="hero-eyebrow">Filosofía · Terror · Inteligencia Artificial</p>
+  <p class="hero-eyebrow">Filosofía · Terror ·</p>
 
   <h1 class="hero-title">
     <span class="line-gold">Filosofía</span>
@@ -570,7 +570,6 @@
   <div class="hero-tags">
     <span class="tag tag-gold">🏛️ Estoicismo en Vena</span>
     <span class="tag tag-red">👻 Leyendas del Terror</span>
-    <span class="tag tag-ai">🤖 Cursos IA</span>
   </div>
 
   <div class="scroll-hint">
@@ -585,7 +584,7 @@
   <h2 class="section-title reveal">Elige tu mundo</h2>
 
   <div class="cards-grid">
-    <a class="card card-gold reveal" href="TU_LINK_YOUTUBE_ESTOICISMO" target="_blank">
+    <a class="card card-gold reveal" href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank">
       <div class="card-top-bar"></div>
       <span class="card-icon">🏛️</span>
       <div class="card-category cat-gold">Estoicismo en Vena</div>
@@ -594,22 +593,13 @@
       <div class="card-cta cta-gold">Ver canal <span>→</span></div>
     </a>
 
-    <a class="card card-red reveal" href="TU_LINK_YOUTUBE_TERROR" target="_blank">
+    <a class="card card-red reveal" href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank">
       <div class="card-top-bar"></div>
       <span class="card-icon">👻</span>
       <div class="card-category cat-red">Leyendas del Terror</div>
       <div class="card-title">Lo Inexplicable</div>
       <p class="card-desc">Casos reales, leyendas urbanas y fenómenos que la ciencia no termina de explicar. Historias que no olvidarás fácilmente.</p>
       <div class="card-cta cta-red">Ver canal <span>→</span></div>
-    </a>
-
-    <a class="card card-ai reveal" href="TU_LINK_CURSOS_IA" target="_blank">
-      <div class="card-top-bar"></div>
-      <span class="card-icon">🤖</span>
-      <div class="card-category cat-ai">Cursos IA</div>
-      <div class="card-title">Inteligencia Artificial</div>
-      <p class="card-desc">Aprende a usar la IA para automatizar, crear y ganar dinero. Cursos prácticos para cualquier nivel.</p>
-      <div class="card-cta cta-ai">Ver cursos <span>→</span></div>
     </a>
   </div>
 </section>
@@ -622,7 +612,7 @@
       <div class="pdf-badge badge-gold">GRATIS · PDF</div>
       <div class="pdf-title">5 Hábitos Estoicos que Cambiarán tu Semana</div>
       <p class="pdf-desc">Marco Aurelio, Epicteto y Séneca condensados en cinco lecciones prácticas con ejercicios de acción concretos. Aplícalo desde hoy mismo.</p>
-      <a class="btn btn-gold" href="TU_LINK_SUBSTACK_ESTOICISMO" target="_blank">
+      <a class="btn btn-gold" href="https://subscribepage.io/Estoicismoenvena" target="_blank">
         🏛️ Descargar gratis
       </a>
     </div>
@@ -631,7 +621,7 @@
       <div class="pdf-badge badge-red">GRATIS · PDF</div>
       <div class="pdf-title">5 Historias que No Podrás Olvidar</div>
       <p class="pdf-desc">Casos reales, fenómenos sin explicación y leyendas que resultaron ser verdad. Cinco archivos que los medios apenas cubrieron.</p>
-      <a class="btn btn-red" href="TU_LINK_SUBSTACK_TERROR" target="_blank">
+      <a class="btn btn-red" href="subscribepage.io/ZIT27Q" target="_blank">
         👻 Descargar gratis
       </a>
     </div>
@@ -645,7 +635,7 @@
   <h2 class="section-title reveal">Dos canales.<br>Un universo.</h2>
 
   <div class="yt-grid">
-    <a class="yt-card yt-card-gold reveal" href="TU_LINK_YOUTUBE_ESTOICISMO" target="_blank">
+    <a class="yt-card yt-card-gold reveal" href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank">
       <div class="yt-logo">▶️</div>
       <div class="yt-label cat-gold">YouTube</div>
       <div class="yt-name">Estoicismo en Vena</div>
@@ -653,7 +643,7 @@
       <div class="yt-link cta-gold">Suscribirme <span>→</span></div>
     </a>
 
-    <a class="yt-card yt-card-red reveal" href="TU_LINK_YOUTUBE_TERROR" target="_blank">
+    <a class="yt-card yt-card-red reveal" href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank">
       <div class="yt-logo">▶️</div>
       <div class="yt-label cat-red">YouTube</div>
       <div class="yt-name">Leyendas del Terror</div>
@@ -669,7 +659,7 @@
   <ul class="footer-links">
     <li><a href="#canales">Canales</a></li>
     <li><a href="#pdf">PDF Gratis</a></li>
-    <li><a href="TU_LINK_SUBSTACK_ESTOICISMO" target="_blank">Newsletter</a></li>
+    <li><a href="https://subscribepage.io/Estoicismoenvena" target="_blank">Newsletter</a></li>
   </ul>
   <div class="footer-copy">© 2025 FilosofíaDelAbismo</div>
 </footer>
