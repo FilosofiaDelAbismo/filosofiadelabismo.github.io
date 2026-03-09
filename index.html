@@ -359,9 +359,9 @@
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
   }
 
   .pdf-card {
@@ -371,32 +371,72 @@
     padding: 36px 32px;
     position: relative;
     overflow: hidden;
-    transition: transform 0.25s;
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
   }
 
-  .pdf-card:hover { transform: translateY(-3px); }
+  .pdf-card:hover { transform: translateY(-4px); }
+
+  /* Glow de fondo por color */
+  .pdf-card::before {
+    content: ''; position: absolute;
+    inset: 0; opacity: 1; pointer-events: none;
+  }
+
+  .pdf-card-blue {
+    border-top: 2px solid var(--ai);
+  }
+  .pdf-card-blue::before {
+    background: radial-gradient(ellipse at top left, rgba(58,159,214,0.07), transparent 60%);
+  }
+  .pdf-card-blue:hover {
+    border-color: var(--ai);
+    box-shadow: 0 12px 40px rgba(58,159,214,0.12);
+  }
 
   .pdf-card-gold { border-top: 2px solid var(--gold); }
+  .pdf-card-gold::before {
+    background: radial-gradient(ellipse at top left, rgba(201,168,76,0.07), transparent 60%);
+  }
+  .pdf-card-gold:hover {
+    border-color: var(--gold-d);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.12);
+  }
+
   .pdf-card-red  { border-top: 2px solid var(--red); }
+  .pdf-card-red::before {
+    background: radial-gradient(ellipse at top left, rgba(214,51,64,0.07), transparent 60%);
+  }
+  .pdf-card-red:hover {
+    border-color: var(--red-d);
+    box-shadow: 0 12px 40px rgba(214,51,64,0.12);
+  }
 
   .pdf-badge {
     display: inline-block;
     font-family: 'Space Mono', monospace; font-size: 9px;
     letter-spacing: 2px; padding: 4px 12px;
     border-radius: 20px; margin-bottom: 16px;
+    position: relative; z-index: 1;
   }
 
+  .badge-blue { background: rgba(58,159,214,0.12); color: var(--ai-l); border: 1px solid rgba(58,159,214,0.3); }
   .badge-gold { background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
   .badge-red  { background: rgba(214,51,64,0.12);  color: var(--red-l); border: 1px solid rgba(214,51,64,0.3); }
 
   .pdf-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px; letter-spacing: 2px; margin-bottom: 10px;
+    font-size: 24px; letter-spacing: 2px; margin-bottom: 10px;
+    position: relative; z-index: 1;
+    line-height: 1.15;
   }
 
   .pdf-desc {
     font-size: 14px; font-style: italic; font-weight: 300;
     color: var(--muted); margin-bottom: 24px; line-height: 1.6;
+    flex: 1;
+    position: relative; z-index: 1;
   }
 
   .btn {
@@ -407,9 +447,17 @@
     text-decoration: none; font-weight: 700;
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer; border: none;
+    position: relative; z-index: 1;
+    align-self: flex-start;
   }
 
   .btn:hover { transform: translateY(-2px); }
+
+  .btn-blue {
+    background: linear-gradient(135deg, var(--ai), var(--ai-l));
+    color: var(--bg); box-shadow: 0 4px 20px rgba(58,159,214,0.2);
+  }
+  .btn-blue:hover { box-shadow: 0 8px 32px rgba(58,159,214,0.4); }
 
   .btn-gold {
     background: linear-gradient(135deg, var(--gold-d), var(--gold));
@@ -533,7 +581,7 @@
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
     .nav-links { display: none; }
-    .pdf-inner { grid-template-columns: 1fr; gap: 20px; }
+    .pdf-inner { grid-template-columns: 1fr; gap: 16px; }
     .yt-grid { grid-template-columns: 1fr; }
     section { padding: 70px 20px; }
     footer { flex-direction: column; text-align: center; }
@@ -612,7 +660,7 @@
       <div class="pdf-title">Pack de 200 Prompts IA listos para usar hoy</div>
       <p class="pdf-desc">La IA no te quitará el trabajo. Pero alguien que sabe usar la IA sí puede hacerlo.</p>
       <a class="btn btn-blue" href="https://subscribepage.io/Digiprompts" target="_blank">
-        🏛️ Descargar gratis
+        🤖 Descargar gratis
       </a>
     </div>
     <div class="pdf-card pdf-card-gold reveal">
