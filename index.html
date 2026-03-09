@@ -386,13 +386,15 @@
 
   .pdf-card-blue {
     border-top: 2px solid var(--ai);
+    border-color: rgba(58,159,214,0.35);
+    box-shadow: 0 0 32px rgba(58,159,214,0.08), inset 0 0 40px rgba(58,159,214,0.04);
   }
   .pdf-card-blue::before {
-    background: radial-gradient(ellipse at top left, rgba(58,159,214,0.07), transparent 60%);
+    background: radial-gradient(ellipse at top left, rgba(58,159,214,0.18), transparent 65%);
   }
   .pdf-card-blue:hover {
     border-color: var(--ai);
-    box-shadow: 0 12px 40px rgba(58,159,214,0.12);
+    box-shadow: 0 12px 40px rgba(58,159,214,0.22), inset 0 0 40px rgba(58,159,214,0.06);
   }
 
   .pdf-card-gold { border-top: 2px solid var(--gold); }
@@ -454,10 +456,15 @@
   .btn:hover { transform: translateY(-2px); }
 
   .btn-blue {
-    background: linear-gradient(135deg, var(--ai), var(--ai-l));
-    color: var(--bg); box-shadow: 0 4px 20px rgba(58,159,214,0.2);
+    background: linear-gradient(135deg, #3a9fd6, #6dc4f0);
+    color: #06060e;
+    font-weight: 700;
+    box-shadow: 0 4px 24px rgba(58,159,214,0.5), 0 0 0 1px rgba(109,196,240,0.3);
   }
-  .btn-blue:hover { box-shadow: 0 8px 32px rgba(58,159,214,0.4); }
+  .btn-blue:hover {
+    background: linear-gradient(135deg, #6dc4f0, #9ddcff);
+    box-shadow: 0 8px 36px rgba(58,159,214,0.7), 0 0 0 1px rgba(109,196,240,0.5);
+  }
 
   .btn-gold {
     background: linear-gradient(135deg, var(--gold-d), var(--gold));
