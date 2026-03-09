@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA Práctica — 200 Prompts Gratis</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#020810;color:#e8f4f8;font-family:system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
+.w{max-width:500px;width:100%;position:relative;z-index:1}
+.brand{font-family:'Space Mono',monospace;font-size:12px;color:#00b4d8;margin-bottom:40px;display:block}
+.btag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:9px;color:#90e0ef;background:rgba(0,180,216,.08);border:1px solid rgba(0,180,216,.2);padding:5px 12px;border-radius:99px;margin-bottom:24px}
+.btag::before{content:'';width:5px;height:5px;background:#00b4d8;border-radius:50%;animation:bl 1.5s ease-in-out infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.2}}
+h1{font-size:clamp(32px,7vw,52px);font-weight:700;line-height:1.08;letter-spacing:-1px;margin-bottom:16px}
+.a{color:#00b4d8}.d{color:#a0aec0;font-weight:300}
+.sub{font-size:15px;font-weight:300;color:#a0aec0;line-height:1.7;margin-bottom:32px}
+/* MailerLite overrides */
+.ml-subscribe-form-38213153 .ml-block-form{background:transparent!important}
+.ml-form-embedWrapper{background:#0a1628!important;border:1px solid rgba(0,180,216,.2)!important;border-radius:6px!important;padding:8px!important}
+.ml-form-embedBody{padding:16px!important}
+.ml-form-embedBody .ml-form-embedContent h4{font-family:'Space Mono',monospace!important;font-size:13px!important;color:#e8f4f8!important;margin-bottom:4px!important}
+.ml-form-embedBody .ml-form-embedContent p{font-size:12px!important;color:#a0aec0!important}
+.ml-form-fieldRow input{background:rgba(0,0,0,.4)!important;border:1px solid rgba(0,180,216,.25)!important;border-radius:4px!important;color:#e8f4f8!important;font-family:'Space Mono',monospace!important;font-size:12px!important}
+.ml-form-embedSubmit button{background:#00b4d8!important;font-family:'Space Mono',monospace!important;font-size:10px!important;font-weight:700!important;letter-spacing:1px!important;border-radius:4px!important;color:#020810!important}
+.ml-form-embedSubmit button:hover{background:#48cae4!important}
+.ml-form-successBody{background:rgba(16,185,129,.1)!important;border:1px solid rgba(16,185,129,.3)!important;border-radius:4px!important}
+.ml-form-successBody h4{color:#10b981!important;font-family:'Space Mono',monospace!important;font-size:12px!important}
+.note{font-family:'Space Mono',monospace;font-size:9px;color:#2d3748;text-align:center;margin-top:10px}
+.foot{margin-top:32px;font-family:'Space Mono',monospace;font-size:9px;color:#2d3748;text-align:center}
+</style>
+</head>
+<body>
+<div class="w">
+  <span class="brand">DigiPrompts</span>
+  <div class="btag">Pack de prompts · Gratis</div>
+  <h1><span class="d">Empieza a usar</span><br><span class="a">Inteligencia Artificial</span><br><span class="d">hoy mismo.</span></h1>
+  <p class="sub">200 prompts listos para copiar. YouTube, TikTok, email y productos.</p>
+
+  <div class="ml-embedded" data-form="38213153"></div>
+  <p class="note">Sin spam · Cancelas cuando quieras · Gratis</p>
+  <p class="foot">IAPráctica · FilosofíaDelAbismo</p>
+</div>
+<script>
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account', '2170819');
+</script>
+</body>
+</html>
