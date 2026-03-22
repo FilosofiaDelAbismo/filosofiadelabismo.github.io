@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://digiprompts.ai/sitemap.xml
+
+# Bloquear carpetas innecesarias si las hubiera
+Disallow: /private/
+Disallow: /.git/
