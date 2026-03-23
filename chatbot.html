@@ -201,165 +201,208 @@ nav{position:relative;z-index:10;background:rgba(8,11,20,0.95);backdrop-filter:b
   </main>
 </div>
 <script>
-// ── DigiPrompts AI — Anthropic Claude API ──────────────────────────────────
-const API_URL = 'https://api.anthropic.com/v1/messages';
-const MODEL   = 'claude-haiku-4-5-20251001';
-const API_KEY = 'PENDIENTE_BACKEND_PROXY';
+var PROXY = 'https://api.digiprompts.io/api/chat';
 
-const SYSTEM_PROMPTS = {
-  content:    'Eres DigiPrompts AI, el mejor asistente de contenido para creadores hispanohablantes. Especializado en scripts para YouTube y TikTok, captions virales, hooks de 3 segundos, y estrategias de crecimiento orgánico. Responde siempre en español. Sé directo, práctico y sin relleno. Da ejemplos concretos listos para usar.',
-  seo:        'Eres DigiPrompts AI, experto en SEO para creadores de contenido digital. Especializado en SEO para YouTube, keywords long-tail, análisis de competencia en nichos digitales y estrategia de contenido. Responde siempre en español con datos concretos.',
-  recipes:    'Eres DigiPrompts AI con especialización en gastronomía. Cuando des recetas incluye ingredientes exactos, pasos numerados, tiempo de cocción, trucos de chef y cómo presentarlo para redes sociales. Responde siempre en español.',
-  fitness:    'Eres DigiPrompts AI con conocimientos en fitness y nutrición. Calcula macros, diseña rutinas y crea planes de alimentación. Siempre recomienda consultar a un profesional para condiciones médicas. Responde en español.',
-  newsletter: 'Eres DigiPrompts AI, experto en email marketing para creadores. Especializado en secuencias de bienvenida, asuntos de alta apertura, newsletters que retienen suscriptores y monetización. Responde en español con plantillas listas para usar.',
-  strategy:   'Eres DigiPrompts AI, estratega de contenido digital. Especializado en análisis de nichos, estrategias multicanal YouTube+TikTok+Instagram, funnels de conversión y monetización. Responde en español con datos reales del mercado hispanohablante.'
+var SYS = {
+  content:    'Eres DigiPrompts AI, asistente de contenido para creadores hispanohablantes. Especializado en scripts YouTube y TikTok, captions virales, hooks de 3 segundos y estrategias de crecimiento. Responde en espanol. Se directo y practico. Da ejemplos concretos listos para usar.',
+  seo:        'Eres DigiPrompts AI, experto en SEO para creadores. Especializado en SEO YouTube, keywords long-tail y analisis de nichos. Responde en espanol con datos concretos.',
+  recipes:    'Eres DigiPrompts AI especializado en gastronomia. En recetas incluye ingredientes exactos, pasos numerados, tiempo de coccion y trucos de chef. Responde en espanol.',
+  fitness:    'Eres DigiPrompts AI con conocimientos en fitness y nutricion. Calcula macros y disena rutinas. Recomienda consultar profesionales para condiciones medicas. Responde en espanol.',
+  newsletter: 'Eres DigiPrompts AI experto en email marketing para creadores. Especializado en secuencias de bienvenida y newsletters que retienen suscriptores. Responde en espanol.',
+  strategy:   'Eres DigiPrompts AI, estratega de contenido digital. Especializado en analisis de nichos y estrategias YouTube+TikTok+Instagram. Responde en espanol.'
 };
 
-let conversationHistory = [];
-let activeCtx = 'content';
-let isLoading  = false;
+var history = [];
+var ctx = 'content';
+var busy = false;
 
-function toggleCtx(el){
-  document.querySelectorAll('.ctx-chip').forEach(c=>c.classList.remove('active'));
+function toggleCtx(el) {
+  document.querySelectorAll('.ctx-chip').forEach(function(c) { c.classList.remove('active'); });
   el.classList.add('active');
-  activeCtx = el.dataset.ctx;
+  ctx = el.dataset.ctx;
 }
 
-function autoResize(el){
-  el.style.height='auto';
-  el.style.height=Math.min(el.scrollHeight,160)+'px';
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 160) + 'px';
 }
 
-function handleKey(e){
-  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();}
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
 }
 
-function newChat(){
-  conversationHistory=[];
-  document.getElementById('messages').innerHTML=`<div class="welcome" id="welcome-screen">
-    <div class="welcome-icon">🤖</div>
-    <h2>DigiPrompts <span>AI</span></h2>
-    <p>Tu asistente de contenido gratuito. Scripts, captions, estrategias y más.</p>
-    <div class="welcome-chips">
-      <div class="chip" onclick="sendQuick('Escríbeme un guion para un YouTube Short de 60 segundos sobre la mentalidad estoica')">📱 Script YouTube Short</div>
-      <div class="chip" onclick="sendQuick('Dame 5 ideas de vídeos virales para TikTok sobre fitness en 2026')">💪 Ideas TikTok fitness</div>
-      <div class="chip" onclick="sendQuick('Hazme un menú semanal saludable y económico para 2 personas')">🍽️ Menú semanal</div>
-      <div class="chip" onclick="sendQuick('Analiza el nicho de desarrollo personal en YouTube 2026')">📊 Análisis de nicho</div>
-    </div>
-  </div>`;
+function newChat() {
+  history = [];
+  document.getElementById('messages').innerHTML = buildWelcome();
 }
 
-function sendQuick(prompt){
-  document.getElementById('user-input').value=prompt;
+function buildWelcome() {
+  return '<div class="welcome" id="welcome-screen">' +
+    '<div class="welcome-icon">🤖</div>' +
+    '<h2>DigiPrompts <span>AI</span></h2>' +
+    '<p>Tu asistente de contenido gratuito. Scripts, captions, estrategias y mucho mas.</p>' +
+    '<div class="welcome-chips">' +
+    '<div class="chip" id="c1">📱 Script YouTube Short</div>' +
+    '<div class="chip" id="c2">💪 Ideas TikTok fitness</div>' +
+    '<div class="chip" id="c3">🪝 Hook viral finanzas</div>' +
+    '<div class="chip" id="c4">🍽️ Menu semanal</div>' +
+    '<div class="chip" id="c5">📊 Analisis de nicho</div>' +
+    '<div class="chip" id="c6">🏷️ Hashtags Instagram</div>' +
+    '<div class="chip" id="c7">👤 Bio profesional</div>' +
+    '<div class="chip" id="c8">🍝 Receta con trucos</div>' +
+    '</div></div>';
+}
+
+var CHIP_PROMPTS = {
+  'c1': 'Escribeme un guion para un YouTube Short de 60 segundos sobre la mentalidad estoica',
+  'c2': 'Dame 5 ideas de videos virales para TikTok sobre fitness en 2026',
+  'c3': 'Crea un hook de 3 segundos para un video sobre finanzas personales',
+  'c4': 'Hazme un menu semanal saludable y economico para 2 personas',
+  'c5': 'Analiza el nicho de desarrollo personal en YouTube 2026',
+  'c6': 'Dame 30 hashtags para Instagram sobre fotografia urbana',
+  'c7': 'Escribe una bio profesional para TikTok de un creador de contenido IA',
+  'c8': 'Receta facil de risotto de setas con trucos de chef'
+};
+
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('chip') && CHIP_PROMPTS[e.target.id]) {
+    document.getElementById('user-input').value = CHIP_PROMPTS[e.target.id];
+    sendMessage();
+  }
+});
+
+function sendQuick(prompt) {
+  document.getElementById('user-input').value = prompt;
   sendMessage();
 }
 
-async function sendMessage(){
-  if(isLoading) return;
-  const input = document.getElementById('user-input');
-  const text  = input.value.trim();
-  if(!text) return;
-  const welcome = document.getElementById('welcome-screen');
-  if(welcome) welcome.remove();
-  addMessage('user', text);
-  input.value=''; input.style.height='auto';
-  conversationHistory.push({role:'user', content: text});
-  isLoading = true;
-  const btn = document.getElementById('send-btn');
-  btn.disabled = true; btn.textContent='⏳';
-  const typingId = addTyping();
-  try{
-    const res = await fetch(API_URL,{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key': '',
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 1500,
-        system: SYSTEM_PROMPTS[activeCtx],
-        messages: conversationHistory
-      })
-    });
-    removeTyping(typingId);
-    if(!res.ok){
-      const err = await res.json().catch(()=>({error:{message:`Error ${res.status}`}}));
-      if(res.status===429) throw new Error('Demasiadas solicitudes. Espera un momento e inténtalo de nuevo.');
-      if(res.status===529) throw new Error('Servicio ocupado. Inténtalo en unos segundos.');
-      throw new Error(err.error?.message||`Error ${res.status}`);
+function sendMessage() {
+  if (busy) return;
+  var input = document.getElementById('user-input');
+  var text = input.value.trim();
+  if (!text) return;
+  var welcome = document.getElementById('welcome-screen');
+  if (welcome) welcome.remove();
+  addMsg('user', text);
+  input.value = '';
+  input.style.height = 'auto';
+  history.push({ role: 'user', content: text });
+  busy = true;
+  var btn = document.getElementById('send-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳';
+  var tid = addTyping();
+  fetch(PROXY, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ system: SYS[ctx], messages: history })
+  }).then(function(res) {
+    removeTyping(tid);
+    if (!res.ok) {
+      return res.json().catch(function() { return { error: 'Error ' + res.status }; }).then(function(d) {
+        var m = 'Error de conexion.';
+        if (res.status === 429) m = 'Limite alcanzado. Vuelve en una hora.';
+        if (res.status === 529) m = 'Servicio ocupado. Intentalo en segundos.';
+        throw new Error(m);
+      });
     }
-    const data  = await res.json();
-    const reply = data.content?.[0]?.text || '';
-    if(!reply) throw new Error('Respuesta vacía. Inténtalo de nuevo.');
-    conversationHistory.push({role:'assistant', content: reply});
-    addMessage('assistant', reply);
-  }catch(err){
-    removeTyping(typingId);
+    return res.json();
+  }).then(function(data) {
+    var reply = data.reply || '';
+    if (!reply) throw new Error('Respuesta vacia.');
+    history.push({ role: 'assistant', content: reply });
+    addMsg('assistant', reply);
+  }).catch(function(err) {
+    removeTyping(tid);
     addError(err.message);
-  }finally{
-    isLoading=false; btn.disabled=false; btn.textContent='➤';
+  }).finally(function() {
+    busy = false;
+    btn.disabled = false;
+    btn.textContent = '➤';
+  });
+}
+
+function addMsg(role, text) {
+  var msgs = document.getElementById('messages');
+  var div = document.createElement('div');
+  div.className = 'msg ' + role;
+  var isUser = role === 'user';
+  var safe = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  var av = document.createElement('div');
+  av.className = 'msg-avatar';
+  av.textContent = isUser ? '👤' : '🤖';
+  var co = document.createElement('div');
+  co.className = 'msg-content';
+  var nm = document.createElement('div');
+  nm.className = 'msg-name';
+  nm.textContent = isUser ? 'Tú' : 'DigiPrompts AI';
+  var bu = document.createElement('div');
+  bu.className = 'msg-bubble';
+  bu.innerHTML = fmt(safe);
+  co.appendChild(nm);
+  co.appendChild(bu);
+  if (!isUser) {
+    var ac = document.createElement('div');
+    ac.className = 'msg-actions';
+    var cb = document.createElement('button');
+    cb.className = 'msg-action-btn';
+    cb.textContent = 'Copiar';
+    var t = text;
+    cb.onclick = function() {
+      navigator.clipboard.writeText(t).then(function() {
+        cb.textContent = '✓ Copiado';
+        setTimeout(function() { cb.textContent = 'Copiar'; }, 2000);
+      });
+    };
+    ac.appendChild(cb);
+    co.appendChild(ac);
   }
-}
-
-function addMessage(role, text){
-  const msgs   = document.getElementById('messages');
-  const div    = document.createElement('div');
-  div.className= `msg ${role}`;
-  const isUser = role==='user';
-  const safe   = text.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  div.innerHTML=`
-    <div class="msg-avatar">${isUser?'👤':'🤖'}</div>
-    <div class="msg-content">
-      <div class="msg-name">${isUser?'Tú':'DigiPrompts AI'}</div>
-      <div class="msg-bubble">${formatMessage(safe)}</div>
-      ${!isUser?`<div class="msg-actions"><button class="msg-action-btn" onclick="copyMsg(this,'${text.replace(/\/g,'\\').replace(/'/g,"\'").replace(/
-/g,'\n')}')">Copiar</button></div>`:''}
-    </div>`;
+  div.appendChild(av);
+  div.appendChild(co);
   msgs.appendChild(div);
-  msgs.scrollTop=msgs.scrollHeight;
+  msgs.scrollTop = msgs.scrollHeight;
 }
 
-function addTyping(){
-  const msgs=document.getElementById('messages'), id='t'+Date.now();
-  const div=document.createElement('div'); div.className='msg assistant'; div.id=id;
-  div.innerHTML='<div class="msg-avatar">🤖</div><div class="msg-content"><div class="msg-name">DigiPrompts AI</div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>';
-  msgs.appendChild(div); msgs.scrollTop=msgs.scrollHeight; return id;
-}
-function removeTyping(id){const el=document.getElementById(id);if(el)el.remove();}
-
-function addError(msg){
-  const msgs=document.getElementById('messages'), div=document.createElement('div');
-  div.className='msg assistant';
-  div.innerHTML=`<div class="msg-avatar">🤖</div><div class="msg-content"><div class="msg-name">DigiPrompts AI</div><div class="error-bubble">⚠️ ${msg||'Error de conexión.'}<br><small style="color:var(--text3);font-size:11px;margin-top:6px;display:block;">Recarga la página si el error persiste.</small></div></div>`;
-  msgs.appendChild(div); msgs.scrollTop=msgs.scrollHeight;
+function addTyping() {
+  var msgs = document.getElementById('messages');
+  var id = 'tp' + Date.now();
+  var div = document.createElement('div');
+  div.className = 'msg assistant';
+  div.id = id;
+  div.innerHTML = '<div class="msg-avatar">🤖</div><div class="msg-content"><div class="msg-name">DigiPrompts AI</div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return id;
 }
 
-function formatMessage(t){
-  return t
-    .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
-    .replace(/\*([^*
-]+)\*/g,'<em>$1</em>')
-    .replace(/^### (.+)$/gm,'<h4 style="color:var(--cyan);margin:10px 0 5px;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;">$1</h4>')
-    .replace(/^## (.+)$/gm,'<h3 style="color:var(--cyan);margin:12px 0 6px;font-size:15px;">$1</h3>')
-    .replace(/^# (.+)$/gm,'<h2 style="color:var(--cyan);margin:12px 0 8px;">$1</h2>')
-    .replace(/^- (.+)$/gm,'<li style="margin-bottom:3px;">$1</li>')
-    .replace(/(<li[^>]*>.*?<\/li>)+/gs,m=>'<ul style="padding-left:18px;margin:6px 0;">'+m+'</ul>')
-    .replace(/
-
-/g,'</p><p style="margin-bottom:8px;">')
-    .replace(/
-/g,'<br>')
-    .replace(/^/,'<p style="margin-bottom:8px;">')
-    .replace(/$/,'</p>');
+function removeTyping(id) {
+  var el = document.getElementById(id);
+  if (el) el.remove();
 }
 
-function copyMsg(btn,text){
-  const d=text.replace(/\n/g,'
-').replace(/\'/g,"'").replace(/\\/g,'\');
-  navigator.clipboard.writeText(d).then(()=>{btn.textContent='✓ Copiado';setTimeout(()=>btn.textContent='Copiar',2000);});
+function addError(msg) {
+  var msgs = document.getElementById('messages');
+  var div = document.createElement('div');
+  div.className = 'msg assistant';
+  div.innerHTML = '<div class="msg-avatar">🤖</div><div class="msg-content"><div class="msg-name">DigiPrompts AI</div><div class="error-bubble">⚠️ ' + (msg || 'Error.') + '</div></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function fmt(t) {
+  t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  t = t.replace(/\*([^*
+]+)\*/g, '<em>$1</em>');
+  t = t.replace(/^### (.+)$/gm, '<h4 style="color:var(--cyan);margin:10px 0 5px;font-size:13px;">$1</h4>');
+  t = t.replace(/^## (.+)$/gm, '<h3 style="color:var(--cyan);margin:12px 0 6px;">$1</h3>');
+  t = t.replace(/^# (.+)$/gm, '<h2 style="color:var(--cyan);margin:12px 0 8px;">$1</h2>');
+  t = t.replace(/^- (.+)$/gm, '<li style="margin-bottom:3px;">$1</li>');
+  t = t.replace(/
+
+/g, '</p><p style="margin-bottom:8px;">');
+  t = t.replace(/
+/g, '<br>');
+  return '<p style="margin-bottom:8px;">' + t + '</p>';
 }
 </script>
 </body>
