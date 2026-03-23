@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat IA Gratis para Creadores de Contenido — DigiPrompts</title>
+<meta name="description" content="Asistente IA gratuito especializado en creadores. Scripts, guiones, captions, hashtags, estrategias de nicho. Sin registro, sin límites.">
+<meta property="og:title" content="Chat IA Gratis para Creadores — DigiPrompts">
+<meta property="og:description" content="Asistente IA gratuito para creadores. Scripts, captions, estrategias, análisis de nicho. Sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://digiprompts.io/chatbot.html">
+<meta property="og:image" content="https://digiprompts.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Digi_Prompts">
+<link rel="canonical" href="https://digiprompts.io/chatbot.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
+<style>
+:root{
+  --bg:#080b14;--bg2:#0d1117;--bg3:#111827;
+  --border:#1e2535;--border2:#2a3550;
+  --text:#e2e8f8;--text2:#8892b0;--text3:#4a5568;
+  --cyan:#00f5ff;--cyan-bg:rgba(0,245,255,0.05);--cyan-bg2:rgba(0,245,255,0.1);
+  --purple:#bd00ff;--purple-bg:rgba(189,0,255,0.06);
+  --green:#00ff87;--green-bg:rgba(0,255,135,0.05);
+  --amber:#ffb800;--red:#ff3366;
+  --glow-c:0 0 30px rgba(0,245,255,0.2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow:hidden;}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.02) 2px,rgba(0,0,0,0.02) 4px);}
+nav{position:relative;z-index:10;background:rgba(8,11,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.nav-logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--cyan);text-decoration:none;letter-spacing:1px;text-shadow:0 0 20px rgba(0,245,255,0.5);}
+.nav-logo span{color:var(--purple);}
+.nav-links{display:flex;gap:4px;list-style:none;}
+.nav-links a{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text2);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan);background:var(--cyan-bg);}
+.nav-badge{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);background:var(--green-bg);border:1px solid rgba(0,255,135,0.2);padding:4px 10px;border-radius:100px;display:flex;align-items:center;gap:6px;}
+.nav-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+.app{display:flex;height:calc(100vh - 56px);position:relative;z-index:1;}
+.sidebar{width:260px;flex-shrink:0;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+.sidebar-head{padding:20px 16px 12px;border-bottom:1px solid var(--border);}
+.sidebar-title{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:12px;}
+.new-chat-btn{width:100%;padding:10px 14px;background:var(--cyan-bg);border:1px solid rgba(0,245,255,0.25);border-radius:8px;color:var(--cyan);font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:8px;}
+.new-chat-btn:hover{background:var(--cyan);color:var(--bg);box-shadow:var(--glow-c);}
+.prompts-section{flex:1;overflow-y:auto;padding:16px;}
+.prompts-section::-webkit-scrollbar{width:4px;}
+.prompts-section::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+.prompt-group-title{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:8px;margin-top:16px;}
+.prompt-group-title:first-child{margin-top:0;}
+.quick-prompt{width:100%;text-align:left;padding:8px 10px;border-radius:7px;border:1px solid transparent;background:transparent;color:var(--text2);font-family:'Space Grotesk',sans-serif;font-size:12px;cursor:pointer;transition:all 0.15s;line-height:1.4;display:flex;align-items:flex-start;gap:8px;}
+.quick-prompt:hover{background:var(--bg3);border-color:var(--border);color:var(--text);}
+.quick-prompt .qp-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
+.sidebar-footer{padding:12px 16px;border-top:1px solid var(--border);}
+.nl-mini{display:flex;align-items:center;gap:10px;padding:10px 12px;background:linear-gradient(135deg,var(--cyan-bg),var(--purple-bg));border:1px solid var(--border2);border-radius:8px;text-decoration:none;transition:all 0.2s;}
+.nl-mini:hover{border-color:rgba(0,245,255,0.3);}
+.nl-mini-ico{font-size:18px;}
+.nl-mini-text{flex:1;}
+.nl-mini-name{font-size:12px;font-weight:600;color:var(--text);}
+.nl-mini-sub{font-size:10px;color:var(--text3);}
+.nl-mini-arr{font-size:12px;color:var(--cyan);}
+.chat-area{flex:1;display:flex;flex-direction:column;min-width:0;}
+.messages{flex:1;overflow-y:auto;padding:24px;display:flex;flex-direction:column;gap:20px;}
+.messages::-webkit-scrollbar{width:4px;}
+.messages::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+.welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:40px 20px;}
+.welcome-icon{font-size:48px;margin-bottom:20px;filter:drop-shadow(0 0 20px rgba(0,245,255,0.3));}
+.welcome h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;letter-spacing:-0.5px;color:var(--text);margin-bottom:10px;}
+.welcome h2 span{color:var(--cyan);text-shadow:0 0 30px rgba(0,245,255,0.3);}
+.welcome p{font-size:15px;color:var(--text2);max-width:480px;line-height:1.7;margin-bottom:32px;}
+.welcome-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:600px;}
+.chip{padding:8px 14px;background:var(--bg3);border:1px solid var(--border2);border-radius:100px;font-size:12px;color:var(--text2);cursor:pointer;transition:all 0.2s;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.5px;}
+.chip:hover{border-color:var(--cyan);color:var(--cyan);background:var(--cyan-bg);}
+.msg{display:flex;gap:12px;max-width:800px;}
+.msg.user{flex-direction:row-reverse;align-self:flex-end;}
+.msg-avatar{width:32px;height:32px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;}
+.msg.assistant .msg-avatar{background:linear-gradient(135deg,var(--cyan-bg2),var(--purple-bg));border:1px solid rgba(0,245,255,0.2);}
+.msg.user .msg-avatar{background:var(--bg3);border:1px solid var(--border2);}
+.msg-content{flex:1;}
+.msg-name{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:6px;}
+.msg.user .msg-name{text-align:right;}
+.msg-bubble{padding:14px 16px;border-radius:12px;font-size:14px;line-height:1.7;}
+.msg.assistant .msg-bubble{background:var(--bg3);border:1px solid var(--border);color:var(--text);}
+.msg.user .msg-bubble{background:linear-gradient(135deg,rgba(0,245,255,0.1),rgba(189,0,255,0.08));border:1px solid rgba(0,245,255,0.2);color:var(--text);}
+.msg-bubble p{margin-bottom:10px;}
+.msg-bubble p:last-child{margin-bottom:0;}
+.msg-bubble strong{color:var(--cyan);}
+.msg-bubble ul,.msg-bubble ol{padding-left:20px;margin-bottom:10px;}
+.msg-bubble li{margin-bottom:4px;}
+.msg-bubble code{font-family:'Space Mono',monospace;font-size:12px;background:var(--bg2);padding:2px 6px;border-radius:4px;color:var(--cyan);}
+.msg-actions{display:flex;gap:6px;margin-top:8px;}
+.msg-action-btn{padding:4px 10px;background:transparent;border:1px solid var(--border);border-radius:6px;color:var(--text3);font-size:11px;cursor:pointer;transition:all 0.15s;font-family:'Space Mono',monospace;}
+.msg-action-btn:hover{border-color:var(--cyan);color:var(--cyan);}
+.typing-indicator{display:flex;gap:4px;padding:14px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;width:fit-content;}
+.typing-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);opacity:0.4;animation:typing 1.2s infinite;}
+.typing-dot:nth-child(2){animation-delay:0.2s;}
+.typing-dot:nth-child(3){animation-delay:0.4s;}
+@keyframes typing{0%,60%,100%{opacity:0.4;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+.input-area{border-top:1px solid var(--border);padding:16px 24px;background:var(--bg);}
+.input-wrap{max-width:800px;margin:0 auto;}
+.context-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.ctx-chip{padding:4px 10px;background:var(--bg3);border:1px solid var(--border2);border-radius:100px;font-size:11px;color:var(--text2);cursor:pointer;transition:all 0.15s;}
+.ctx-chip:hover,.ctx-chip.active{border-color:rgba(0,245,255,0.3);color:var(--cyan);background:var(--cyan-bg);}
+.input-row{display:flex;gap:10px;align-items:flex-end;}
+.input-box{flex:1;background:var(--bg3);border:1.5px solid var(--border2);border-radius:12px;padding:12px 16px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:var(--text);resize:none;outline:none;min-height:48px;max-height:160px;transition:border-color 0.2s;line-height:1.5;}
+.input-box:focus{border-color:rgba(0,245,255,0.4);box-shadow:0 0 0 3px rgba(0,245,255,0.05);}
+.input-box::placeholder{color:var(--text3);}
+.send-btn{width:44px;height:44px;border-radius:10px;background:var(--cyan);border:none;color:var(--bg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all 0.2s;flex-shrink:0;}
+.send-btn:hover{transform:translateY(-1px);box-shadow:var(--glow-c);}
+.send-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:none;}
+.input-meta{display:flex;justify-content:space-between;margin-top:8px;font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text3);}
+.input-meta a{color:var(--text3);text-decoration:none;}
+.input-meta a:hover{color:var(--cyan);}
+.error-bubble{padding:12px 16px;background:rgba(255,51,102,0.08);border:1px solid rgba(255,51,102,0.2);border-radius:10px;font-size:13px;color:#ff3366;}
+@media(max-width:768px){.sidebar{display:none;}.nav-links{display:none;}.messages{padding:16px;}.input-area{padding:12px 16px;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">DIGI<span>PROMPTS</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="herramientas.html">Herramientas</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="canales.html">Canales</a></li>
+    <li><a href="chatbot.html" class="active">Chat IA</a></li>
+  </ul>
+  <div class="nav-badge">🤖 IA activa · Gratis</div>
+</nav>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <div class="sidebar-title">Conversación</div>
+      <button class="new-chat-btn" onclick="newChat()"><span>✦</span> Nueva conversación</button>
+    </div>
+    <div class="prompts-section">
+      <div class="prompt-group-title">Contenido</div>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Escríbeme un script completo para un vídeo de YouTube de 8 minutos sobre cómo aplicar el estoicismo en la vida moderna. Incluye hook, desarrollo en 4 partes con ejemplos reales y CTA."><span class="qp-icon">🎬</span> Script YouTube completo</button>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Crea 5 hooks virales para TikTok sobre productividad. Cada hook debe tener menos de 3 segundos de lectura y generar intriga inmediata. Añade el texto en pantalla sugerido."><span class="qp-icon">🪝</span> 5 Hooks virales TikTok</button>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Dame 10 ideas de vídeos para YouTube Shorts sobre finanzas personales que tengan alto potencial viral. Para cada idea: título, hook de 3 segundos y por qué funcionaría."><span class="qp-icon">💡</span> Ideas de vídeos virales</button>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Escribe 3 captions diferentes para Instagram sobre mindfulness. Uno emocional, uno educativo y uno con CTA directo. Incluye hashtags optimizados."><span class="qp-icon">✍️</span> Captions para Instagram</button>
+      <div class="prompt-group-title">SEO & Estrategia</div>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Haz un análisis SEO completo para un vídeo de YouTube sobre hábitos de productividad. Incluye: 5 títulos optimizados, descripción de 200 palabras, 15 tags y estrategia de palabras clave long-tail."><span class="qp-icon">🔍</span> SEO para YouTube</button>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Diseña una estrategia de contenido para 30 días en TikTok para el nicho de desarrollo personal. Incluye pilares de contenido, frecuencia, tipos de publicaciones y los mejores horarios."><span class="qp-icon">📅</span> Estrategia 30 días</button>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Analiza el nicho de terror y misterio en YouTube: saturación del mercado, oportunidades sin explotar, keywords con alto volumen y baja competencia, y qué tipo de contenido está funcionando ahora."><span class="qp-icon">📊</span> Análisis de nicho</button>
+      <div class="prompt-group-title">Newsletter & Email</div>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Escribe un email de bienvenida para mi newsletter de estoicismo. Debe presentar la propuesta de valor, generar confianza con una historia personal y terminar con un CTA claro para leer el primer artículo."><span class="qp-icon">📧</span> Email de bienvenida</button>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Crea una secuencia de 5 emails de nurturing para suscriptores de una newsletter de productividad con IA. Cada email debe aportar valor concreto y guiar hacia la compra de un curso online."><span class="qp-icon">🔄</span> Secuencia nurturing</button>
+      <div class="prompt-group-title">Cocina & Lifestyle</div>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Planifica mi menú semanal completo. Soy hombre de 30 años, 75kg, objetivo perder grasa. Necesito desayuno, comida y cena para 5 días. Que sea variado, alto en proteína y económico."><span class="qp-icon">🍽️</span> Menú semanal personalizado</button>
+      <button class="quick-prompt" onclick="sendQuick(this.dataset.prompt)" data-prompt="Dame una receta detallada de pasta carbonara auténtica para 2 personas. Quiero ingredientes exactos, pasos numerados, trucos de chef italiano para hacerla perfecta y cómo presentarla para una foto de Instagram."><span class="qp-icon">👨‍🍳</span> Receta con trucos de chef</button>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nl-mini" href="suscripcion-digiprompts.html" target="_blank">
+        <div class="nl-mini-ico">🤖</div>
+        <div class="nl-mini-text"><div class="nl-mini-name">Newsletter gratis</div><div class="nl-mini-sub">Prompts exclusivos cada semana</div></div>
+        <div class="nl-mini-arr">→</div>
+      </a>
+    </div>
+  </aside>
+  <main class="chat-area">
+    <div class="messages" id="messages">
+      <div class="welcome" id="welcome-screen">
+        <div class="welcome-icon">🤖</div>
+        <h2>DigiPrompts <span>AI</span></h2>
+        <p>Tu asistente de contenido gratuito. Genera scripts, captions, estrategias, recetas y mucho más. Sin registro, sin límites.</p>
+        <div class="welcome-chips">
+          <div class="chip" onclick="sendQuick('Escríbeme un guion para un YouTube Short de 60 segundos sobre la mentalidad estoica')">📱 Script YouTube Short</div>
+          <div class="chip" onclick="sendQuick('Dame 5 ideas de vídeos virales para TikTok sobre fitness en 2025')">💪 Ideas TikTok fitness</div>
+          <div class="chip" onclick="sendQuick('Crea un hook de 3 segundos para un vídeo sobre finanzas personales que genere intriga')">🪝 Hook viral finanzas</div>
+          <div class="chip" onclick="sendQuick('Hazme un menú semanal saludable y económico para 2 personas con objetivo de perder grasa')">🍽️ Menú semanal</div>
+          <div class="chip" onclick="sendQuick('Analiza el nicho de desarrollo personal en YouTube: oportunidades y competencia en 2025')">📊 Análisis de nicho</div>
+          <div class="chip" onclick="sendQuick('Dame 30 hashtags para Instagram sobre fotografía urbana, ordenados por alcance y competencia')">🏷️ Hashtags Instagram</div>
+          <div class="chip" onclick="sendQuick('Escribe una bio profesional para Instagram de un coach de productividad con CTA a newsletter')">👤 Bio profesional</div>
+          <div class="chip" onclick="sendQuick('Receta fácil de risotto de setas para 2 personas con trucos de chef y presentación para foto')">🍝 Receta con trucos</div>
+        </div>
+      </div>
+    </div>
+    <div class="input-area">
+      <div class="input-wrap">
+        <div class="context-chips" id="context-chips">
+          <div class="ctx-chip active" data-ctx="content" onclick="toggleCtx(this)">✍️ Contenido</div>
+          <div class="ctx-chip" data-ctx="seo" onclick="toggleCtx(this)">🔍 SEO</div>
+          <div class="ctx-chip" data-ctx="recipes" onclick="toggleCtx(this)">🍽️ Recetas</div>
+          <div class="ctx-chip" data-ctx="fitness" onclick="toggleCtx(this)">💪 Fitness</div>
+          <div class="ctx-chip" data-ctx="newsletter" onclick="toggleCtx(this)">📧 Newsletter</div>
+          <div class="ctx-chip" data-ctx="strategy" onclick="toggleCtx(this)">📊 Estrategia</div>
+        </div>
+        <div class="input-row">
+          <textarea class="input-box" id="user-input" placeholder="Pregunta lo que quieras... script, receta, estrategia, análisis de nicho..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+          <button class="send-btn" id="send-btn" onclick="sendMessage()" title="Enviar">➤</button>
+        </div>
+        <div class="input-meta">
+          <span>Enter para enviar · Shift+Enter nueva línea</span>
+          <a href="suscripcion-digiprompts.html" target="_blank">🤖 Newsletter gratis →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+var PROXY_URL = 'https://api.digiprompts.io/api/chat';
+
+var SYSTEMS = {
+  content:    'Eres DigiPrompts AI, asistente de contenido para creadores hispanohablantes. Especializado en scripts YouTube y TikTok, captions virales y hooks de 3 segundos. Responde en espanol. Se directo y practico.',
+  seo:        'Eres DigiPrompts AI, experto en SEO para creadores. Especializado en SEO YouTube, keywords long-tail. Responde en espanol.',
+  recipes:    'Eres DigiPrompts AI especializado en gastronomia. Incluye ingredientes exactos, pasos numerados y trucos de chef. Responde en espanol.',
+  fitness:    'Eres DigiPrompts AI experto en fitness y nutricion. Calcula macros y disena rutinas. Recomienda profesionales para condiciones medicas. Responde en espanol.',
+  newsletter: 'Eres DigiPrompts AI experto en email marketing. Especializado en newsletters y secuencias de bienvenida. Responde en espanol.',
+  strategy:   'Eres DigiPrompts AI estratega de contenido digital. Especializado en analisis de nichos y estrategias multicanal. Responde en espanol.'
+};
+
+var chatHistory = [];
+var activeContext = 'content';
+var isProcessing = false;
+
+function toggleCtx(el) {
+  var chips = document.querySelectorAll('.ctx-chip');
+  for (var i = 0; i < chips.length; i++) {
+    chips[i].classList.remove('active');
+  }
+  el.classList.add('active');
+  activeContext = el.dataset.ctx;
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 160) + 'px';
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function newChat() {
+  chatHistory = [];
+  var msgs = document.getElementById('messages');
+  msgs.innerHTML = getWelcomeHTML();
+  attachChipEvents();
+}
+
+function getWelcomeHTML() {
+  return '<div class="welcome" id="welcome-screen">' +
+    '<div class="welcome-icon">&#x1F916;</div>' +
+    '<h2>DigiPrompts <span>AI</span></h2>' +
+    '<p>Tu asistente de contenido gratuito. Scripts, captions, estrategias y mucho mas.</p>' +
+    '<div class="welcome-chips">' +
+    '<div class="chip" data-prompt="Escribeme un guion para un YouTube Short de 60 segundos sobre la mentalidad estoica">&#x1F4F1; Script YouTube Short</div>' +
+    '<div class="chip" data-prompt="Dame 5 ideas de videos virales para TikTok sobre fitness en 2026">&#x1F4AA; Ideas TikTok fitness</div>' +
+    '<div class="chip" data-prompt="Crea un hook de 3 segundos para un video sobre finanzas personales">&#x1FA9D; Hook viral finanzas</div>' +
+    '<div class="chip" data-prompt="Hazme un menu semanal saludable y economico para 2 personas">&#x1F37D; Menu semanal</div>' +
+    '<div class="chip" data-prompt="Analiza el nicho de desarrollo personal en YouTube 2026">&#x1F4CA; Analisis de nicho</div>' +
+    '<div class="chip" data-prompt="Dame 30 hashtags para Instagram sobre fotografia urbana">&#x1F3F7; Hashtags Instagram</div>' +
+    '<div class="chip" data-prompt="Escribe una bio profesional para TikTok de un creador de contenido IA">&#x1F464; Bio profesional</div>' +
+    '<div class="chip" data-prompt="Receta facil de risotto de setas con trucos de chef">&#x1F35D; Receta con trucos</div>' +
+    '</div></div>';
+}
+
+function attachChipEvents() {
+  var chips = document.querySelectorAll('.chip[data-prompt]');
+  for (var i = 0; i < chips.length; i++) {
+    chips[i].addEventListener('click', function() {
+      document.getElementById('user-input').value = this.dataset.prompt;
+      sendMessage();
+    });
+  }
+}
+
+function sendQuick(prompt) {
+  document.getElementById('user-input').value = prompt;
+  sendMessage();
+}
+
+function sendMessage() {
+  if (isProcessing) return;
+  var input = document.getElementById('user-input');
+  var userText = input.value.trim();
+  if (!userText) return;
+
+  var welcome = document.getElementById('welcome-screen');
+  if (welcome) welcome.remove();
+
+  appendMessage('user', userText);
+  input.value = '';
+  input.style.height = 'auto';
+  chatHistory.push({ role: 'user', content: userText });
+
+  isProcessing = true;
+  var btn = document.getElementById('send-btn');
+  btn.disabled = true;
+  btn.textContent = String.fromCharCode(9203);
+
+  var typingId = appendTyping();
+
+  fetch(PROXY_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      system: SYSTEMS[activeContext],
+      messages: chatHistory
+    })
+  })
+  .then(function(response) {
+    removeTyping(typingId);
+    if (!response.ok) {
+      var errorMsg = 'Error de conexion con el servidor.';
+      if (response.status === 429) errorMsg = 'Limite de uso alcanzado. Vuelve en una hora.';
+      if (response.status === 529) errorMsg = 'Servicio ocupado. Intentalo en unos segundos.';
+      if (response.status === 403) errorMsg = 'Acceso denegado. Recarga la pagina.';
+      throw new Error(errorMsg);
+    }
+    return response.json();
+  })
+  .then(function(data) {
+    var replyText = data.reply || '';
+    if (!replyText) throw new Error('Respuesta vacia. Intentalo de nuevo.');
+    chatHistory.push({ role: 'assistant', content: replyText });
+    appendMessage('assistant', replyText);
+  })
+  .catch(function(error) {
+    removeTyping(typingId);
+    appendError(error.message);
+  })
+  .finally(function() {
+    isProcessing = false;
+    btn.disabled = false;
+    btn.textContent = String.fromCharCode(9658);
+  });
+}
+
+function appendMessage(role, text) {
+  var msgs = document.getElementById('messages');
+  var wrapper = document.createElement('div');
+  wrapper.className = 'msg ' + role;
+
+  var avatar = document.createElement('div');
+  avatar.className = 'msg-avatar';
+  avatar.textContent = role === 'user' ? '👤' : '🤖';
+
+  var content = document.createElement('div');
+  content.className = 'msg-content';
+
+  var name = document.createElement('div');
+  name.className = 'msg-name';
+  name.textContent = role === 'user' ? 'Tú' : 'DigiPrompts AI';
+
+  var bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.innerHTML = formatText(text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+
+  content.appendChild(name);
+  content.appendChild(bubble);
+
+  if (role === 'assistant') {
+    var actions = document.createElement('div');
+    actions.className = 'msg-actions';
+    var copyBtn = document.createElement('button');
+    copyBtn.className = 'msg-action-btn';
+    copyBtn.textContent = 'Copiar';
+    var capturedText = text;
+    copyBtn.addEventListener('click', function() {
+      navigator.clipboard.writeText(capturedText).then(function() {
+        copyBtn.textContent = '✓ Copiado';
+        setTimeout(function() { copyBtn.textContent = 'Copiar'; }, 2000);
+      });
+    });
+    actions.appendChild(copyBtn);
+    content.appendChild(actions);
+  }
+
+  wrapper.appendChild(avatar);
+  wrapper.appendChild(content);
+  msgs.appendChild(wrapper);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function appendTyping() {
+  var msgs = document.getElementById('messages');
+  var id = 'typing_' + Date.now();
+  var div = document.createElement('div');
+  div.className = 'msg assistant';
+  div.id = id;
+  div.innerHTML = '<div class="msg-avatar">🤖</div><div class="msg-content"><div class="msg-name">DigiPrompts AI</div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return id;
+}
+
+function removeTyping(id) {
+  var el = document.getElementById(id);
+  if (el) el.remove();
+}
+
+function appendError(msg) {
+  var msgs = document.getElementById('messages');
+  var div = document.createElement('div');
+  div.className = 'msg assistant';
+  var errMsg = msg || 'Error de conexion.';
+  div.innerHTML = '<div class="msg-avatar">🤖</div><div class="msg-content"><div class="msg-name">DigiPrompts AI</div><div class="error-bubble">⚠️ ' + errMsg + '</div></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function formatText(t) {
+  t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  t = t.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+  t = t.replace(/^### (.+)$/gm, '<h4 style="color:var(--cyan);margin:10px 0 5px;font-size:13px;">$1</h4>');
+  t = t.replace(/^## (.+)$/gm, '<h3 style="color:var(--cyan);margin:12px 0 6px;">$1</h3>');
+  t = t.replace(/^# (.+)$/gm, '<h2 style="color:var(--cyan);margin:12px 0 8px;">$1</h2>');
+  t = t.replace(/^- (.+)$/gm, '<li style="margin-bottom:3px;">$1</li>');
+  t = t.replace(/\n\n/g, '</p><p style="margin-bottom:8px;">');
+  t = t.replace(/\n/g, '<br>');
+  return '<p style="margin-bottom:8px;">' + t + '</p>';
+}
+
+window.addEventListener('load', function() {
+  attachChipEvents();
+});
+</script>
+</body>
+</html>
