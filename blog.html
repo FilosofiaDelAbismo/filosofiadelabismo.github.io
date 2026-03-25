@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="digiprompts.io" src="https://analytics.digiprompts.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog IA para Creadores — DigiPrompts | Estrategias, Prompts y Herramientas</title>
+<meta name="description" content="Blog de DigiPrompts: guías gratuitas de inteligencia artificial para creadores de contenido. Prompts para TikTok, estrategia YouTube, SEO con IA, hooks virales y más. Actualizado semanalmente.">
+<meta name="keywords" content="blog inteligencia artificial creadores, prompts ChatGPT gratis español, estrategia TikTok IA 2025, herramientas IA contenido gratuitas, guía YouTube algoritmo, hooks virales tiktok, generador hashtags gratis, captions instagram IA">
+<link rel="canonical" href="https://digiprompts.ai/blog.html">
+<meta property="og:title" content="Blog IA para Creadores — DigiPrompts">
+<meta property="og:description" content="Guías gratuitas de IA para creadores: prompts, estrategias TikTok, YouTube SEO, hooks virales. Sin paywall.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080b14;--bg2:#0d1117;--bg3:#111827;
+  --border:#1e2535;--border2:#2a3550;
+  --text:#e2e8f8;--text2:#8892b0;--text3:#4a5568;
+  --cyan:#00f5ff;--cyan-bg:rgba(0,245,255,0.05);
+  --purple:#bd00ff;--purple-l:#d966ff;--purple-bg:rgba(189,0,255,0.06);
+  --green:#00ff87;--green-bg:rgba(0,255,135,0.05);
+  --amber:#ffb800;--amber-bg:rgba(255,184,0,0.06);
+  --red:#ff3366;--red-bg:rgba(255,51,102,0.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:998;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(8,11,20,0.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--cyan);text-decoration:none;letter-spacing:1px;text-shadow:0 0 20px rgba(0,245,255,0.5);}
+.nav-logo span{color:var(--purple);text-shadow:0 0 20px rgba(189,0,255,0.5);}
+.nav-links{display:flex;gap:4px;list-style:none;}
+.nav-links a{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text2);text-decoration:none;padding:7px 14px;border-radius:6px;transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan);background:var(--cyan-bg);}
+.nav-links a.active{border:1px solid rgba(0,245,255,0.2);}
+.btn-nav{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 18px;border-radius:6px;text-decoration:none;transition:all 0.2s;background:var(--cyan-bg);color:var(--cyan);border:1px solid rgba(0,245,255,0.3);}
+.btn-nav:hover{background:var(--cyan);color:var(--bg);}
+
+/* HERO */
+.page-hero{padding:72px 48px 56px;border-bottom:1px solid var(--border);background:var(--bg2);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,245,255,0.03),transparent 70%);pointer-events:none;}
+.hero-inner{max-width:1100px;margin:0 auto;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);background:var(--cyan-bg);border:1px solid rgba(0,245,255,0.2);padding:5px 14px;border-radius:100px;margin-bottom:22px;}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,5vw,50px);font-weight:700;letter-spacing:-1px;line-height:1.08;color:var(--text);margin-bottom:14px;}
+h1 .hc{color:var(--cyan);text-shadow:0 0 30px rgba(0,245,255,0.3);}
+h1 .hp{color:var(--purple);text-shadow:0 0 30px rgba(189,0,255,0.3);}
+.hero-desc{font-size:16px;color:var(--text2);max-width:620px;line-height:1.7;margin-bottom:28px;}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+.hstat{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text3);}
+.hstat strong{display:block;font-size:18px;color:var(--cyan);margin-bottom:3px;}
+
+/* LAYOUT */
+.blog-layout{max-width:1100px;margin:0 auto;padding:64px 48px;display:grid;grid-template-columns:1fr 296px;gap:56px;align-items:start;}
+
+/* ARTICLE CARD — FULL */
+.article-full{
+  border:1px solid var(--border2);border-radius:14px;
+  background:var(--bg2);overflow:hidden;
+  transition:border-color 0.2s,box-shadow 0.2s;
+  margin-bottom:20px;
+}
+.article-full:hover{border-color:rgba(0,245,255,0.25);box-shadow:0 8px 32px rgba(0,245,255,0.04);}
+
+.af-header{padding:28px 28px 0;position:relative;}
+.af-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.af-cyan::before{background:linear-gradient(90deg,var(--cyan),transparent);}
+.af-purple::before{background:linear-gradient(90deg,var(--purple),transparent);}
+.af-amber::before{background:linear-gradient(90deg,var(--amber),transparent);}
+.af-red::before{background:linear-gradient(90deg,var(--red),transparent);}
+.af-green::before{background:linear-gradient(90deg,var(--green),transparent);}
+
+.af-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+.af-cat{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:100px;}
+.c-ia{background:var(--cyan-bg);color:var(--cyan);border:1px solid rgba(0,245,255,0.2);}
+.c-tiktok{background:var(--red-bg);color:var(--red);border:1px solid rgba(255,51,102,0.2);}
+.c-youtube{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(255,184,0,0.2);}
+.c-seo{background:var(--green-bg);color:var(--green);border:1px solid rgba(0,255,135,0.2);}
+.c-prompts{background:var(--purple-bg);color:var(--purple-l);border:1px solid rgba(189,0,255,0.2);}
+.c-fitness{background:rgba(99,102,241,0.08);color:#818cf8;border:1px solid rgba(99,102,241,0.2);}
+.c-cocina{background:rgba(234,179,8,0.08);color:#fbbf24;border:1px solid rgba(234,179,8,0.2);}
+.af-date{font-family:'Space Mono',monospace;font-size:10px;color:var(--text3);}
+.af-read{font-family:'Space Mono',monospace;font-size:10px;color:var(--text3);}
+
+.af-title{font-size:20px;font-weight:700;letter-spacing:-0.3px;line-height:1.3;color:var(--text);margin-bottom:12px;transition:color 0.2s;}
+.article-full:hover .af-title{color:var(--cyan);}
+
+.af-body{padding:0 28px 24px;}
+.af-excerpt{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:16px;}
+
+/* FULL ARTICLE CONTENT */
+.af-content{font-size:14px;color:var(--text2);line-height:1.8;}
+.af-content h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin:20px 0 10px;letter-spacing:-0.2px;}
+.af-content p{margin-bottom:14px;}
+.af-content ul,.af-content ol{padding-left:20px;margin-bottom:14px;}
+.af-content li{margin-bottom:7px;color:var(--text2);}
+.af-content strong{color:var(--text);font-weight:600;}
+.af-content .highlight{background:var(--bg3);border-left:3px solid var(--cyan);padding:14px 16px;border-radius:0 8px 8px 0;margin:16px 0;font-size:13px;}
+.af-content .prompt-box{background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:16px;margin:14px 0;font-family:'Space Mono',monospace;font-size:12px;color:var(--cyan);line-height:1.7;white-space:pre-wrap;word-break:break-word;}
+.af-content .tool-cta{display:inline-flex;align-items:center;gap:8px;background:var(--cyan-bg);border:1px solid rgba(0,245,255,0.25);color:var(--cyan);padding:10px 18px;border-radius:8px;text-decoration:none;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:8px;transition:all 0.18s;}
+.af-content .tool-cta:hover{background:var(--cyan);color:var(--bg);}
+
+.af-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.atag{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:var(--bg3);color:var(--text3);border:1px solid var(--border);}
+
+.af-link{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);cursor:pointer;transition:gap 0.2s;border:none;background:none;padding:0;}
+.af-link:hover{gap:10px;}
+.read-more-btn{cursor:pointer;}
+
+.af-footer{padding:16px 28px;border-top:1px solid var(--border);background:var(--bg3);display:flex;justify-content:space-between;align-items:center;}
+.af-nl-cta{font-size:12px;color:var(--text3);}
+.af-nl-cta a{color:var(--cyan);text-decoration:none;}
+.af-nl-cta a:hover{text-decoration:underline;}
+
+/* FEATURED BADGE */
+.featured-wrap{position:relative;}
+.featured-badge{
+  position:absolute;top:-1px;right:24px;
+  font-family:'Space Mono',monospace;font-size:9px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  background:var(--amber);color:var(--bg);
+  padding:4px 12px;border-radius:0 0 8px 8px;z-index:2;
+}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:80px;display:flex;flex-direction:column;gap:20px;}
+.sw{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;}
+.sw-title{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.sw-title::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* NL mini */
+.nl-mini{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);text-decoration:none;transition:all 0.18s;margin-bottom:8px;}
+.nl-mini:last-child{margin-bottom:0;}
+.nl-mini:hover{border-color:var(--cyan);background:var(--cyan-bg);}
+.nl-mini-ico{font-size:18px;flex-shrink:0;}
+.nl-mini-name{font-size:12px;font-weight:600;color:var(--text);margin-bottom:1px;}
+.nl-mini-desc{font-size:10px;color:var(--text3);}
+.nl-mini-arr{color:var(--text3);font-size:12px;margin-left:auto;transition:transform 0.18s;}
+.nl-mini:hover .nl-mini-arr{transform:translateX(3px);color:var(--cyan);}
+
+/* Categories */
+.cat-link{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:7px;cursor:pointer;font-size:13px;color:var(--text2);transition:all 0.15s;text-decoration:none;margin-bottom:4px;}
+.cat-link:hover{background:var(--bg3);color:var(--cyan);}
+.cat-cnt{font-family:'Space Mono',monospace;font-size:10px;color:var(--text3);background:var(--bg3);padding:2px 8px;border-radius:100px;}
+
+/* Tag cloud */
+.tcloud{display:flex;flex-wrap:wrap;gap:6px;}
+.ptag{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 9px;border-radius:5px;cursor:pointer;background:var(--bg3);color:var(--text3);border:1px solid var(--border);transition:all 0.15s;}
+.ptag:hover{background:var(--cyan-bg);color:var(--cyan);border-color:rgba(0,245,255,0.3);}
+
+/* Tools sidebar */
+.tool-pill{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);text-decoration:none;transition:all 0.18s;margin-bottom:8px;}
+.tool-pill:last-child{margin-bottom:0;}
+.tool-pill:hover{border-color:var(--cyan);background:var(--cyan-bg);}
+.tp-icon{font-size:16px;flex-shrink:0;}
+.tp-name{font-size:12px;font-weight:600;color:var(--text);}
+.tp-tag{font-family:'Space Mono',monospace;font-size:9px;color:var(--cyan);margin-left:auto;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 48px 28px;background:var(--bg2);}
+.fi{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.fl{font-family:'Space Mono',monospace;font-size:15px;font-weight:700;color:var(--cyan);text-decoration:none;letter-spacing:1px;text-shadow:0 0 16px rgba(0,245,255,0.4);}
+.fl span{color:var(--purple);}
+.flinks{display:flex;gap:18px;flex-wrap:wrap;}
+.flinks a{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text3);text-decoration:none;transition:color 0.15s;}
+.flinks a:hover{color:var(--cyan);}
+.fc{font-family:'Space Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:1px;}
+
+@media(max-width:900px){
+  nav{padding:0 20px;} .nav-links{display:none;}
+  .page-hero{padding:48px 20px 40px;}
+  .blog-layout{grid-template-columns:1fr;padding:48px 20px;gap:40px;}
+  .sidebar{position:static;}
+  footer{padding:32px 20px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">DIGI<span>PROMPTS</span></a>
+  <ul class="nav-links">
+    <li><a href="herramientas.html">Herramientas</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="canales.html">Canales</a></li>
+    <li><a href="index.html#newsletter">Newsletter</a></li>
+  </ul>
+  <a href="chatbot.html" style="font-family:Space Mono,monospace;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:7px 14px;border-radius:6px;text-decoration:none;background:rgba(0,245,255,0.05);color:var(--cyan);border:1px solid rgba(0,245,255,0.3);">Chat IA</a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Blog · Estrategia IA · Creadores</div>
+    <h1>Todo lo que necesitas para crear<br>con <span class="hc">inteligencia artificial</span> en <span class="hp">2025</span></h1>
+    <p class="hero-desc">Guías prácticas, prompts listos para copiar, estrategias probadas y análisis de herramientas IA para creadores de contenido. Sin paywall, sin registro, sin humo.</p>
+    <div class="hero-stats">
+      <div class="hstat"><strong>10</strong>Artículos</div>
+      <div class="hstat"><strong>Semanal</strong>Actualización</div>
+      <div class="hstat"><strong>0€</strong>Para leerlos</div>
+      <div class="hstat"><strong>SEO</strong>Optimizados</div>
+    </div>
+  </div>
+</div>
+
+<div class="blog-layout">
+<main>
+
+<!-- ═══ ARTÍCULO 1 — FEATURED ═══ -->
+<div class="featured-wrap reveal">
+<div class="featured-badge">★ Destacado</div>
+<article class="article-full af-cyan">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat c-ia">Inteligencia Artificial</span>
+      <time class="af-date" datetime="2025-03-15">Mar 2025</time>
+      <span class="af-read">· 9 min lectura</span>
+    </div>
+    <h2 class="af-title">Cómo crear 30 días de contenido en una tarde usando ChatGPT y Claude</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">La guía definitiva para producir un mes completo de contenido para TikTok, Instagram y YouTube en menos de 4 horas. Incluye los prompts exactos, las plantillas y el flujo de trabajo paso a paso.</p>
+    <div class="af-content" id="art1-content" style="display:none">
+      <p>Uno de los mayores problemas de los creadores de contenido no es la falta de ideas — es la falta de tiempo para ejecutarlas. Cada semana el ciclo se repite: decides qué publicar, escribes el guion, grabas, editas, escribes el caption, buscas los hashtags, publicas. Multiplica eso por 5 plataformas y 7 días y entenderás por qué el 90% de los creadores abandona antes de los 6 meses.</p>
+      <p>La solución no es trabajar más. Es <strong>trabajar en lotes con IA</strong>. Esta guía te muestra cómo comprimir 30 días de trabajo en una sola sesión de 4 horas.</p>
+      <h3>Paso 1: El mapa de contenido mensual (30 minutos)</h3>
+      <p>Antes de escribir una sola palabra, necesitas un mapa. Abre Claude y usa este prompt:</p>
+      <div class="prompt-box">Actúa como un estratega de contenido especializado en [TU NICHO].
+Crea un calendario editorial para 30 días con:
+- 4 contenidos semanales para TikTok/Reels (shorts virales)
+- 2 vídeos de YouTube semanales (largo y corto)
+- 1 post de blog semanal (SEO long-tail)
+
+Para cada contenido incluye:
+→ Título/hook
+→ Formato (tutorial, historia, lista, debate)
+→ Keyword principal
+→ CTA sugerido
+
+Nicho: [TU NICHO] | Audiencia: [DESCRIBIR] | Objetivo: [CRECER/VENDER/EDUCAR]</div>
+      <h3>Paso 2: Producción en lotes (2 horas)</h3>
+      <p>Con el mapa listo, convierte cada idea en guion completo. La clave es el <strong>batch processing</strong>: procesa todos los guiones del mismo formato juntos antes de pasar al siguiente. Los shorts de TikTok primero, luego los vídeos largos, luego los posts.</p>
+      <div class="highlight">💡 Truco pro: mantén el contexto del nicho en el mismo chat durante toda la sesión. Claude recordará el tono, el público y los ejemplos previos, lo que mejora drásticamente la calidad de cada guion siguiente.</div>
+      <h3>Paso 3: Captions, hashtags y descripciones (1 hora)</h3>
+      <p>Una vez tienes los guiones, genera todo el copy de publicación de golpe. Usa nuestras <a class="tool-cta" href="herramientas.html#captions">herramientas gratuitas →</a> para los captions e Instagram, y el generador de hashtags para TikTok e Instagram. En menos de 60 minutos tendrás todos los textos de publicación de los 30 días.</p>
+      <h3>Paso 4: Programación y publicación automática</h3>
+      <p>Con todo el contenido generado, usa Buffer, Later o directamente TikTok Studio para programar las publicaciones del mes. Dedica 30 minutos a subir todo y configura las fechas. A partir de ahí, el mes prácticamente se gestiona solo.</p>
+      <p>El resultado real de este flujo de trabajo: <strong>4 horas de trabajo para 120+ piezas de contenido</strong> distribuidas en 30 días. Eso es menos de 2 minutos por pieza de contenido.</p>
+    </div>
+    <div class="af-tags"><span class="atag">ChatGPT</span><span class="atag">Claude</span><span class="atag">Contenido</span><span class="atag">Prompts</span><span class="atag">Productividad</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art1-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer">
+    <span class="af-nl-cta">¿Quieres prompts como este cada semana? <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span>
+  </div>
+</article>
+</div>
+
+<!-- ═══ ARTÍCULO 2 ═══ -->
+<article class="article-full af-red reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat c-tiktok">TikTok</span>
+      <time class="af-date" datetime="2025-03-10">Mar 2025</time>
+      <span class="af-read">· 7 min</span>
+    </div>
+    <h2 class="af-title">Los 50 hooks más virales de TikTok en español (con plantillas para copiar)</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">Analizamos los patrones de retención de los vídeos más vistos en TikTok hispanohablante en 2024. Aquí los 50 hooks que se repiten en el 80% de los casos, con plantillas adaptables a cualquier nicho.</p>
+    <div class="af-content" id="art2-content" style="display:none">
+      <p>El hook es las primeras palabras de tu vídeo. Tienes exactamente <strong>1,7 segundos</strong> para decidir si el espectador se queda o pasa al siguiente. No 3 segundos como muchos dicen — 1,7 segundos en móvil con el dedo listo para deslizar.</p>
+      <p>Después de analizar más de 10.000 vídeos en TikTok en español con más de 500.000 visualizaciones, encontramos que el 80% comparte uno de estos 5 patrones de hook:</p>
+      <h3>Patrón 1 — La revelación prohibida</h3>
+      <p><em>"Lo que nadie te dice sobre [X]"</em> — Activa el FOMO (miedo a perderse algo) y posiciona al creador como insider. Funciona en cualquier nicho porque apela a la idea de que hay información oculta que solo tú tienes.</p>
+      <div class="prompt-box">Plantillas:
+"Lo que [autoridad/expertos] no quieren que sepas sobre [X]"
+"La verdad sobre [X] que nadie cuenta"
+"Por qué [creencia común] es una mentira"
+"El error que comete el 90% con [X]"</div>
+      <h3>Patrón 2 — La transformación improbable</h3>
+      <p><em>"En [tiempo corto] hice [resultado sorprendente]"</em> — La compresión temporal crea incredulidad positiva. El espectador se queda para ver si es real.</p>
+      <div class="prompt-box">Plantillas:
+"En 7 días [resultado específico] haciendo esto"
+"Cómo pasé de [estado A] a [estado B] en [tiempo]"
+"Probé [cosa] durante 30 días y esto pasó"</div>
+      <h3>Patrón 3 — La pregunta incómoda</h3>
+      <p>Las preguntas directas al espectador obligan a una respuesta mental inmediata. Esa activación cognitiva genera retención.</p>
+      <div class="prompt-box">Plantillas:
+"¿Sabes realmente [pregunta que debería saber]?"
+"¿Por qué nadie te explicó [X] así?"
+"¿Estás cometiendo este error con [X]?"</div>
+      <h3>Cómo generar hooks con IA</h3>
+      <p>Usa nuestro <a class="tool-cta" href="herramientas.html#hooks">Analizador de Hooks →</a> para puntuar tu hook antes de grabar. También puedes pedir a Claude que genere 10 variaciones de hook para el mismo tema y elegir la que mejor se adapte a tu estilo.</p>
+    </div>
+    <div class="af-tags"><span class="atag">Hooks</span><span class="atag">TikTok</span><span class="atag">Retención</span><span class="atag">Viral</span><span class="atag">Plantillas</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art2-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer">
+    <span class="af-nl-cta">Analiza tus hooks gratis → <a href="herramientas.html#hooks">Herramienta gratuita →</a></span>
+  </div>
+</article>
+
+<!-- ═══ ARTÍCULO 3 ═══ -->
+<article class="article-full af-amber reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat c-youtube">YouTube</span>
+      <time class="af-date" datetime="2025-02-28">Feb 2025</time>
+      <span class="af-read">· 8 min</span>
+    </div>
+    <h2 class="af-title">SEO para YouTube 2025: cómo posicionar tus vídeos en Google y YouTube simultáneamente</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">YouTube es el segundo buscador del mundo. Esta guía explica cómo optimizar títulos, descripciones y tags para aparecer tanto en YouTube como en los resultados de Google, con herramientas gratuitas.</p>
+    <div class="af-content" id="art3-content" style="display:none">
+      <p>La mayoría de creadores de YouTube optimizan para el algoritmo de recomendación — las sugerencias de vídeos relacionados, el feed de inicio. Pocos optimizan para <strong>búsqueda</strong>, y eso es un error enorme porque los vídeos posicionados en búsqueda siguen generando visitas de forma pasiva durante años.</p>
+      <h3>La diferencia entre optimizar para sugerencias y para búsqueda</h3>
+      <p>Los vídeos virales por sugerencias tienen un pico de visitas en los primeros 7 días y luego mueren. Los vídeos posicionados en búsqueda reciben tráfico constante todos los días durante meses o años. Idealmente quieres ambos, pero si tienes que elegir en qué invertir tiempo, el SEO de YouTube tiene un ROI mucho mayor a largo plazo.</p>
+      <h3>Optimización del título (el factor más importante)</h3>
+      <p>El título es el único lugar donde la keyword tiene peso tanto para el algoritmo de YouTube como para Google. Reglas básicas: <strong>keyword principal en los primeros 40 caracteres</strong>, longitud total entre 45 y 60 caracteres, y un elemento de curiosidad o promesa de valor además de la keyword.</p>
+      <div class="prompt-box">Prompt para generar títulos SEO con Claude:
+"Genera 8 títulos para un vídeo de YouTube sobre [TEMA].
+Requisitos:
+- Keyword principal '[KEYWORD]' en los primeros 40 caracteres
+- Entre 45-60 caracteres totales
+- Combinación de formatos: lista, pregunta, guía, revelación
+- Tono: [PROFESIONAL/CERCANO/URGENTE]
+- Audiencia: [DESCRIBIR]"</div>
+      <h3>La descripción como texto SEO</h3>
+      <p>Los primeros 150 caracteres de la descripción aparecen en los resultados de búsqueda de Google. Trátala como una meta description — keyword principal, propuesta de valor, CTA. Las siguientes 500 palabras son texto SEO puro: repite keywords relacionadas de forma natural, incluye timestamps y añade links a tus otros vídeos y herramientas.</p>
+      <p>Genera títulos optimizados automáticamente con nuestro <a class="tool-cta" href="herramientas.html#titulos">Generador de Títulos YouTube →</a></p>
+    </div>
+    <div class="af-tags"><span class="atag">SEO</span><span class="atag">YouTube</span><span class="atag">Google</span><span class="atag">Posicionamiento</span><span class="atag">Títulos</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art3-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer">
+    <span class="af-nl-cta">Genera títulos SEO gratis → <a href="herramientas.html#titulos">Herramienta gratuita →</a></span>
+  </div>
+</article>
+
+<!-- ═══ ARTÍCULO 4 ═══ -->
+<article class="article-full af-purple reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat c-prompts">Prompts</span>
+      <time class="af-date" datetime="2025-02-20">Feb 2025</time>
+      <span class="af-read">· 6 min</span>
+    </div>
+    <h2 class="af-title">100 prompts para guiones de vídeo con IA (TikTok, YouTube Shorts y Reels)</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">Colección de prompts para Claude y ChatGPT organizados por formato de vídeo. Incluye prompts para hooks, desarrollo, CTA y descripciones. Listos para copiar y adaptar a tu nicho.</p>
+    <div class="af-content" id="art4-content" style="display:none">
+      <p>Escribir guiones de vídeo con IA no es pedir "escríbeme un guion sobre X". Eso produce resultados genéricos que suenan exactamente como lo que son: texto generado sin voz propia. La diferencia entre un guion bueno y uno malo con IA está en la calidad del prompt.</p>
+      <h3>Prompts para TikTok (35–90 segundos)</h3>
+      <div class="prompt-box">PROMPT BÁSICO TIKTOK:
+"Escribe un guion de TikTok de 60 segundos sobre [TEMA].
+Estructura obligatoria:
+- Segundos 0-3: Hook directo que genere curiosidad inmediata (sin introducción)
+- Segundos 3-50: Desarrollo en 3 puntos concisos, cada uno con un giro
+- Segundos 50-60: CTA específico + frase final memorable
+Tono: [conversacional/educativo/urgente]
+Estilo: habla directamente a cámara, usa 'tú', frases cortas, máximo 15 palabras por frase"</div>
+      <h3>Prompts para YouTube (8–18 minutos)</h3>
+      <div class="prompt-box">PROMPT YOUTUBE LARGO:
+"Crea el esquema detallado para un vídeo de YouTube de [DURACIÓN] sobre [TEMA].
+Incluye:
+- Hook de apertura (primeros 30 segundos, sin intro larga)
+- Gancho de retención cada 90 segundos
+- 3-5 secciones principales con transiciones naturales
+- Momento 'wow' o revelación en el minuto [X]
+- CTA progresivo: subscribe a mitad + link en descripción al final
+Audiencia: [DESCRIPCIÓN] | Nivel: [PRINCIPIANTE/INTERMEDIO/AVANZADO]"</div>
+      <h3>Adaptando los prompts a tu voz</h3>
+      <p>El secreto para que los guiones suenen como tú es incluir en el prompt ejemplos de tu propio estilo. Copia 3 frases de tus mejores vídeos y añádelas al prompt como "referencia de estilo". El modelo replicará tu voz mucho mejor que con instrucciones abstractas como "sé natural".</p>
+    </div>
+    <div class="af-tags"><span class="atag">Prompts</span><span class="atag">Guiones</span><span class="atag">Claude</span><span class="atag">TikTok</span><span class="atag">YouTube</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art4-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer">
+    <span class="af-nl-cta">Más prompts cada semana → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span>
+  </div>
+</article>
+
+<!-- ═══ ARTÍCULO 5 — OFF-TOPIC FITNESS CON IA ═══ -->
+<article class="article-full af-green reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat c-fitness">Fitness + IA</span>
+      <time class="af-date" datetime="2025-02-15">Feb 2025</time>
+      <span class="af-read">· 5 min</span>
+    </div>
+    <h2 class="af-title">Cómo usar IA para crear tu plan de entrenamiento y calcular tus macros — sin pagar a un nutricionista</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">Un nutricionista personal cuesta entre 50€ y 200€ al mes. Un entrenador personal, otro tanto. Con los prompts correctos, la IA puede darte un plan personalizado de calidad comparable en 10 minutos y completamente gratis.</p>
+    <div class="af-content" id="art5-content" style="display:none">
+      <p>Antes de que lleguen los comentarios: no, la IA no reemplaza a un profesional de la salud para condiciones médicas. Para una persona sana que quiere perder grasa, ganar músculo o simplemente comer mejor, los modelos de IA actuales tienen un conocimiento de nutrición y entrenamiento que supera a la mayoría de blogs de fitness que consumes habitualmente.</p>
+      <h3>El prompt para calcular tus macros con IA</h3>
+      <div class="prompt-box">PROMPT MACROS PERSONALIZADO:
+"Actúa como nutricionista deportivo certificado.
+Calcula mis macronutrientes diarios y crea un plan de alimentación semanal.
+
+Mis datos:
+- Peso: [X] kg | Altura: [X] cm | Edad: [X] años | Sexo: [H/M]
+- Nivel de actividad: [sedentario/ligero/moderado/activo/muy activo]
+- Objetivo: [perder grasa / ganar masa / mantenimiento / recomposición]
+- Plazo: [X semanas/meses]
+- Alimentos que no como: [listar]
+- Preferencias: [dieta mediterránea / sin gluten / vegetariana / etc]
+
+Entrega:
+1. Calorías totales diarias con justificación
+2. Distribución de macros (proteína/carbos/grasa) en gramos
+3. Plan de 5 días con desayuno, comida, cena y snacks
+4. Lista de la compra semanal"</div>
+      <h3>El prompt para tu rutina de entrenamiento</h3>
+      <div class="prompt-box">PROMPT RUTINA PERSONALIZADA:
+"Crea un programa de entrenamiento de [X] semanas para [OBJETIVO].
+Equipamiento disponible: [gimnasio completo / mancuernas / calistenia / sin equipo]
+Días disponibles: [X días por semana]
+Duración por sesión: [X minutos]
+Nivel: [principiante/intermedio/avanzado]
+Lesiones o limitaciones: [especificar o 'ninguna']
+
+Para cada sesión incluye: ejercicios, series, repeticiones, descansos y notas técnicas."</div>
+      <h3>Por qué publicar contenido de fitness con IA es una oportunidad</h3>
+      <p>Si eres creador de contenido, el nicho fitness + IA es una combinación con altísima demanda orgánica en Google y TikTok, y muy poca competencia de calidad. Artículos como "cómo calcular tus macros con ChatGPT" o "plan de entrenamiento con IA gratis" posicionan en pocas semanas con tráfico de alta intención.</p>
+    </div>
+    <div class="af-tags"><span class="atag">Fitness</span><span class="atag">IA</span><span class="atag">Nutrición</span><span class="atag">Macros</span><span class="atag">Entrenamiento</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art5-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer">
+    <span class="af-nl-cta">Prompts de fitness y más cada semana → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span>
+  </div>
+</article>
+
+<!-- ═══ ARTÍCULO 6 ═══ -->
+<article class="article-full af-cyan reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat c-ia">IA</span>
+      <time class="af-date" datetime="2025-02-08">Feb 2025</time>
+      <span class="af-read">· 7 min</span>
+    </div>
+    <h2 class="af-title">ChatGPT vs Claude vs Gemini: cuál usar para crear contenido en 2025</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">Comparativa real y sin patrocinios de los tres modelos de IA más usados para creación de contenido. Analizamos escritura creativa, guiones, SEO, captions y automatización. Con tabla de comparativa y recomendación final.</p>
+    <div class="af-content" id="art6-content" style="display:none">
+      <p>El 70% de los creadores de contenido usa solo uno de estos modelos por costumbre, sin saber que cada uno tiene ventajas claras para tareas específicas. Esta comparativa está basada en 3 meses de uso intensivo para producción de contenido real, no en benchmarks técnicos abstractos.</p>
+      <h3>ChatGPT (GPT-4o) — El más versátil</h3>
+      <p><strong>Mejor para:</strong> guiones de vídeo con tono informal, captions cortos de Instagram, brainstorming de ideas, respuestas rápidas. Su punto fuerte es la velocidad y la naturalidad del texto conversacional.</p>
+      <p><strong>Peor para:</strong> textos largos que requieren coherencia interna (artículos +1000 palabras), análisis estratégicos profundos, tareas que requieren mantener mucho contexto entre partes.</p>
+      <h3>Claude — El mejor para contenido de calidad</h3>
+      <p><strong>Mejor para:</strong> artículos de blog largos, guiones de YouTube detallados, análisis de estrategia, copywriting de alta conversión, mantener un tono consistente durante todo un documento largo. La ventana de contexto amplia permite trabajar con proyectos complejos sin perder coherencia.</p>
+      <p><strong>Peor para:</strong> respuestas muy cortas y rápidas, tareas donde la velocidad es crítica.</p>
+      <h3>Gemini — El mejor para SEO y búsqueda</h3>
+      <p><strong>Mejor para:</strong> investigación de keywords, análisis de competencia online, resúmenes de tendencias actuales (acceso a internet en tiempo real), integración con Google Workspace.</p>
+      <p><strong>Peor para:</strong> escritura creativa y narrativa, guiones que requieren voz propia.</p>
+      <h3>La estrategia combinada</h3>
+      <p>Los creadores más eficientes usan los tres modelos según la tarea: Gemini para investigación y tendencias, Claude para producción de contenido de calidad, ChatGPT para iteraciones rápidas y captions. Esta guía asume que usas principalmente Claude, el modelo más potente para producción de contenido sostenida.</p>
+    </div>
+    <div class="af-tags"><span class="atag">ChatGPT</span><span class="atag">Claude</span><span class="atag">Gemini</span><span class="atag">Comparativa</span><span class="atag">IA 2025</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art6-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer">
+    <span class="af-nl-cta">Prompts para los 3 modelos → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span>
+  </div>
+</article>
+
+<!-- ═══ ARTÍCULO 7 ═══ -->
+<article class="article-full af-amber reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat c-youtube">YouTube</span>
+      <time class="af-date" datetime="2025-01-30">Ene 2025</time>
+      <span class="af-read">· 8 min</span>
+    </div>
+    <h2 class="af-title">De 0 a 1.000 suscriptores en YouTube sin pagar publicidad: estrategia paso a paso</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">La estrategia orgánica que llevó tres canales diferentes de cero a 1.000 suscriptores en menos de 90 días. Sin ads, sin engagement baiting, sin trucos de algoritmo. Solo contenido y optimización sistemática.</p>
+    <div class="af-content" id="art7-content" style="display:none">
+      <p>1.000 suscriptores es el primer hito real de YouTube — a partir de ahí el algoritmo empieza a distribuir tu contenido de forma más amplia y puedes solicitar el YPP (YouTube Partner Program) junto a las 4.000 horas de visualización o 10 millones de vistas en Shorts.</p>
+      <h3>Fase 1: Los primeros 10 vídeos (semanas 1-4)</h3>
+      <p>Los primeros 10 vídeos de un canal son un laboratorio. El objetivo no es viralizarse — es entender qué formatos, temas y duraciones funcionan con tu audiencia específica. Publica con una frecuencia mínima de 2 vídeos por semana y analiza las métricas de retención de cada uno. El vídeo con mejor retención se convierte en tu plantilla de referencia.</p>
+      <h3>Fase 2: Doble down en lo que funciona (semanas 5-8)</h3>
+      <p>Identifica los 2-3 vídeos con mejor rendimiento (CTR + retención) y crea 5 variaciones de cada uno. No copies el mismo vídeo — copia el <em>formato</em>, la estructura narrativa y el tipo de hook. Esta estrategia acelera el crecimiento porque el algoritmo ya sabe que ese formato convierte bien en tu audiencia.</p>
+      <h3>El papel de la IA en el crecimiento de YouTube</h3>
+      <p>Con IA puedes producir esos 2 vídeos semanales en 2-3 horas de trabajo total. Usa nuestros <a class="tool-cta" href="herramientas.html#titulos">generadores de títulos →</a> para optimizar el CTR y los prompts de guion de la sección anterior para acelerar la producción.</p>
+    </div>
+    <div class="af-tags"><span class="atag">YouTube</span><span class="atag">Crecimiento</span><span class="atag">Orgánico</span><span class="atag">1000 subs</span><span class="atag">YPP</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art7-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer">
+    <span class="af-nl-cta">Estrategias de crecimiento semanales → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span>
+  </div>
+</article>
+
+<!-- ═══ ARTÍCULO 8 — OFF-TOPIC COCINA IA ═══ -->
+<article class="article-full af-amber reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat c-cocina">Cocina + IA</span>
+      <time class="af-date" datetime="2025-01-22">Ene 2025</time>
+      <span class="af-read">· 5 min</span>
+    </div>
+    <h2 class="af-title">Menú semanal con IA: cómo planificar comidas saludables y económicas en 5 minutos</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">Planificar el menú de la semana puede costar 30 minutos de incertidumbre o 5 minutos con el prompt correcto. Esta guía te da los prompts exactos para que la IA diseñe tu menú semanal adaptado a tu presupuesto, objetivos y gustos.</p>
+    <div class="af-content" id="art8-content" style="display:none">
+      <p>La planificación de comidas es una de las tareas domésticas que más tiempo roba semanalmente — entre decidir qué cocinar, revisar qué tienes en la nevera, buscar recetas y hacer la lista de la compra, fácilmente se van 45 minutos. Con IA, ese proceso completo tarda 5 minutos.</p>
+      <h3>El prompt maestro para menú semanal</h3>
+      <div class="prompt-box">PROMPT MENÚ SEMANAL CON IA:
+"Actúa como chef y nutricionista. Diseña un menú semanal completo.
+
+Mis condiciones:
+- Personas: [X adultos, X niños con edades]
+- Presupuesto semanal: [X€] para alimentación
+- Objetivos: [equilibrado / bajar calorías / ganar músculo / dieta mediterránea]
+- No como: [alergias, intolerancias, preferencias]
+- Tiempo para cocinar: [máximo X min/día]
+- Equipamiento: [horno sí/no, thermomix sí/no]
+
+Entrega:
+- 7 días × desayuno, comida, cena y snack
+- Lista de la compra organizada por secciones del supermercado
+- 3 recetas detalladas con los ingredientes más complejos
+- Consejo de preparación batch cooking del domingo"</div>
+      <h3>Por qué funciona mejor que Google</h3>
+      <p>Buscar "menú semanal saludable" en Google te da resultados genéricos diseñados para todos y para nadie. La IA te da un menú diseñado específicamente para <em>tu</em> situación: tus ingresos, tus gustos, tu tiempo y tus objetivos. La diferencia en la experiencia es radical.</p>
+      <h3>La conexión con la creación de contenido</h3>
+      <p>Si eres creador de contenido en el nicho de cocina o lifestyle, este tipo de prompts son oro puro para tu audiencia. Un vídeo mostrando cómo usas IA para planificar tu comida semanal puede generar decenas de miles de visualizaciones porque resuelve un problema que tiene literalmente todo el mundo.</p>
+    </div>
+    <div class="af-tags"><span class="atag">Cocina</span><span class="atag">IA</span><span class="atag">Menú semanal</span><span class="atag">Recetas</span><span class="atag">Batch cooking</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art8-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer">
+    <span class="af-nl-cta">Más prompts útiles para el día a día → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span>
+  </div>
+</article>
+
+<!-- ═══ ARTÍCULO 9 ═══ -->
+<article class="article-full af-red reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat c-tiktok">TikTok</span>
+      <time class="af-date" datetime="2025-01-15">Ene 2025</time>
+      <span class="af-read">· 6 min</span>
+    </div>
+    <h2 class="af-title">El algoritmo de TikTok en 2025: todo lo que ha cambiado y cómo adaptarte</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">TikTok actualizó su sistema de distribución en Q4 2024 con cambios que afectan directamente al alcance de los Shorts. Explicamos qué ha cambiado, qué señales pesan más ahora y cómo ajustar tu estrategia.</p>
+    <div class="af-content" id="art9-content" style="display:none">
+      <p>TikTok dejó de ser solo una red social de entretenimiento para convertirse en el motor de búsqueda preferido de la generación Z. Ese cambio de identidad ha llevado a actualizaciones importantes en cómo el algoritmo distribuye el contenido.</p>
+      <h3>Las 4 señales que más pesan en 2025</h3>
+      <p><strong>1. Retención hasta el final (completion rate):</strong> Ya no es suficiente con que el espectador vea el 50% de tu vídeo. TikTok prioriza los vídeos que se ven completos y se repiten. Esto favorece los vídeos más cortos (15-30 segundos) sobre los largos.</p>
+      <p><strong>2. Tiempo desde la publicación hasta el primer engagement:</strong> Los primeros 15 minutos son críticos. Publica cuando tu audiencia está activa (usa nuestra <a class="tool-cta" href="herramientas.html#horarios">Calculadora de Horarios →</a>) y responde a los primeros comentarios inmediatamente.</p>
+      <p><strong>3. Shares y guardados:</strong> TikTok valora más un "share" que un "like". El contenido que la gente guarda para ver más tarde o comparte en DMs recibe un boost significativo de distribución.</p>
+      <p><strong>4. Señales de búsqueda:</strong> TikTok ahora indexa texto en pantalla, hashtags y palabras habladas. Incluir tu keyword principal en los primeros 3 segundos (hablada) y en el texto de pantalla mejora el posicionamiento en la barra de búsqueda.</p>
+      <h3>Lo que ya no funciona</h3>
+      <p>Los vídeos de +3 minutos sin justificación narrativa clara han perdido hasta un 60% de alcance respecto a 2023. Los hashtags genéricos (#viral, #parati, #fyp) tienen cada vez menos peso. Y el engagement bait explícito ("comenta X para saber el resultado") está siendo penalizado activamente.</p>
+    </div>
+    <div class="af-tags"><span class="atag">Algoritmo</span><span class="atag">TikTok</span><span class="atag">2025</span><span class="atag">Alcance</span><span class="atag">Estrategia</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art9-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer">
+    <span class="af-nl-cta">Estrategia TikTok actualizada cada semana → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span>
+  </div>
+</article>
+
+<!-- ═══ ARTÍCULO 10 ═══ -->
+<article class="article-full af-purple reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat c-seo">Newsletter</span>
+      <time class="af-date" datetime="2025-01-08">Ene 2025</time>
+      <span class="af-read">· 9 min</span>
+    </div>
+    <h2 class="af-title">Newsletter para creadores: cómo construir una lista de 1.000 suscriptores en 6 meses desde cero</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">El email sigue siendo el activo más valioso de cualquier creador. Esta guía explica el lead magnet correcto, qué herramienta usar, cómo automatizar la secuencia y cómo monetizar desde el primer mes.</p>
+    <div class="af-content" id="art10-content" style="display:none">
+      <p>TikTok puede bannear tu cuenta. YouTube puede demonetizarte. Instagram puede cambiar el algoritmo. Pero tu lista de email es tuya para siempre. Es el único canal de distribución donde tú controlas quién ve tu contenido, cuándo y cómo.</p>
+      <h3>El lead magnet correcto es todo</h3>
+      <p>El 80% de las newsletters que fracasan lo hacen por el mismo motivo: el lead magnet (la "recompensa" por suscribirse) no tiene suficiente valor percibido. "Únete a mi newsletter" no es un lead magnet. Un "Pack de 50 prompts para TikTok" o "Guía de los 5 errores más costosos de los creadores" sí lo son.</p>
+      <p>Las características del lead magnet que convierte bien: <strong>resuelve un problema específico</strong> (no general), <strong>entrega resultado rápido</strong> (se puede aplicar hoy), y <strong>formato consumible</strong> en menos de 20 minutos (PDF de 5-10 páginas, checklist, plantilla).</p>
+      <h3>La herramienta: Kit (antes ConvertKit)</h3>
+      <p>Kit es gratis hasta 10.000 suscriptores, tiene automatizaciones básicas incluidas, integra fácilmente con Gumroad para añadir compradores a segmentos específicos, y tiene las mejores tasas de entrega del sector. Es la opción obvia para creadores que empiezan.</p>
+      <h3>La secuencia de bienvenida de 7 emails</h3>
+      <p>Los primeros 7 días son críticos para la relación con el suscriptor. Email 1: lead magnet + bienvenida personal. Email 2: historia de por qué empezaste. Email 3: recurso gratuito inesperado. Email 4: presentación del problema que resuelves. Email 5: caso de uso o éxito. Email 6: presentación de tu producto/servicio. Email 7: oferta especial para suscriptores nuevos.</p>
+      <p>Esta secuencia genera entre el 30% y el 60% de los ingresos totales de muchos creadores durante el primer año.</p>
+    </div>
+    <div class="af-tags"><span class="atag">Newsletter</span><span class="atag">Email marketing</span><span class="atag">Lead magnet</span><span class="atag">Kit</span><span class="atag">Monetización</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art10-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer">
+    <span class="af-nl-cta">Empieza tu newsletter hoy → <a href="suscripcion-digiprompts.html" target="_blank">Suscríbete gratis →</a></span>
+  </div>
+</article>
+
+
+<!-- ═══ ARTÍCULO 11 — GUIONES SHORTS ═══ -->
+<article class="article-full af-red reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat" style="background:rgba(0,245,255,0.1);color:var(--cyan);border:1px solid rgba(0,245,255,0.2)">IA</span>
+      <time class="af-date" datetime="2025-03-15">Mar 2025</time>
+      <span class="af-read">· 9 min</span>
+    </div>
+    <h2 class="af-title">Cómo crear guiones para YouTube Shorts con IA en menos de 10 minutos: método completo</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">El algoritmo de YouTube Shorts premia un factor por encima de todos: la retención. Un guion mal estructurado destruye incluso el mejor vídeo. Esta guía te da el sistema exacto para escribir guiones de 60 segundos con IA que consiguen el 70%+ de retención en los primeros 30 días.</p>
+    <div class="af-content" id="art11-content" style="display:none">
+      <p>La mayoría de creadores se equivocan de la misma forma: abren ChatGPT, escriben "hazme un guion sobre X" y publican lo que les devuelve. El problema no es la IA. Es que no le dan la estructura correcta. Los vídeos cortos con más retención en español siguen un esquema muy específico que la IA puede aplicar perfectamente si se lo pides bien.</p>
+      <h3>La estructura de los Shorts virales en español</h3>
+      <p>Los primeros 3 segundos son decisivos, hay un gancho de retención exactamente a mitad del vídeo y el final tiene siempre una pregunta abierta que genera comentarios. Esta estructura es consistente en los 200 Shorts más virales en español con +1M de vistas.</p>
+      <h3>Prompt maestro para guiones de Shorts</h3>
+      <div style="background:var(--bg2);border:1px solid var(--border2);border-left:3px solid var(--cyan);border-radius:8px;padding:16px 18px;font-family:'Space Mono',monospace;font-size:12px;line-height:1.7;color:var(--text2);margin:12px 0;white-space:pre-wrap">PROMPT GUION SHORT (60 segundos):
+"Escribe un guion de YouTube Short de 60 segundos sobre [TEMA].
+Estructura obligatoria:
+- Hook (0-3 seg): afirmación sorprendente. Máximo 15 palabras.
+- Desarrollo (3-50 seg): 3 puntos concretos con ejemplos reales.
+- Retención mid-video (25 seg): 'Espera, que ahora viene lo más importante...'
+- CTA (50-60 seg): pregunta abierta + llamada a seguir.
+Añade el texto en pantalla sugerido entre corchetes."</div>
+      <p>Usa nuestro <a href="herramientas.html#guion-short" style="color:var(--cyan);font-weight:600">Generador de Guiones para Shorts →</a> para crear scripts completos sin escribir el prompt cada vez. 6 formatos diferentes incluidos.</p>
+    </div>
+    <div class="af-tags"><span class="atag">YouTube Shorts</span><span class="atag">Guiones IA</span><span class="atag">Retención</span><span class="atag">Script</span><span class="atag">Viral</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art11-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer"><span class="af-nl-cta">Guiones y scripts semanales → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span></div>
+</article>
+
+<!-- ═══ ARTÍCULO 12 — RECETAS CON IA ═══ -->
+<article class="article-full af-amber reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat" style="background:rgba(255,184,0,0.1);color:var(--amber);border:1px solid rgba(255,184,0,0.2)">Cocina + IA</span>
+      <time class="af-date" datetime="2025-03-08">Mar 2025</time>
+      <span class="af-read">· 6 min</span>
+    </div>
+    <h2 class="af-title">Recetas con lo que tengo en casa: cómo usar IA para cocinar con cualquier ingrediente en 5 minutos</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">Abres la nevera, ves cuatro ingredientes sin relación aparente y no sabes qué cocinar. La IA resuelve esto en segundos: le dices lo que tienes y te devuelve una receta completa, adaptada a tu dieta y con trucos de chef. Esta guía te muestra el prompt exacto para obtener la mejor receta posible.</p>
+    <div class="af-content" id="art12-content" style="display:none">
+      <p>La búsqueda "recetas con lo que tengo en casa" recibe más de 200.000 búsquedas mensuales en español. La IA la resuelve mejor que cualquier buscador tradicional porque adapta la receta a tus ingredientes exactos, dieta y tiempo disponible.</p>
+      <h3>El prompt maestro para recetas con ingredientes disponibles</h3>
+      <div style="background:var(--bg2);border:1px solid var(--border2);border-left:3px solid var(--cyan);border-radius:8px;padding:16px 18px;font-family:'Space Mono',monospace;font-size:12px;line-height:1.7;color:var(--text2);margin:12px 0;white-space:pre-wrap">PROMPT RECETAS CON LO QUE TENGO:
+"Actúa como chef profesional.
+Ingredientes disponibles: [LISTA]
+Restricciones: [sin gluten / vegetariana / keto / ninguna]
+Personas: [X] | Tiempo: [Y minutos]
+Dame: nombre del plato, ingredientes con cantidades,
+6 pasos máximo, truco del chef, valor nutricional
+y cómo presentarlo para Instagram."</div>
+      <p>Prueba nuestro <a href="herramientas.html#recetas" style="color:var(--cyan);font-weight:600">Generador de Recetas con IA →</a> sin necesidad de escribir el prompt.</p>
+    </div>
+    <div class="af-tags"><span class="atag">Recetas IA</span><span class="atag">Cocina</span><span class="atag">Ingredientes</span><span class="atag">Meal prep</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art12-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer"><span class="af-nl-cta">Recetas y herramientas gratis → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter semanal →</a></span></div>
+</article>
+
+<!-- ═══ ARTÍCULO 13 — TARIFA FREELANCE ═══ -->
+<article class="article-full af-cyan reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat" style="background:rgba(189,0,255,0.1);color:var(--purple);border:1px solid rgba(189,0,255,0.2)">Freelance</span>
+      <time class="af-date" datetime="2025-03-01">Mar 2025</time>
+      <span class="af-read">· 7 min</span>
+    </div>
+    <h2 class="af-title">Cuánto cobrar como freelancer en España: la fórmula exacta para no malvender tu trabajo</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">El 80% de los freelancers españoles cobra menos de lo que necesita. No por falta de habilidad, sino porque calculan su tarifa de forma incorrecta. Esta guía te da la fórmula exacta teniendo en cuenta impuestos, gastos, vacaciones y margen de beneficio real.</p>
+    <div class="af-content" id="art13-content" style="display:none">
+      <p>El error más común: dividir el sueldo deseado entre las horas del mes. Eso ignora impuestos, gastos, vacaciones y los días que no facturas. La tarifa mínima viable = (Sueldo neto + Gastos + Ahorro) / (1 - tipo impositivo) / horas facturables reales.</p>
+      <h3>Tarifas de referencia por sector (España 2025)</h3>
+      <p>Diseño gráfico/UX: 35-80€/h. Desarrollo web: 45-120€/h. Copywriting: 30-70€/h. Community manager: 25-55€/h. Producción de vídeo: 40-100€/h. Consultoría marketing: 60-150€/h.</p>
+      <p>Calcula tu tarifa exacta con nuestra <a href="herramientas.html#tarifa" style="color:var(--cyan);font-weight:600">Calculadora de Tarifa Freelance →</a></p>
+    </div>
+    <div class="af-tags"><span class="atag">Freelance</span><span class="atag">Tarifa</span><span class="atag">Autónomo</span><span class="atag">España</span><span class="atag">Cuánto cobrar</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art13-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer"><span class="af-nl-cta">Estrategias para freelancers → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span></div>
+</article>
+
+<!-- ═══ ARTÍCULO 14 — MONETIZAR YOUTUBE ═══ -->
+<article class="article-full af-amber reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat" style="background:rgba(255,51,102,0.1);color:var(--red);border:1px solid rgba(255,51,102,0.2)">YouTube</span>
+      <time class="af-date" datetime="2025-02-22">Feb 2025</time>
+      <span class="af-read">· 10 min</span>
+    </div>
+    <h2 class="af-title">Cuánto gana un YouTuber en España: RPM real, AdSense y las 5 fuentes de ingresos que nadie explica</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">El RPM medio en España es de 2-5€ por mil visualizaciones, pero eso es solo una pequeña parte de los ingresos reales de un canal. Esta guía explica los datos reales de monetización en YouTube para el mercado hispanohablante y las 5 fuentes de ingresos que transforman un canal pequeño en un negocio.</p>
+    <div class="af-content" id="art14-content" style="display:none">
+      <h3>RPM por nicho en España (datos 2024-2025)</h3>
+      <p>Finanzas personales: 8-20€. Tecnología: 6-15€. Marketing y negocios: 7-18€. Salud y fitness: 4-10€. Entretenimiento: 1.5-4€. Filosofía: 2-6€. Terror y misterio: 1.5-3.5€. El RPM real que llega a tu bolsillo es aproximadamente el 55% del CPM bruto.</p>
+      <h3>Las 5 fuentes de ingresos de un canal sostenible</h3>
+      <p><strong>1. AdSense:</strong> El punto de partida, nunca el destino. <strong>2. Sponsorships:</strong> 10-50€ por cada 1.000 suscriptores según nicho. <strong>3. Newsletter:</strong> Los emails valen 5-10x más que los suscriptores de YouTube. <strong>4. Productos digitales:</strong> Margen del 80-95%. <strong>5. Afiliados:</strong> Funciona especialmente bien en tecnología y fitness.</p>
+      <p>El funnel correcto: YouTube → Newsletter → Producto propio. Las newsletters de DigiPrompts siguen este modelo: <a href="suscripcion-digiprompts.html" target="_blank" style="color:var(--cyan);font-weight:600">DigiPrompts IA →</a></p>
+    </div>
+    <div class="af-tags"><span class="atag">YouTube</span><span class="atag">AdSense</span><span class="atag">RPM</span><span class="atag">Monetización</span><span class="atag">España</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art14-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer"><span class="af-nl-cta">Estrategia de monetización → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span></div>
+</article>
+
+<!-- ═══ ARTÍCULO 15 — CANALES FACELESS ═══ -->
+<article class="article-full af-cyan reveal">
+  <div class="af-header">
+    <div class="af-meta">
+      <span class="af-cat" style="background:rgba(0,245,255,0.1);color:var(--cyan);border:1px solid rgba(0,245,255,0.2)">IA + YouTube</span>
+      <time class="af-date" datetime="2025-02-15">Feb 2025</time>
+      <span class="af-read">· 12 min</span>
+    </div>
+    <h2 class="af-title">Canales faceless con IA en 2025: cómo crear vídeos de YouTube sin aparecer en cámara</h2>
+  </div>
+  <div class="af-body">
+    <p class="af-excerpt">Los canales faceless son la tendencia más relevante de YouTube 2024-2025. Se producen completamente con IA: voz sintética, imágenes y guiones automatizados. Esta guía explica el sistema completo, las herramientas reales y los nichos con mayor potencial para creadores hispanohablantes.</p>
+    <div class="af-content" id="art15-content" style="display:none">
+      <h3>El stack tecnológico de un canal faceless en 2025</h3>
+      <p><strong>Guiones:</strong> Claude o ChatGPT. <strong>Voz:</strong> Edge TTS (gratuito), ElevenLabs (premium). <strong>Imágenes:</strong> Pexels/Unsplash o Midjourney. <strong>Montaje:</strong> FFmpeg automatizado o CapCut. <strong>Subtítulos:</strong> Whisper o auto-captioning de YouTube.</p>
+      <h3>Nichos con mayor potencial faceless en español</h3>
+      <p>Terror y misterio: alta retención, RPM 2-4€. Filosofía/estoicismo: audiencia engaged, RPM 3-7€. Finanzas: RPM alto (8-20€) pero competencia alta. Historia y documentales: evergreen, pasivo. Motivación: audiencia masiva, escalable.</p>
+      <p>Sin newsletter, el canal faceless depende 100% del algoritmo. Empieza a capturar emails desde el primer vídeo: <a href="suscripcion-digiprompts.html" target="_blank" style="color:var(--cyan);font-weight:600">DigiPrompts IA →</a></p>
+    </div>
+    <div class="af-tags"><span class="atag">Faceless</span><span class="atag">Canal IA</span><span class="atag">YouTube 2025</span><span class="atag">Sin cara</span><span class="atag">Automatización</span></div>
+    <button class="af-link read-more-btn" onclick="toggleArticle('art15-content',this)">Leer artículo completo →</button>
+  </div>
+  <div class="af-footer"><span class="af-nl-cta">Sistema faceless completo → <a href="suscripcion-digiprompts.html" target="_blank">Newsletter gratis →</a></span></div>
+</article>
+</main>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+  <div class="sw">
+    <div class="sw-title">Newsletters</div>
+    <a class="nl-mini" href="suscripcion-digiprompts.html" target="_blank">
+      <div class="nl-mini-ico">🤖</div>
+      <div><div class="nl-mini-name">DigiPrompts IA</div><div class="nl-mini-desc">200 prompts gratis</div></div>
+      <div class="nl-mini-arr">→</div>
+    </a>
+    <a class="nl-mini" href="suscripcion-estoicismo.html" target="_blank">
+      <div class="nl-mini-ico">🏛️</div>
+      <div><div class="nl-mini-name">Estoicismo en Vena</div><div class="nl-mini-desc">5 hábitos estoicos</div></div>
+      <div class="nl-mini-arr">→</div>
+    </a>
+    <a class="nl-mini" href="suscripcion-terror.html" target="_blank">
+      <div class="nl-mini-ico">👻</div>
+      <div><div class="nl-mini-name">Leyendas Aterradoras</div><div class="nl-mini-desc">5 historias reales</div></div>
+      <div class="nl-mini-arr">→</div>
+    </a>
+  </div>
+
+  <div class="sw">
+    <div class="sw-title">Categorías</div>
+    <a class="cat-link" href="#"><span>Inteligencia Artificial</span><span class="cat-cnt">6</span></a>
+    <a class="cat-link" href="#"><span>TikTok</span><span class="cat-cnt">2</span></a>
+    <a class="cat-link" href="#"><span>YouTube</span><span class="cat-cnt">4</span></a>
+    <a class="cat-link" href="#"><span>Prompts</span><span class="cat-cnt">2</span></a>
+    <a class="cat-link" href="#"><span>Fitness + IA</span><span class="cat-cnt">1</span></a>
+    <a class="cat-link" href="#"><span>Cocina + IA</span><span class="cat-cnt">2</span></a>
+    <a class="cat-link" href="#"><span>Newsletter</span><span class="cat-cnt">1</span></a>
+  </div>
+
+  <div class="sw">
+    <div class="sw-title">Herramientas del blog</div>
+    <a class="tool-pill" href="herramientas.html#hooks" target="_blank">
+      <span class="tp-icon">🪝</span>
+      <span class="tp-name">Analizador de Hooks</span>
+      <span class="tp-tag">Gratis</span>
+    </a>
+    <a class="tool-pill" href="herramientas.html#titulos" target="_blank">
+      <span class="tp-icon">🎬</span>
+      <span class="tp-name">Títulos YouTube</span>
+      <span class="tp-tag">Gratis</span>
+    </a>
+    <a class="tool-pill" href="herramientas.html#hashtags" target="_blank">
+      <span class="tp-icon">🏷️</span>
+      <span class="tp-name">Generador Hashtags</span>
+      <span class="tp-tag">Gratis</span>
+    </a>
+    <a class="tool-pill" href="herramientas.html#horarios" target="_blank">
+      <span class="tp-icon">📅</span>
+      <span class="tp-name">Horarios Óptimos</span>
+      <span class="tp-tag">Gratis</span>
+    </a>
+  </div>
+
+  <div class="sw">
+    <div class="sw-title">Tags</div>
+    <div class="tcloud">
+      <span class="ptag">ChatGPT</span><span class="ptag">Claude</span>
+      <span class="ptag">Prompts</span><span class="ptag">TikTok</span>
+      <span class="ptag">YouTube</span><span class="ptag">SEO</span>
+      <span class="ptag">Hooks</span><span class="ptag">Viral</span>
+      <span class="ptag">Fitness</span><span class="ptag">Cocina</span>
+      <span class="ptag">2025</span><span class="ptag">Newsletter</span>
+    </div>
+  </div>
+
+  <div class="sw" style="background:linear-gradient(135deg,rgba(0,245,255,0.04),rgba(189,0,255,0.04));border-color:var(--border2);">
+    <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;">Prompts en tu email cada semana</div>
+    <p style="font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.6;">Los mejores prompts + estrategias + herramientas. Una vez a la semana. Gratis siempre.</p>
+    <a href="suscripcion-digiprompts.html" target="_blank" class="btn-nav" style="display:block;text-align:center;font-size:10px;">Suscribirme gratis →</a>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  <div class="fi">
+    <a class="fl" href="index.html">DIGI<span>PROMPTS</span></a>
+    <div class="flinks">
+      <a href="herramientas.html">Herramientas</a>
+      <a href="blog.html">Blog</a>
+      <a href="canales.html">Canales</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </div>
+    <div class="fc">© 2025 DigiPrompts · Hecho con 🤖 IA</div>
+  </div>
+</footer>
+
+<script>
+function toggleArticle(id, btn){
+  const el = document.getElementById(id);
+  const isHidden = el.style.display === 'none';
+  el.style.display = isHidden ? 'block' : 'none';
+  btn.textContent = isHidden ? 'Cerrar artículo ↑' : 'Leer artículo completo →';
+}
+
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*50);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.04});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
