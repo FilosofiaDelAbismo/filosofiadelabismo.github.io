@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Cookies — DigiPrompts</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  :root {
+    --accent: #0ea5e9;
+    --accent2: #0284c7;
+    --bg: #0f172a;
+    --surface: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  .hero {
+    padding: 80px 24px 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, #0ea5e922 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid #0ea5e944;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+  .section {
+    margin-bottom: 48px;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2::before {
+    content: '';
+    display: block;
+    width: 4px; height: 20px;
+    background: var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  p { color: var(--muted); margin-bottom: 12px; font-size: 15px; }
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-top: 16px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead tr {
+    background: var(--surface);
+  }
+  th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 12px 16px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  .tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #0ea5e918;
+    color: var(--accent);
+    border: 1px solid #0ea5e933;
+  }
+  .tag.green { background: #10b98118; color: #10b981; border-color: #10b98133; }
+  .tag.red { background: #ef444418; color: #ef4444; border-color: #ef444433; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .card p { margin-bottom: 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 32px 24px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .updated {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">Legal &amp; Privacidad</div>
+  <h1>Política de Cookies</h1>
+  <p class="subtitle">DigiPrompts &mdash; digiprompts.io</p>
+  <p class="updated">Última actualización: abril 2026</p>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <h2>¿Qué son las cookies?</h2>
+    <p>Las cookies son pequeños ficheros de texto que los sitios web almacenan en tu dispositivo cuando los visitas. Sirven para recordar tus preferencias, mantener sesiones activas y recopilar información estadística anónima.</p>
+    <p>DigiPrompts es una plataforma de herramientas de inteligencia artificial que opera desde España y cumple con el Reglamento General de Protección de Datos (RGPD), la Ley Orgánica de Protección de Datos (LOPD-GDD) y la Ley de Servicios de la Sociedad de la Información (LSSI-CE).</p>
+  </div>
+
+  <div class="section">
+    <h2>Cookies que utilizamos</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Tipo</th>
+            <th>Finalidad</th>
+            <th>Cookies</th>
+            <th>Consentimiento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Plausible Analytics</strong></td>
+            <td><span class="tag">Analítica</span></td>
+            <td>Estadísticas anónimas de visitas. No recopila datos personales ni usa cookies.</td>
+            <td>Ninguna</td>
+            <td><span class="tag green">No requerido</span></td>
+          </tr>
+          <tr>
+            <td><strong>chatbot DigiPrompts</strong><br><small>digiprompts.io</small></td>
+            <td><span class="tag">Funcional</span></td>
+            <td>Chatbot de asistencia virtual. Puede usar cookies de sesión para mantener el contexto de la conversación.</td>
+            <td>Sesión (temporal)</td>
+            <td><span class="tag red">Requerido</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>¿Por qué no necesitamos tu consentimiento para Plausible?</h2>
+    <p>Plausible Analytics es una herramienta de analítica web respetuosa con la privacidad que <strong>no instala cookies</strong> en tu dispositivo y no recopila ningún dato personal identificable. Los datos son completamente anónimos y se procesan en servidores dentro de la Unión Europea.</p>
+    <p>Al no existir tratamiento de datos personales, no es necesario obtener tu consentimiento según el RGPD ni la Directiva ePrivacy.</p>
+  </div>
+
+  <div class="section">
+    <h2>Gestión del consentimiento</h2>
+    <p>Al acceder por primera vez a digiprompts.io, verás un banner de gestión de cookies donde podrás aceptar, rechazar o personalizar qué servicios se activan. Puedes cambiar tus preferencias en cualquier momento haciendo clic en el enlace <em>"Preferencias de cookies"</em> en el pie de página.</p>
+    <p>El rechazo de cookies no técnicas no afecta a tu capacidad de navegar por el sitio web.</p>
+  </div>
+
+  <div class="section">
+    <h2>Tus derechos</h2>
+    <p>Conforme al RGPD tienes derecho a acceder, rectificar, suprimir y portar tus datos, así como a oponerte a su tratamiento. Para ejercer estos derechos o realizar cualquier consulta sobre privacidad, puedes contactarnos en:</p>
+    <div class="card">
+      <p>📧 <a href="mailto:privacidad@digiprompts.io">privacidad@digiprompts.io</a></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Cambios en esta política</h2>
+    <p>Podemos actualizar esta política ocasionalmente para reflejar cambios en los servicios que usamos o en la normativa aplicable. Te recomendamos revisarla periódicamente. La fecha de última actualización aparece en la parte superior de esta página.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>&copy; 2026 DigiPrompts &mdash; <a href="/">digiprompts.io</a></p>
+</div>
+
+</body>
+</html>
