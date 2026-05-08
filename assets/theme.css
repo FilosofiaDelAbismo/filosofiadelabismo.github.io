@@ -1,0 +1,73 @@
+/* DigiPrompts — Theme tokens
+ * Paleta y tipografías oficiales. No modificar valores sin actualizar
+ * STYLE_GUIDE.md.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Tipografías */
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+
+  /* Tinta / negros (fondos) */
+  --ink: #080c15;
+  --ink2: #0d1117;
+  --ink3: #111827;
+
+  /* Wall / superficies elevadas (cards, secciones) */
+  --wall: #1a2235;
+  --wall2: #232f45;
+
+  /* Mist / textos sobre fondo oscuro */
+  --mist: #dde6f5;
+  --mist2: #8292b0;
+  --mist3: #4a5a7a;
+
+  /* Acento principal de marca: VIOLETA LAVANDA */
+  --accent: #A78BFA;
+  --accent-rgb: 167,139,250;
+  --accent-bg: rgba(167,139,250,0.06);
+  --accent-bd: rgba(167,139,250,0.18);
+
+  /* Acentos secundarios para badges y categorías */
+  --coral: #FF7A5A;
+  --coral-bg: rgba(255,122,90,0.06);
+  --coral-bd: rgba(255,122,90,0.18);
+  --gold: #FFD166;
+  --gold-bg: rgba(255,209,102,0.06);
+  --gold-bd: rgba(255,209,102,0.18);
+  --green: #4ADE80;
+  --green-bg: rgba(74,222,128,0.06);
+  --green-bd: rgba(74,222,128,0.18);
+  --sky: #5BBFFF;
+  --sky-bg: rgba(91,191,255,0.06);
+  --sky-bd: rgba(91,191,255,0.18);
+
+  /* Espaciados base (escala) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+
+  /* Radios */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+
+  /* Sombras */
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.18);
+  --shadow-md: 0 12px 32px rgba(0,0,0,0.28);
+  --shadow-glow: 0 0 0 3px var(--accent-bg);
+
+  /* Transiciones */
+  --t-fast: 120ms ease;
+  --t-base: 200ms ease;
+}
