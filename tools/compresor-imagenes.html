@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compresor de imágenes · Utilidades · DigiPrompts</title>
+  <meta name="description" content="Comprime JPG, PNG y WebP en el navegador. Sube varias, descarga una o todas en ZIP. Sin servidor, sin registro." />
+  <meta property="og:title" content="Compresor de imágenes · DigiPrompts" />
+  <meta property="og:description" content="Reduce el peso sin perder calidad visible. 100% local." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%97%9C%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <!-- ===== HEADER (replicar igual en todas las páginas) ===== -->
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="/index.html" class="brand">Digi<em>Prompts</em></a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Abrir navegación">☰</button>
+      <nav class="nav" aria-label="Principal">
+        <a href="/herramientas.html">Herramientas</a>
+        <div class="has-dropdown">
+          <a href="/utilidades.html" class="dropdown-trigger active" aria-haspopup="true" aria-expanded="false">Utilidades <span class="caret">▾</span></a>
+          <div class="dropdown-menu" role="menu">
+            <a href="/tools/visor-html.html"><span class="dd-emoji">🖥️</span> Visor HTML</a>
+            <a href="/tools/contador-caracteres.html"><span class="dd-emoji">📝</span> Contador caracteres</a>
+            <a href="/tools/miniaturas-youtube.html"><span class="dd-emoji">🎬</span> Miniaturas YouTube</a>
+            <a href="/tools/fancy-text.html"><span class="dd-emoji">✨</span> Fancy Text</a>
+            <a href="/tools/generador-qr.html"><span class="dd-emoji">📱</span> Generador QR</a>
+            <a href="/tools/redimensionador-imagenes.html"><span class="dd-emoji">📐</span> Redimensionar imágenes</a>
+            <hr />
+            <a href="/tools/compresor-imagenes.html" class="active"><span class="dd-emoji">🗜️</span> Compresor imágenes</a>
+            <a href="/tools/conversor-formato-imagen.html"><span class="dd-emoji">🔄</span> Conversor formato</a>
+            <a href="/tools/calculadora-engagement.html"><span class="dd-emoji">📊</span> Engagement rate</a>
+            <a href="/tools/calculadora-ingresos.html"><span class="dd-emoji">💰</span> Calculadora ingresos</a>
+            <a href="/tools/conversor-zonas-horarias.html"><span class="dd-emoji">🌍</span> Zonas horarias</a>
+            <a href="/tools/conversor-mayusculas.html"><span class="dd-emoji">🔤</span> Mayús/minús</a>
+          </div>
+        </div>
+        <a href="/chatbot.html">Chat IA ✦</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/canales.html">Canales</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/partners.html">Partners</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="/chatbot.html">Chat IA gratis</a>
+        <a class="btn btn-primary" href="/#newsletter">200 prompts gratis →</a>
+      </div>
+    </div>
+  </header>
+  <!-- ===== /HEADER ===== -->
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Migas">
+        <a href="/index.html">Inicio</a> ›
+        <a href="/utilidades.html">Utilidades</a> ›
+        <span>Compresor de imágenes</span>
+      </nav>
+      <a class="back-link" href="/utilidades.html">← Volver a Utilidades</a>
+
+      <section class="tool-hero">
+        <span class="badge badge-image">Imagen</span>
+        <h1 style="margin-top:10px">🗜️ <em>Compresor</em> de imágenes</h1>
+        <p>Sube varias imágenes y reduce su peso ajustando la calidad. Procesado 100% en el navegador, descarga una a una o todas en un ZIP.</p>
+      </section>
+
+      <div class="card" style="margin-bottom: var(--s5)">
+        <label class="dropzone" id="drop">
+          <div class="dz-emoji">⬆️</div>
+          <strong>Arrastra varias imágenes</strong> o haz clic para seleccionar.
+          <div class="muted" style="font-size:.85rem;margin-top:6px">JPG, PNG o WebP · sin límite</div>
+          <input id="file" type="file" accept="image/*" multiple hidden />
+        </label>
+
+        <div class="tool-grid split-2" style="grid-template-columns:1fr 1fr;margin-top:var(--s4)">
+          <div class="field">
+            <label class="label" for="quality">Calidad: <span id="qval">82</span>%</label>
+            <input id="quality" type="range" min="20" max="100" value="82" />
+          </div>
+          <div class="field">
+            <label class="label" for="targetType">Formato</label>
+            <select id="targetType" class="select">
+              <option value="auto">Mantener formato</option>
+              <option value="image/jpeg">JPG</option>
+              <option value="image/webp">WebP (más ligero)</option>
+              <option value="image/png">PNG (sin pérdida)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="list" style="display:grid;gap:var(--s4)"></div>
+
+      <div class="toolbar" id="batchActions" style="margin-top:var(--s4);display:none">
+        <button class="btn btn-primary" id="zipAll">Descargar todas (ZIP)</button>
+        <button class="btn btn-secondary" id="clearAll">Limpiar lista</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER (replicar igual en todas las páginas) ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Herramientas</h4>
+          <ul>
+            <li><a href="/herramientas.html">Generador de guiones</a></li>
+            <li><a href="/herramientas.html">Generador de hashtags</a></li>
+            <li><a href="/herramientas.html">Generador de captions</a></li>
+            <li><a href="/herramientas.html">Generador de bio</a></li>
+            <li><a href="/herramientas.html">Títulos YouTube</a></li>
+            <li><a href="/herramientas.html">Analizador de hooks</a></li>
+            <li><a href="/herramientas.html">Ideas de contenido</a></li>
+            <li><a href="/herramientas.html">Calendario editorial</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletters</h4>
+          <ul>
+            <li><a href="/#newsletter">DigiPrompts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>YouTube</h4>
+          <ul>
+            <li><a href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank" rel="noopener" aria-label="Estoico Loco">Estoico Loco</a></li>
+            <li><a href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank" rel="noopener" aria-label="Leyendas Aterradoras">Leyendas Aterradoras</a></li>
+            <li><a href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" target="_blank" rel="noopener" aria-label="Historias Minuteras">Historias Minuteras</a></li>
+            <li><a href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" target="_blank" rel="noopener" aria-label="PokerConDatos">PokerConDatos</a></li>
+            <li><a href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" target="_blank" rel="noopener" aria-label="NeuralSpot">NeuralSpot</a></li>
+            <li><a href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" target="_blank" rel="noopener" aria-label="NEV">NEV</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contenido</h4>
+          <ul>
+            <li><a href="/blog.html">Blog IA</a></li>
+            <li><a href="/canales.html">Canales</a></li>
+            <li><a href="/herramientas.html">Herramientas</a></li>
+            <li><a href="/utilidades.html">Utilidades</a></li>
+            <li><a href="/chatbot.html">Chat IA</a></li>
+            <li><a href="/partners.html">Partners</a></li>
+          </ul>
+        </div>
+      </div>      <div class="footer-proof">
+        <div class="footer-proof-title">Canales faceless automatizados con IA</div>
+        <div class="footer-proof-sub">Esto que ves aquí… funciona. Aquí están nuestros canales reales:</div>
+        <div class="channels-row">
+        <a class="channel-link" href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank" rel="noopener" aria-label="Estoico Loco">
+          <img src="/assets/canales/estoico-loco.jpg" alt="Estoico Loco" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'EL'}))">
+        </a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank" rel="noopener" aria-label="Leyendas Aterradoras">
+          <img src="/assets/canales/leyendas-aterradoras.jpg" alt="Leyendas Aterradoras" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'LA'}))">
+        </a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" target="_blank" rel="noopener" aria-label="Historias Minuteras">
+          <img src="/assets/canales/historias-minuteras.jpg" alt="Historias Minuteras" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'HM'}))">
+        </a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" target="_blank" rel="noopener" aria-label="PokerConDatos">
+          <img src="/assets/canales/pokercondatos.jpg" alt="PokerConDatos" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'PC'}))">
+        </a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" target="_blank" rel="noopener" aria-label="NeuralSpot">
+          <img src="/assets/canales/neuralspot.jpg" alt="NeuralSpot" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'NS'}))">
+        </a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" target="_blank" rel="noopener" aria-label="NEV">
+          <img src="/assets/canales/nev.jpg" alt="NEV" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'NE'}))">
+        </a>
+        </div>
+        <a class="see-all-channels" href="/canales.html">Ver todos los canales →</a>
+        <hr class="proof-divider" />
+        <div class="brand-socials">
+          <span>Síguenos:</span>
+          <a href="https://www.tiktok.com/@digiprompts" target="_blank" rel="noopener" aria-label="DigiPrompts en TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82c-.84-.55-1.46-1.4-1.74-2.4-.06-.21-.1-.42-.13-.64h-3.04v12.79c0 1.55-1.27 2.81-2.83 2.81-1.56 0-2.83-1.26-2.83-2.81 0-1.56 1.27-2.82 2.83-2.82.31 0 .61.05.89.14V9.84c-.29-.04-.59-.07-.89-.07C5.6 9.77 3 12.35 3 15.57s2.6 5.8 5.87 5.8c3.27 0 5.87-2.6 5.87-5.8V9.34c1.18.85 2.65 1.36 4.26 1.36V7.66c-.86 0-1.66-.26-2.4-.7-.34-.21-.66-.46-1-.74v-.4z"/></svg>
+          </a>
+          <a href="https://x.com/DigiPrompts_io" target="_blank" rel="noopener" aria-label="DigiPrompts en X">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DigiPrompts · Todos los derechos reservados</div>
+        <div class="muted" style="margin-top:8px">Hecho con 🤖 Inteligencia Artificial</div>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== /FOOTER ===== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="../assets/common.js"></script>
+  <script>
+  (function () {
+    var drop = document.getElementById('drop');
+    var fileInput = document.getElementById('file');
+    var list = document.getElementById('list');
+    var qIn = document.getElementById('quality');
+    var qVal = document.getElementById('qval');
+    var typeSel = document.getElementById('targetType');
+    var batch = document.getElementById('batchActions');
+
+    var items = []; // {id, file, blob, mime, name, w, h}
+
+    function pickMime(orig) {
+      var t = typeSel.value;
+      if (t === 'auto') {
+        if (/jpeg|jpg/i.test(orig.type)) return 'image/jpeg';
+        if (/webp/i.test(orig.type))     return 'image/webp';
+        return 'image/png';
+      }
+      return t;
+    }
+    function ext(mime) {
+      return mime === 'image/png' ? 'png' : mime === 'image/webp' ? 'webp' : 'jpg';
+    }
+    function nameFor(orig, mime) {
+      var n = orig.name.replace(/\.[^.]+$/, '');
+      return n + '-min.' + ext(mime);
+    }
+
+    function compressOne(file) {
+      return new Promise(function (resolve, reject) {
+        var img = new Image();
+        var url = URL.createObjectURL(file);
+        img.onload = function () {
+          var canvas = document.createElement('canvas');
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          canvas.getContext('2d').drawImage(img, 0, 0);
+          var mime = pickMime(file);
+          var q = mime === 'image/png' ? undefined : (parseInt(qIn.value, 10) / 100);
+          canvas.toBlob(function (blob) {
+            URL.revokeObjectURL(url);
+            if (!blob) return reject(new Error('toBlob falló'));
+            resolve({ blob: blob, mime: mime, w: img.naturalWidth, h: img.naturalHeight });
+          }, mime, q);
+        };
+        img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('Imagen no válida')); };
+        img.src = url;
+      });
+    }
+
+    function addFiles(files) {
+      Array.prototype.forEach.call(files, function (f) {
+        if (!f.type.startsWith('image/')) return;
+        var id = 'i' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
+        items.push({ id: id, file: f, blob: null, mime: null, name: null });
+      });
+      renderList();
+      processAll();
+    }
+
+    function renderList() {
+      list.innerHTML = items.map(function (it) {
+        var origSize = DigiUI.formatBytes(it.file.size);
+        var newSize  = it.blob ? DigiUI.formatBytes(it.blob.size) : '<span class="muted">procesando…</span>';
+        var pct;
+        if (it.blob) {
+          var d = ((1 - it.blob.size / it.file.size) * 100);
+          var sign = d >= 0 ? '−' : '+';
+          var col  = d >= 0 ? 'var(--green)' : 'var(--coral)';
+          pct = '<span style="color:' + col + ';font-family:var(--mono)">' + sign + Math.abs(d).toFixed(0) + '%</span>';
+        } else {
+          pct = '—';
+        }
+        var preview = it.blob ? URL.createObjectURL(it.blob) : URL.createObjectURL(it.file);
+        return '' +
+          '<article class="card" style="display:flex;gap:var(--s4);align-items:center">' +
+            '<img src="' + preview + '" alt="" style="width:96px;height:96px;object-fit:cover;border-radius:8px;background:var(--ink2)" />' +
+            '<div style="flex:1;min-width:0">' +
+              '<div style="font-weight:500;color:var(--mist);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + it.file.name + '</div>' +
+              '<div class="muted" style="font-size:.85rem;font-family:var(--mono);margin-top:4px">' +
+                origSize + ' → ' + newSize + ' · ' + pct +
+              '</div>' +
+            '</div>' +
+            '<div class="row-actions">' +
+              '<button class="btn btn-secondary btn-sm" data-act="remove" data-id="' + it.id + '">Quitar</button>' +
+              '<button class="btn btn-primary btn-sm" data-act="dl" data-id="' + it.id + '"' + (it.blob ? '' : ' disabled') + '>Descargar</button>' +
+            '</div>' +
+          '</article>';
+      }).join('');
+      batch.style.display = items.length > 1 ? '' : 'none';
+    }
+
+    function processAll() {
+      Promise.all(items.map(function (it) {
+        if (it.blob) return Promise.resolve();
+        return compressOne(it.file).then(function (res) {
+          it.blob = res.blob; it.mime = res.mime; it.name = nameFor(it.file, res.mime);
+        }).catch(function (err) {
+          it.error = err.message;
+        });
+      })).then(renderList);
+    }
+
+    drop.addEventListener('click', function () { fileInput.click(); });
+    fileInput.addEventListener('change', function () { addFiles(fileInput.files); fileInput.value = ''; });
+    drop.addEventListener('dragover', function (e) { e.preventDefault(); drop.classList.add('is-drag'); });
+    drop.addEventListener('dragleave', function () { drop.classList.remove('is-drag'); });
+    drop.addEventListener('drop', function (e) {
+      e.preventDefault(); drop.classList.remove('is-drag');
+      addFiles(e.dataTransfer.files);
+    });
+
+    qIn.addEventListener('input', function () {
+      qVal.textContent = qIn.value;
+    });
+    var rerunDebounced = DigiUI.debounce(function () {
+      items.forEach(function (it) { it.blob = null; });
+      renderList();
+      processAll();
+    }, 250);
+    qIn.addEventListener('change', rerunDebounced);
+    typeSel.addEventListener('change', rerunDebounced);
+
+    list.addEventListener('click', function (ev) {
+      var btn = ev.target.closest('button[data-act]');
+      if (!btn) return;
+      var id = btn.getAttribute('data-id');
+      var idx = items.findIndex(function (x) { return x.id === id; });
+      if (idx < 0) return;
+      if (btn.getAttribute('data-act') === 'remove') {
+        items.splice(idx, 1);
+        renderList();
+      } else if (btn.getAttribute('data-act') === 'dl') {
+        var it = items[idx];
+        if (it.blob) { DigiUI.download(it.name, it.blob); }
+      }
+    });
+
+    document.getElementById('zipAll').addEventListener('click', function () {
+      if (typeof JSZip === 'undefined') return DigiUI.toast('JSZip no disponible');
+      var zip = new JSZip();
+      var ready = items.filter(function (i) { return i.blob; });
+      if (!ready.length) return DigiUI.toast('Aún no hay nada listo');
+      ready.forEach(function (it) { zip.file(it.name, it.blob); });
+      zip.generateAsync({ type: 'blob' }).then(function (blob) {
+        DigiUI.download('digi-comprimidas.zip', blob);
+      });
+    });
+    document.getElementById('clearAll').addEventListener('click', function () {
+      items = []; renderList();
+    });
+  })();
+  </script>
+</body>
+</html>

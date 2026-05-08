@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora de engagement rate · Utilidades · DigiPrompts</title>
+  <meta name="description" content="Calcula tu engagement rate en Instagram, TikTok, YouTube y X. Benchmark por nicho con datos 2025-2026." />
+  <meta property="og:title" content="Calculadora de engagement rate · DigiPrompts" />
+  <meta property="og:description" content="ER por plataforma con benchmark 2025-2026." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8A%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="/index.html" class="brand">Digi<em>Prompts</em></a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Abrir navegación">☰</button>
+      <nav class="nav" aria-label="Principal">
+        <a href="/herramientas.html">Herramientas</a>
+        <div class="has-dropdown">
+          <a href="/utilidades.html" class="dropdown-trigger active" aria-haspopup="true" aria-expanded="false">Utilidades <span class="caret">▾</span></a>
+          <div class="dropdown-menu" role="menu">
+            <a href="/tools/visor-html.html"><span class="dd-emoji">🖥️</span> Visor HTML</a>
+            <a href="/tools/contador-caracteres.html"><span class="dd-emoji">📝</span> Contador caracteres</a>
+            <a href="/tools/miniaturas-youtube.html"><span class="dd-emoji">🎬</span> Miniaturas YouTube</a>
+            <a href="/tools/fancy-text.html"><span class="dd-emoji">✨</span> Fancy Text</a>
+            <a href="/tools/generador-qr.html"><span class="dd-emoji">📱</span> Generador QR</a>
+            <a href="/tools/redimensionador-imagenes.html"><span class="dd-emoji">📐</span> Redimensionar imágenes</a>
+            <hr />
+            <a href="/tools/compresor-imagenes.html"><span class="dd-emoji">🗜️</span> Compresor imágenes</a>
+            <a href="/tools/conversor-formato-imagen.html"><span class="dd-emoji">🔄</span> Conversor formato</a>
+            <a href="/tools/calculadora-engagement.html" class="active"><span class="dd-emoji">📊</span> Engagement rate</a>
+            <a href="/tools/calculadora-ingresos.html"><span class="dd-emoji">💰</span> Calculadora ingresos</a>
+            <a href="/tools/conversor-zonas-horarias.html"><span class="dd-emoji">🌍</span> Zonas horarias</a>
+            <a href="/tools/conversor-mayusculas.html"><span class="dd-emoji">🔤</span> Mayús/minús</a>
+          </div>
+        </div>
+        <a href="/chatbot.html">Chat IA ✦</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/canales.html">Canales</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/partners.html">Partners</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="/chatbot.html">Chat IA gratis</a>
+        <a class="btn btn-primary" href="/#newsletter">200 prompts gratis →</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Migas">
+        <a href="/index.html">Inicio</a> ›
+        <a href="/utilidades.html">Utilidades</a> ›
+        <span>Calculadora de engagement</span>
+      </nav>
+      <a class="back-link" href="/utilidades.html">← Volver a Utilidades</a>
+
+      <section class="tool-hero">
+        <span class="badge badge-metric">Métricas</span>
+        <h1 style="margin-top:10px">📊 Calculadora de <em>engagement rate</em></h1>
+        <p>ER por plataforma con benchmark y comparación con la media del nicho. Fórmula adaptada a cada red.</p>
+      </section>
+
+      <div class="tool-grid split-2">
+        <div class="card">
+          <div class="field">
+            <label class="label" for="platform">Plataforma</label>
+            <select id="platform" class="select">
+              <option value="ig">Instagram (post / reel)</option>
+              <option value="tiktok">TikTok (vídeo)</option>
+              <option value="youtube">YouTube (vídeo)</option>
+              <option value="x">X / Twitter (post)</option>
+            </select>
+          </div>
+
+          <div class="field" style="margin-top:var(--s3)">
+            <label class="label" for="niche">Nicho</label>
+            <select id="niche" class="select">
+              <option value="general">General / mixto</option>
+              <option value="tech">Tech</option>
+              <option value="finance">Finanzas / negocios</option>
+              <option value="lifestyle">Lifestyle / moda</option>
+              <option value="gaming">Gaming</option>
+              <option value="entertainment">Entretenimiento / humor</option>
+              <option value="education">Educación</option>
+              <option value="fitness">Fitness / salud</option>
+            </select>
+          </div>
+
+          <div class="tool-grid split-2" style="grid-template-columns:1fr 1fr;margin-top:var(--s4)">
+            <div class="field"><label class="label" for="followers">Seguidores</label><input id="followers" class="input" type="number" min="0" value="10000" /></div>
+            <div class="field" id="row-views"><label class="label" for="views">Visualizaciones</label><input id="views" class="input" type="number" min="0" value="50000" /></div>
+            <div class="field"><label class="label" for="likes">Likes</label><input id="likes" class="input" type="number" min="0" value="3500" /></div>
+            <div class="field"><label class="label" for="comments">Comentarios</label><input id="comments" class="input" type="number" min="0" value="120" /></div>
+            <div class="field" id="row-shares"><label class="label" for="shares">Compartidos</label><input id="shares" class="input" type="number" min="0" value="60" /></div>
+            <div class="field" id="row-saves"><label class="label" for="saves">Guardados</label><input id="saves" class="input" type="number" min="0" value="180" /></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" style="text-align:center;margin-bottom:var(--s4)">
+            <div class="muted" style="font-size:.85rem">Tu engagement rate</div>
+            <div id="erValue" style="font-family:var(--display);font-size:3.5rem;color:var(--accent);font-weight:600;line-height:1">—</div>
+            <div id="erLabel" class="muted" style="margin-top:8px">Rellena los campos</div>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:1rem;margin-bottom:var(--s3)">Benchmark</h3>
+            <div id="benchmark" class="muted" style="font-size:.9rem">—</div>
+            <div id="formula" class="muted" style="font-size:.8rem;font-family:var(--mono);margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--wall2)">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Herramientas</h4>
+          <ul>
+            <li><a href="/herramientas.html">Generador de guiones</a></li>
+            <li><a href="/herramientas.html">Generador de hashtags</a></li>
+            <li><a href="/herramientas.html">Generador de captions</a></li>
+            <li><a href="/herramientas.html">Generador de bio</a></li>
+            <li><a href="/herramientas.html">Títulos YouTube</a></li>
+            <li><a href="/herramientas.html">Analizador de hooks</a></li>
+            <li><a href="/herramientas.html">Ideas de contenido</a></li>
+            <li><a href="/herramientas.html">Calendario editorial</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletters</h4>
+          <ul>
+            <li><a href="/#newsletter">DigiPrompts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>YouTube</h4>
+          <ul>
+            <li><a href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank" rel="noopener" aria-label="Estoico Loco">Estoico Loco</a></li>
+            <li><a href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank" rel="noopener" aria-label="Leyendas Aterradoras">Leyendas Aterradoras</a></li>
+            <li><a href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" target="_blank" rel="noopener" aria-label="Historias Minuteras">Historias Minuteras</a></li>
+            <li><a href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" target="_blank" rel="noopener" aria-label="PokerConDatos">PokerConDatos</a></li>
+            <li><a href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" target="_blank" rel="noopener" aria-label="NeuralSpot">NeuralSpot</a></li>
+            <li><a href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" target="_blank" rel="noopener" aria-label="NEV">NEV</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contenido</h4>
+          <ul>
+            <li><a href="/blog.html">Blog IA</a></li>
+            <li><a href="/canales.html">Canales</a></li>
+            <li><a href="/herramientas.html">Herramientas</a></li>
+            <li><a href="/utilidades.html">Utilidades</a></li>
+            <li><a href="/chatbot.html">Chat IA</a></li>
+            <li><a href="/partners.html">Partners</a></li>
+          </ul>
+        </div>
+      </div>      <div class="footer-proof">
+        <div class="footer-proof-title">Canales faceless automatizados con IA</div>
+        <div class="footer-proof-sub">Esto que ves aquí… funciona. Aquí están nuestros canales reales:</div>
+        <div class="channels-row">
+        <a class="channel-link" href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank" rel="noopener" aria-label="Estoico Loco">
+          <img src="/assets/canales/estoico-loco.jpg" alt="Estoico Loco" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'EL'}))">
+        </a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank" rel="noopener" aria-label="Leyendas Aterradoras">
+          <img src="/assets/canales/leyendas-aterradoras.jpg" alt="Leyendas Aterradoras" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'LA'}))">
+        </a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" target="_blank" rel="noopener" aria-label="Historias Minuteras">
+          <img src="/assets/canales/historias-minuteras.jpg" alt="Historias Minuteras" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'HM'}))">
+        </a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" target="_blank" rel="noopener" aria-label="PokerConDatos">
+          <img src="/assets/canales/pokercondatos.jpg" alt="PokerConDatos" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'PC'}))">
+        </a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" target="_blank" rel="noopener" aria-label="NeuralSpot">
+          <img src="/assets/canales/neuralspot.jpg" alt="NeuralSpot" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'NS'}))">
+        </a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" target="_blank" rel="noopener" aria-label="NEV">
+          <img src="/assets/canales/nev.jpg" alt="NEV" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'NE'}))">
+        </a>
+        </div>
+        <a class="see-all-channels" href="/canales.html">Ver todos los canales →</a>
+        <hr class="proof-divider" />
+        <div class="brand-socials">
+          <span>Síguenos:</span>
+          <a href="https://www.tiktok.com/@digiprompts" target="_blank" rel="noopener" aria-label="DigiPrompts en TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82c-.84-.55-1.46-1.4-1.74-2.4-.06-.21-.1-.42-.13-.64h-3.04v12.79c0 1.55-1.27 2.81-2.83 2.81-1.56 0-2.83-1.26-2.83-2.81 0-1.56 1.27-2.82 2.83-2.82.31 0 .61.05.89.14V9.84c-.29-.04-.59-.07-.89-.07C5.6 9.77 3 12.35 3 15.57s2.6 5.8 5.87 5.8c3.27 0 5.87-2.6 5.87-5.8V9.34c1.18.85 2.65 1.36 4.26 1.36V7.66c-.86 0-1.66-.26-2.4-.7-.34-.21-.66-.46-1-.74v-.4z"/></svg>
+          </a>
+          <a href="https://x.com/DigiPrompts_io" target="_blank" rel="noopener" aria-label="DigiPrompts en X">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DigiPrompts · Todos los derechos reservados</div>
+        <div class="muted" style="margin-top:8px">Hecho con 🤖 Inteligencia Artificial</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/common.js"></script>
+  <script>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+
+    // Medias de nicho aproximadas (datos públicos 2025-2026, en %)
+    // Por plataforma -> por nicho
+    var BENCH = {
+      ig: {
+        general: 1.5, tech: 1.2, finance: 1.0, lifestyle: 1.6,
+        gaming: 1.8, entertainment: 2.0, education: 1.7, fitness: 1.9
+      },
+      tiktok: {
+        general: 5.0, tech: 4.0, finance: 3.5, lifestyle: 5.5,
+        gaming: 6.0, entertainment: 7.0, education: 5.5, fitness: 6.0
+      },
+      youtube: {
+        general: 4.0, tech: 3.5, finance: 3.0, lifestyle: 4.5,
+        gaming: 5.0, entertainment: 5.5, education: 4.5, fitness: 5.0
+      },
+      x: {
+        general: 0.5, tech: 0.7, finance: 0.6, lifestyle: 0.4,
+        gaming: 0.6, entertainment: 0.8, education: 0.5, fitness: 0.5
+      }
+    };
+
+    // Visibilidad de campos por plataforma
+    function setVisibility() {
+      var p = $('platform').value;
+      // views: tiktok, youtube
+      $('row-views').style.display = (p === 'tiktok' || p === 'youtube') ? '' : 'none';
+      // saves: solo Instagram
+      $('row-saves').style.display = p === 'ig' ? '' : 'none';
+      // shares: ig, tiktok, x
+      $('row-shares').style.display = p !== 'youtube' ? '' : 'none';
+    }
+
+    function num(id) {
+      var v = parseFloat($(id).value);
+      return isFinite(v) && v >= 0 ? v : 0;
+    }
+
+    function compute() {
+      setVisibility();
+      var p = $('platform').value;
+      var followers = num('followers');
+      var likes = num('likes');
+      var comments = num('comments');
+      var shares = num('shares');
+      var saves = num('saves');
+      var views = num('views');
+
+      var er = null, formula = '';
+      if (p === 'ig') {
+        if (!followers) return show(null, 'Introduce los seguidores', '');
+        er = ((likes + comments + shares + saves) / followers) * 100;
+        formula = '(likes + comentarios + compartidos + guardados) / seguidores × 100';
+      } else if (p === 'tiktok') {
+        if (!views) return show(null, 'Introduce las visualizaciones', '');
+        er = ((likes + comments + shares) / views) * 100;
+        formula = '(likes + comentarios + compartidos) / views × 100';
+      } else if (p === 'youtube') {
+        if (!views) return show(null, 'Introduce las visualizaciones', '');
+        er = ((likes + comments) / views) * 100;
+        formula = '(likes + comentarios) / views × 100';
+      } else {
+        if (!followers) return show(null, 'Introduce los seguidores', '');
+        er = ((likes + comments + shares) / followers) * 100;
+        formula = '(likes + comentarios + retweets) / seguidores × 100';
+      }
+
+      var nicheBench = BENCH[p][$('niche').value] || BENCH[p].general;
+      show(er, null, formula, nicheBench);
+    }
+
+    function classify(er) {
+      if (er == null) return { label: '—', color: 'var(--mist3)' };
+      if (er < 1)  return { label: 'Bajo', color: 'var(--coral)' };
+      if (er < 3)  return { label: 'Medio', color: 'var(--gold)' };
+      if (er < 6)  return { label: 'Bueno', color: 'var(--green)' };
+      return { label: 'Excelente', color: 'var(--accent)' };
+    }
+
+    function show(er, msg, formula, niche) {
+      var c = classify(er);
+      $('erValue').style.color = c.color;
+      $('erValue').textContent = er == null ? '—' : er.toFixed(2) + '%';
+      $('erLabel').textContent = msg || c.label;
+      $('formula').textContent = formula ? 'Fórmula: ' + formula : '—';
+      var b = $('benchmark');
+      if (er == null || niche == null) { b.textContent = '—'; return; }
+      var diff = er - niche;
+      var sign = diff >= 0 ? '+' : '−';
+      var col  = diff >= 0 ? 'var(--green)' : 'var(--coral)';
+      b.innerHTML =
+        'Media del nicho: <strong>' + niche.toFixed(2) + '%</strong><br>' +
+        'Tu diferencia: <span style="color:' + col + ';font-family:var(--mono)">' + sign + Math.abs(diff).toFixed(2) + ' pp</span>';
+    }
+
+    document.querySelectorAll('input,select').forEach(function (el) {
+      el.addEventListener('input', compute);
+      el.addEventListener('change', compute);
+    });
+
+    setVisibility();
+    compute();
+  })();
+  </script>
+</body>
+</html>
