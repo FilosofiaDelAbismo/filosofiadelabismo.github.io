@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Redimensionador de imágenes con presets · Utilidades · DigiPrompts</title>
-  <meta name="description" content="Sube tu imagen y exporta a Reels, Stories, Shorts, miniatura YouTube, banners y más. Procesado 100% en el navegador." />
-  <meta property="og:title" content="Redimensionador de imágenes · DigiPrompts" />
-  <meta property="og:description" content="Presets de redes para creadores. Local, sin subida." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%96%BC%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <title>Conversor de formato de imagen · Utilidades · DigiPrompts</title>
+  <meta name="description" content="Convierte tus imágenes entre JPG, PNG y WebP en el navegador. Calidad ajustable. Sin servidor, sin registro." />
+  <meta property="og:title" content="Conversor de formato de imagen · DigiPrompts" />
+  <meta property="og:description" content="JPG ↔ PNG ↔ WebP en el navegador." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%84%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="../assets/theme.css" />
   <link rel="stylesheet" href="../assets/base.css" />
   <link rel="stylesheet" href="../assets/styles.css" />
 </head>
 <body>
-  <!-- ===== HEADER (replicar igual en todas las páginas) ===== -->
+  <!-- ===== HEADER ===== -->
   <header class="site-header">
     <div class="container site-header-inner">
       <a href="/index.html" class="brand">Digi<em>Prompts</em></a>
@@ -27,10 +27,10 @@
             <a href="/tools/miniaturas-youtube.html"><span class="dd-emoji">🎬</span> Miniaturas YouTube</a>
             <a href="/tools/fancy-text.html"><span class="dd-emoji">✨</span> Fancy Text</a>
             <a href="/tools/generador-qr.html"><span class="dd-emoji">📱</span> Generador QR</a>
-            <a href="/tools/redimensionador-imagenes.html" class="active"><span class="dd-emoji">📐</span> Redimensionar imágenes</a>
+            <a href="/tools/redimensionador-imagenes.html"><span class="dd-emoji">📐</span> Redimensionar imágenes</a>
             <hr />
             <a href="/tools/compresor-imagenes.html"><span class="dd-emoji">🗜️</span> Compresor imágenes</a>
-            <a href="/tools/conversor-formato-imagen.html"><span class="dd-emoji">🔄</span> Conversor formato</a>
+            <a href="/tools/conversor-formato-imagen.html" class="active"><span class="dd-emoji">🔄</span> Conversor formato</a>
             <a href="/tools/calculadora-engagement.html"><span class="dd-emoji">📊</span> Engagement rate</a>
             <a href="/tools/calculadora-ingresos.html"><span class="dd-emoji">💰</span> Calculadora ingresos</a>
             <a href="/tools/conversor-zonas-horarias.html"><span class="dd-emoji">🌍</span> Zonas horarias</a>
@@ -49,94 +49,64 @@
       </div>
     </div>
   </header>
-  <!-- ===== /HEADER ===== -->
 
   <main>
     <div class="container">
       <nav class="breadcrumb" aria-label="Migas">
         <a href="/index.html">Inicio</a> ›
         <a href="/utilidades.html">Utilidades</a> ›
-        <span>Redimensionador</span>
+        <span>Conversor de formato</span>
       </nav>
       <a class="back-link" href="/utilidades.html">← Volver a Utilidades</a>
 
       <section class="tool-hero">
         <span class="badge badge-image">Imagen</span>
-        <h1 style="margin-top:10px">🖼️ <em>Redimensionador</em> con presets</h1>
-        <p>Sube una imagen, elige un preset (Reels, Stories, Shorts, miniatura YouTube…) y descarga el resultado. Todo en el navegador, no se sube nada.</p>
+        <h1 style="margin-top:10px">🔄 <em>Conversor</em> de formato de imagen</h1>
+        <p>JPG, PNG o WebP. Sube tu imagen, elige el formato destino y descárgala. Calidad ajustable para JPG y WebP.</p>
       </section>
 
       <div class="card" style="margin-bottom: var(--s5)">
         <label class="dropzone" id="drop">
           <div class="dz-emoji">⬆️</div>
           <strong>Arrastra una imagen</strong> o haz clic para seleccionar.
-          <div class="muted" style="font-size:.85rem;margin-top:6px">JPG, PNG o WebP</div>
           <input id="file" type="file" accept="image/*" hidden />
         </label>
       </div>
 
-      <div id="workspace" hidden>
-        <div class="tool-grid split-2">
-          <div>
-            <h3 style="font-size:1rem">Original</h3>
-            <div class="card">
-              <img id="srcImg" alt="Original" style="margin:0 auto;border-radius:8px;max-height:340px;object-fit:contain" />
-              <div class="muted" id="srcInfo" style="margin-top:var(--s3);font-family:var(--mono);font-size:.85rem;text-align:center"></div>
+      <div id="ws" hidden>
+        <div class="card" style="margin-bottom: var(--s5)">
+          <div class="tool-grid split-2">
+            <div>
+              <div class="muted" style="font-size:.85rem;margin-bottom:8px">Origen</div>
+              <img id="srcImg" alt="Origen" style="border-radius:8px;max-height:280px;width:auto" />
+              <div class="muted" id="srcInfo" style="margin-top:var(--s3);font-family:var(--mono);font-size:.85rem"></div>
             </div>
-          </div>
-          <div>
-            <h3 style="font-size:1rem">Resultado</h3>
-            <div class="card">
-              <canvas id="dst" style="margin:0 auto;border-radius:8px;max-width:100%;max-height:340px"></canvas>
-              <div class="muted" id="dstInfo" style="margin-top:var(--s3);font-family:var(--mono);font-size:.85rem;text-align:center"></div>
+            <div>
+              <div class="field">
+                <label class="label" for="dstFmt">Formato destino</label>
+                <select id="dstFmt" class="select">
+                  <option value="image/jpeg">JPG</option>
+                  <option value="image/png">PNG</option>
+                  <option value="image/webp" selected>WebP</option>
+                </select>
+              </div>
+              <div class="field" style="margin-top:var(--s3)" id="qualityRow">
+                <label class="label" for="quality">Calidad: <span id="qval">90</span>%</label>
+                <input id="quality" type="range" min="20" max="100" value="90" />
+              </div>
+              <div class="muted" id="dstInfo" style="margin-top:var(--s4);font-family:var(--mono);font-size:.85rem"></div>
+              <div class="toolbar" style="margin-top:var(--s4)">
+                <button class="btn btn-primary" id="dlBtn">Descargar</button>
+                <button class="btn btn-secondary" id="resetBtn">Cambiar imagen</button>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top: var(--s5)">
-          <h3 style="font-size:1rem;margin-bottom:var(--s3)">Preset</h3>
-          <div class="preset-grid" id="presets"></div>
-
-          <div class="tool-grid split-2" style="grid-template-columns:1fr 1fr 1fr;margin-top:var(--s4)">
-            <div class="field">
-              <label class="label" for="cw">Ancho</label>
-              <input id="cw" class="input" type="number" min="1" />
-            </div>
-            <div class="field">
-              <label class="label" for="ch">Alto</label>
-              <input id="ch" class="input" type="number" min="1" />
-            </div>
-            <div class="field">
-              <label class="label" for="mode">Ajuste</label>
-              <select id="mode" class="select">
-                <option value="cover">Cubrir (recorta)</option>
-                <option value="contain">Contener (barras)</option>
-                <option value="stretch">Estirar</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="tool-grid split-2" style="grid-template-columns:1fr 1fr;margin-top:var(--s3)">
-            <div class="field">
-              <label class="label" for="bg">Color de barras</label>
-              <input id="bg" class="input" type="color" value="#080c15" />
-            </div>
-            <div class="field">
-              <label class="label" for="quality">Calidad (JPG/WebP)</label>
-              <input id="quality" class="input" type="range" min="40" max="100" value="92" />
-            </div>
-          </div>
-
-          <div class="toolbar" style="margin-top:var(--s4)">
-            <button class="btn btn-primary" id="dlBtn">Descargar imagen</button>
-            <button class="btn btn-secondary" id="resetBtn">Cambiar imagen</button>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- ===== FOOTER (replicar igual en todas las páginas) ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -229,161 +199,95 @@
       </div>
     </div>
   </footer>
-  <!-- ===== /FOOTER ===== -->
 
   <script src="../assets/common.js"></script>
   <script>
   (function () {
     var drop = document.getElementById('drop');
-    var file = document.getElementById('file');
-    var ws = document.getElementById('workspace');
+    var fileInput = document.getElementById('file');
+    var ws = document.getElementById('ws');
     var srcImg = document.getElementById('srcImg');
     var srcInfo = document.getElementById('srcInfo');
-    var dst = document.getElementById('dst');
-    var dstInfo = document.getElementById('dstInfo');
-    var cw = document.getElementById('cw');
-    var ch = document.getElementById('ch');
-    var modeSel = document.getElementById('mode');
-    var bgIn = document.getElementById('bg');
+    var dstFmt = document.getElementById('dstFmt');
     var qIn = document.getElementById('quality');
-    var presetsEl = document.getElementById('presets');
-
-    var PRESETS = [
-      ['Instagram Post cuadrado', 1080, 1080],
-      ['Instagram Post vertical', 1080, 1350],
-      ['Instagram Story / Reel',  1080, 1920],
-      ['Instagram Carrusel',      1080, 1080],
-      ['TikTok vídeo / cover',    1080, 1920],
-      ['YouTube miniatura',       1280, 720],
-      ['YouTube banner',          2560, 1440],
-      ['YouTube Shorts',          1080, 1920],
-      ['X / Twitter post',        1600, 900],
-      ['X / Twitter header',      1500, 500],
-      ['LinkedIn post',           1200, 627],
-      ['LinkedIn cover',          1584, 396],
-      ['Facebook post',           1200, 630],
-      ['Pinterest pin',           1000, 1500]
-    ];
+    var qVal = document.getElementById('qval');
+    var qRow = document.getElementById('qualityRow');
+    var dstInfo = document.getElementById('dstInfo');
 
     var origFile = null;
+    var resultBlob = null;
 
-    presetsEl.innerHTML = PRESETS.map(function (p, i) {
-      return '<button class="preset" data-preset="' + i + '" data-w="' + p[1] + '" data-h="' + p[2] + '">' +
-        '<span class="preset-name">' + p[0] + '</span>' +
-        '<span class="preset-size">' + p[1] + '×' + p[2] + '</span>' +
-      '</button>';
-    }).join('') + '<button class="preset" data-preset="custom"><span class="preset-name">Personalizado</span><span class="preset-size">—</span></button>';
-
-    presetsEl.addEventListener('click', function (ev) {
-      var btn = ev.target.closest('.preset');
-      if (!btn) return;
-      presetsEl.querySelectorAll('.preset').forEach(function (b) { b.classList.toggle('active', b === btn); });
-      var w = btn.getAttribute('data-w');
-      var h = btn.getAttribute('data-h');
-      if (w && h) { cw.value = w; ch.value = h; }
-      render();
-    });
+    function ext(mime) {
+      return mime === 'image/png' ? 'png' : mime === 'image/webp' ? 'webp' : 'jpg';
+    }
 
     function loadFile(f) {
-      if (!f || !f.type.startsWith('image/')) {
-        DigiUI.toast('Esto no parece una imagen');
-        return;
-      }
+      if (!f || !f.type.startsWith('image/')) return DigiUI.toast('Esto no parece una imagen');
       origFile = f;
       var url = URL.createObjectURL(f);
       srcImg.onload = function () {
         URL.revokeObjectURL(url);
-        srcInfo.textContent = srcImg.naturalWidth + '×' + srcImg.naturalHeight + ' · ' + DigiUI.formatBytes(f.size) + ' · ' + (f.type || 'image');
+        srcInfo.textContent = srcImg.naturalWidth + '×' + srcImg.naturalHeight + ' · ' +
+                              DigiUI.formatBytes(f.size) + ' · ' + (f.type || 'image');
         ws.hidden = false;
-        if (!cw.value) { cw.value = 1080; ch.value = 1080; }
-        // selecciona primer preset por defecto
-        var first = presetsEl.querySelector('.preset');
-        if (first && !presetsEl.querySelector('.preset.active')) {
-          first.classList.add('active');
-          cw.value = first.getAttribute('data-w'); ch.value = first.getAttribute('data-h');
-        }
+        // Sugerir formato distinto al origen
+        var origMime = f.type;
+        if (origMime === 'image/jpeg') dstFmt.value = 'image/webp';
+        else if (origMime === 'image/png') dstFmt.value = 'image/webp';
+        else if (origMime === 'image/webp') dstFmt.value = 'image/jpeg';
         render();
       };
       srcImg.src = url;
     }
 
-    drop.addEventListener('click', function () { file.click(); });
-    file.addEventListener('change', function () { if (file.files[0]) loadFile(file.files[0]); });
+    function render() {
+      if (!origFile) return;
+      var mime = dstFmt.value;
+      qRow.style.display = mime === 'image/png' ? 'none' : '';
+      var canvas = document.createElement('canvas');
+      var img = new Image();
+      var url = URL.createObjectURL(origFile);
+      img.onload = function () {
+        URL.revokeObjectURL(url);
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        canvas.getContext('2d').drawImage(img, 0, 0);
+        var q = mime === 'image/png' ? undefined : (parseInt(qIn.value, 10) / 100);
+        canvas.toBlob(function (blob) {
+          if (!blob) { dstInfo.textContent = 'No se pudo convertir.'; return; }
+          resultBlob = blob;
+          var d = ((1 - blob.size / origFile.size) * 100);
+          var sign = d >= 0 ? '−' : '+';
+          dstInfo.innerHTML = 'Resultado: ' + DigiUI.formatBytes(blob.size) +
+            ' · <span style="color:' + (d >= 0 ? 'var(--green)' : 'var(--coral)') + '">' +
+            sign + Math.abs(d).toFixed(0) + '%</span>';
+        }, mime, q);
+      };
+      img.src = url;
+    }
+
+    drop.addEventListener('click', function () { fileInput.click(); });
+    fileInput.addEventListener('change', function () { if (fileInput.files[0]) loadFile(fileInput.files[0]); });
     drop.addEventListener('dragover', function (e) { e.preventDefault(); drop.classList.add('is-drag'); });
     drop.addEventListener('dragleave', function () { drop.classList.remove('is-drag'); });
     drop.addEventListener('drop', function (e) {
-      e.preventDefault();
-      drop.classList.remove('is-drag');
+      e.preventDefault(); drop.classList.remove('is-drag');
       var f = e.dataTransfer.files && e.dataTransfer.files[0];
       if (f) loadFile(f);
     });
 
-    document.getElementById('resetBtn').addEventListener('click', function () {
-      ws.hidden = true; file.value = ''; origFile = null;
-    });
-
-    [cw, ch, modeSel, bgIn, qIn].forEach(function (el) {
-      el.addEventListener('input', render);
-      el.addEventListener('change', render);
-    });
-
-    function render() {
-      if (!srcImg.complete || !srcImg.naturalWidth) return;
-      var w = parseInt(cw.value, 10) || 0;
-      var h = parseInt(ch.value, 10) || 0;
-      if (w < 1 || h < 1) return;
-      dst.width = w; dst.height = h;
-      var ctx = dst.getContext('2d');
-      ctx.fillStyle = bgIn.value;
-      ctx.fillRect(0, 0, w, h);
-
-      var mode = modeSel.value;
-      var sw = srcImg.naturalWidth, sh = srcImg.naturalHeight;
-      var dx = 0, dy = 0, dw = w, dh = h;
-      if (mode === 'cover') {
-        var rs = sw / sh, rd = w / h;
-        var srcX = 0, srcY = 0, srcW = sw, srcH = sh;
-        if (rs > rd) {
-          srcW = sh * rd; srcX = (sw - srcW) / 2;
-        } else {
-          srcH = sw / rd; srcY = (sh - srcH) / 2;
-        }
-        ctx.drawImage(srcImg, srcX, srcY, srcW, srcH, 0, 0, w, h);
-      } else if (mode === 'contain') {
-        var rs2 = sw / sh, rd2 = w / h;
-        if (rs2 > rd2) {
-          dw = w; dh = w / rs2;
-          dx = 0; dy = (h - dh) / 2;
-        } else {
-          dh = h; dw = h * rs2;
-          dx = (w - dw) / 2; dy = 0;
-        }
-        ctx.drawImage(srcImg, 0, 0, sw, sh, dx, dy, dw, dh);
-      } else {
-        ctx.drawImage(srcImg, 0, 0, sw, sh, 0, 0, w, h);
-      }
-
-      dstInfo.textContent = w + '×' + h + ' · ajuste: ' + mode;
-    }
-
-    function outMime() {
-      if (!origFile) return 'image/png';
-      if (/png$/i.test(origFile.type)) return 'image/png';
-      if (/webp$/i.test(origFile.type)) return 'image/webp';
-      return 'image/jpeg';
-    }
-    function outExt(mime) {
-      return mime === 'image/png' ? 'png' : mime === 'image/webp' ? 'webp' : 'jpg';
-    }
+    qIn.addEventListener('input', function () { qVal.textContent = qIn.value; });
+    qIn.addEventListener('change', render);
+    dstFmt.addEventListener('change', render);
 
     document.getElementById('dlBtn').addEventListener('click', function () {
-      var mime = outMime();
-      var q = mime === 'image/png' ? undefined : (parseInt(qIn.value, 10) / 100);
-      dst.toBlob(function (blob) {
-        if (!blob) return DigiUI.toast('No se pudo generar la imagen');
-        var ext = outExt(mime);
-        DigiUI.download('digi-resize-' + dst.width + 'x' + dst.height + '.' + ext, blob);
-      }, mime, q);
+      if (!resultBlob || !origFile) return;
+      var base = origFile.name.replace(/\.[^.]+$/, '');
+      DigiUI.download(base + '.' + ext(dstFmt.value), resultBlob);
+    });
+    document.getElementById('resetBtn').addEventListener('click', function () {
+      origFile = null; resultBlob = null;
+      ws.hidden = true; fileInput.value = '';
     });
   })();
   </script>
