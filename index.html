@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="/klaro/klaro.min.css">
+<script src="/klaro/config-digiprompts.js"></script>
+<script defer src="/klaro/klaro.js"></script>
+<script type="text/plain" data-type="text/javascript" data-name="plausible"
+  defer data-domain="digiprompts.io"
+  src="https://plausible.io/js/script.js"></script>
+<script defer data-domain="digiprompts.io" src="https://analytics.digiprompts.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigiPrompts — Construyo herramientas IA y canales faceless. Y los uso yo mismo.</title>
+<meta name="description" content="Portfolio de DigiPrompts. 14+ herramientas IA gratuitas, 12 utilidades sin IA y 6 canales faceless automatizados. Lo construyo, lo pruebo y lo comparto. Sin registro, sin límites.">
+<meta name="keywords" content="herramientas IA creadores, canales faceless youtube, automatización IA contenido, generador guiones tiktok, digiprompts, daniel pajaro, portfolio IA creadores">
+<meta name="author" content="DigiPrompts">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.digiprompts.io/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.digiprompts.io/">
+<meta property="og:title" content="DigiPrompts — Construyo productos con IA y los uso yo mismo">
+<meta property="og:description" content="14+ herramientas IA, 12 utilidades sin IA y 6 canales faceless automatizados. Portfolio honesto, sin humo.">
+<meta property="og:image" content="https://www.digiprompts.io/og-image.png">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="DigiPrompts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Digi_Prompts">
+<meta name="twitter:title" content="DigiPrompts — Productos IA hechos por un creador para creadores">
+<meta name="twitter:description" content="14+ herramientas IA + 12 utilidades + 6 canales faceless. Sin registro, sin humo.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style"
+  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+</noscript>
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.digiprompts.io/#organization",
+      "name": "DigiPrompts",
+      "url": "https://www.digiprompts.io",
+      "logo": {"@type": "ImageObject","url": "https://www.digiprompts.io/logo.png"},
+      "description": "Herramientas IA gratuitas para creadores de contenido en TikTok, YouTube e Instagram",
+      "sameAs": ["https://x.com/DigiPrompts_io","https://www.tiktok.com/@digiprompts"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.digiprompts.io/#website",
+      "url": "https://www.digiprompts.io",
+      "name": "DigiPrompts",
+      "publisher": {"@id": "https://www.digiprompts.io/#organization"},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.digiprompts.io/herramientas.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "DigiPrompts",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "offers": {"@type": "Offer","price": "0","priceCurrency": "EUR"},
+      "description": "Suite de herramientas IA gratuitas para creadores de contenido digital",
+      "url": "https://www.digiprompts.io",
+      "featureList": [
+        "Generador de Guiones TikTok y YouTube",
+        "Generador de Bio Instagram",
+        "Hook Analyzer con score",
+        "Generador de Hashtags Estratégicos",
+        "Chat IA para Creadores",
+        "Generador de Captions"
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --ink:#080c15;--ink2:#0d1117;--ink3:#111827;
+  --wall:#1a2235;--wall2:#232f45;
+  --mist:#dde6f5;--mist2:#8292b0;--mist3:#4a5a7a;
+  --accent:#A78BFA;--accent-bg:rgba(167,139,250,.06);--accent-bd:rgba(167,139,250,.18);
+  --sky:#5BBFFF;--sky-bg:rgba(91,191,255,.06);--sky-bd:rgba(91,191,255,.18);
+  --coral:#FF7A5A;--coral-bg:rgba(255,122,90,.06);--coral-bd:rgba(255,122,90,.18);
+  --gold:#FFD166;--gold-bg:rgba(255,209,102,.06);--gold-bd:rgba(255,209,102,.18);
+  --green:#4ADE80;--green-bg:rgba(74,222,128,.06);--green-bd:rgba(74,222,128,.18);
+  --display:'Fraunces',Georgia,serif;
+  --body:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+  --t-fast:120ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--ink);color:var(--mist);line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:256px}
+body::after{content:'';position:fixed;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(167,139,250,.04) 0%,transparent 70%);z-index:0;pointer-events:none}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:200;background:rgba(8,12,21,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--wall2);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-family:var(--display);font-size:22px;font-weight:600;color:var(--mist);text-decoration:none;letter-spacing:-.5px}
+.brand em{color:var(--accent);font-style:italic}
+.nav{display:flex;gap:4px;list-style:none;align-items:center}
+.nav a{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--mist2);text-decoration:none;padding:7px 14px;border-radius:6px;transition:all .15s}
+.nav a:hover{color:var(--accent);background:var(--accent-bg)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.btn-ghost{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:6px;text-decoration:none;color:var(--mist2);border:1px solid var(--wall2);transition:all .15s}
+.btn-ghost:hover{color:var(--accent);border-color:var(--accent-bd)}
+.btn-cta{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:8px 18px;border-radius:6px;text-decoration:none;background:var(--accent);color:var(--ink);border:1px solid var(--accent);transition:filter .15s}
+.btn-cta:hover{filter:brightness(1.07)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent}
+.hamburger span{width:22px;height:2px;background:var(--mist2);border-radius:2px}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(8,12,21,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--wall2);z-index:99;padding:20px 24px;flex-direction:column;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--mist2);text-decoration:none;padding:12px 16px;border-radius:8px;transition:all .15s}
+.mobile-menu a:hover{color:var(--accent);background:var(--accent-bg)}
+@media(max-width:960px){.nav,.nav-right{display:none}.hamburger{display:flex}}
+
+/* Dropdown */
+.has-dropdown{position:relative;display:inline-flex;align-items:center}
+.dropdown-trigger{display:inline-flex;align-items:center;gap:4px;cursor:pointer}
+.dropdown-trigger .caret{font-size:.7em;transition:transform .18s;opacity:.7}
+.has-dropdown:hover .dropdown-trigger .caret,.has-dropdown.is-open .dropdown-trigger .caret{transform:rotate(180deg)}
+.has-dropdown::after{content:'';position:absolute;top:100%;left:0;right:0;height:14px}
+.dropdown-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-4px);background:rgba(8,12,21,.97);border:1px solid var(--wall2);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.42);padding:8px;min-width:250px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .16s,transform .16s;z-index:300;backdrop-filter:blur(20px)}
+.has-dropdown:hover .dropdown-menu,.has-dropdown:focus-within .dropdown-menu,.has-dropdown.is-open .dropdown-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.dropdown-menu a{display:flex !important;align-items:center;gap:10px;padding:8px 12px !important;border-radius:6px;color:var(--mist) !important;font-family:var(--body) !important;font-size:13px !important;font-weight:400 !important;letter-spacing:0 !important;text-transform:none !important;white-space:nowrap;background:transparent !important;border:none !important}
+.dropdown-menu a:hover{background:var(--accent-bg) !important;color:var(--accent) !important}
+.dd-emoji{font-size:1.05rem;width:1.4em;text-align:center;display:inline-block}
+.dropdown-menu hr{border:none;border-top:1px solid var(--wall2);margin:6px 8px}
+
+/* HERO */
+.hero{padding:96px 32px 80px;text-align:center;position:relative;border-bottom:1px solid var(--wall2);overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(var(--wall) 1px,transparent 1px),linear-gradient(90deg,var(--wall) 1px,transparent 1px);background-size:52px 52px;opacity:.12;pointer-events:none;mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 30%,transparent 80%)}
+.hero-inner{max-width:880px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--accent);background:var(--accent-bg);border:1px solid var(--accent-bd);padding:5px 14px;border-radius:100px;margin-bottom:28px}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+h1{font-family:var(--display);font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.02;letter-spacing:-2.5px;color:var(--mist);margin-bottom:20px}
+h1 em{font-style:italic;color:var(--accent)}
+h1 .hl-sky{color:var(--sky);font-style:italic}
+.hero-sub{font-size:18px;color:var(--mist2);line-height:1.7;max-width:640px;margin:0 auto 28px}
+.hero-sub strong{color:var(--mist)}
+.hero-stats{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--mist3);background:var(--ink2);border:1px solid var(--wall2);border-radius:8px;padding:8px 16px;margin-bottom:32px}
+.hero-stats em{color:var(--accent);font-style:normal}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:14px 28px;border-radius:8px;text-decoration:none;background:var(--accent);color:var(--ink);box-shadow:0 0 30px rgba(167,139,250,.25);transition:all .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(167,139,250,.5)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:14px 28px;border-radius:8px;text-decoration:none;background:transparent;color:var(--mist2);border:1px solid var(--wall2);transition:all .2s}
+.btn-secondary:hover{border-color:var(--accent-bd);color:var(--accent)}
+
+/* Sections */
+.section{padding:96px 32px;max-width:1200px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:48px}
+h2{font-family:var(--display);font-size:clamp(32px,4.5vw,52px);font-weight:600;line-height:1.06;letter-spacing:-1.5px;color:var(--mist);margin-bottom:14px}
+h2 em{font-style:italic;color:var(--accent)}
+.section-desc{font-size:17px;color:var(--mist2);line-height:1.7;max-width:600px;margin:0 auto}
+
+/* PROOF — Canales grid */
+.proof-strip{background:var(--ink2);border-top:1px solid var(--wall2);border-bottom:1px solid var(--wall2);padding:80px 32px}
+.proof-inner{max-width:1200px;margin:0 auto}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.proof-card{background:var(--ink);border:1px solid var(--wall2);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;transition:all .2s}
+.proof-card:hover{border-color:var(--accent-bd);transform:translateY(-3px)}
+.proof-head{display:flex;align-items:center;gap:12px}
+.proof-logo{width:48px;height:48px;border-radius:50%;background:var(--ink3);border:2px solid var(--wall2);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.proof-logo img{width:100%;height:100%;object-fit:cover}
+.proof-fallback{font-family:var(--display);font-weight:700;color:var(--accent);font-size:16px}
+.proof-name{font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.3px;line-height:1.1;color:var(--mist)}
+.proof-niche{font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--mist3);margin-top:2px}
+.proof-desc{font-size:13px;color:var(--mist2);line-height:1.6;flex:1}
+.proof-foot{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--wall2)}
+.proof-link{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--accent)}
+.proof-cta{text-align:center;margin-top:36px}
+@media(max-width:880px){.proof-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.proof-grid{grid-template-columns:1fr}}
+
+/* PRODUCTS */
+.products{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.product-card{background:var(--ink2);border:1px solid var(--wall2);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px;transition:all .2s}
+.product-card:hover{border-color:var(--accent-bd);transform:translateY(-2px)}
+.product-tag{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:100px}
+.product-tag.tag-ai{color:var(--accent);background:var(--accent-bg);border:1px solid var(--accent-bd)}
+.product-tag.tag-noai{color:var(--sky);background:var(--sky-bg);border:1px solid var(--sky-bd)}
+.product-card h3{font-family:var(--display);font-size:26px;font-weight:600;letter-spacing:-.5px;color:var(--mist);line-height:1.1}
+.product-card p{font-size:14.5px;color:var(--mist2);line-height:1.65}
+.product-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.product-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mist);padding:6px 0}
+.product-item .pi-icon{font-size:14px}
+.product-card .btn-secondary{align-self:flex-start;margin-top:auto}
+@media(max-width:768px){.products{grid-template-columns:1fr}.product-list{grid-template-columns:1fr}}
+
+/* CHAT card */
+.chat-card{background:linear-gradient(135deg,var(--ink2),var(--ink3));border:1px solid var(--accent-bd);border-radius:20px;padding:48px 40px;text-align:center;max-width:760px;margin:0 auto;position:relative;overflow:hidden}
+.chat-card::before{content:'';position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(167,139,250,.12),transparent 70%);pointer-events:none}
+.chat-icon{font-size:54px;margin-bottom:16px;display:inline-block;filter:drop-shadow(0 0 24px rgba(167,139,250,.4))}
+.chat-card h2{margin-bottom:12px}
+.chat-card p{font-size:16px;color:var(--mist2);max-width:520px;margin:0 auto 28px}
+
+/* CTA Newsletter */
+.nl-cta{background:var(--ink2);border:1px solid var(--wall2);border-radius:18px;padding:48px 40px;text-align:center;max-width:760px;margin:0 auto;position:relative}
+.nl-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--sky),var(--coral))}
+.nl-cta .eyebrow{margin-bottom:18px}
+.nl-cta h2{font-size:clamp(28px,3.5vw,40px);margin-bottom:12px}
+.nl-cta p{font-size:15px;color:var(--mist2);margin-bottom:24px}
+
+/* FOOTER (igual al resto) */
+.site-footer{border-top:1px solid var(--wall2);padding:64px 32px 32px;background:var(--ink2);margin-top:64px}
+.ftr-container{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.footer-col h4{font-family:var(--body);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--mist2);margin:0 0 12px}
+.footer-col ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.footer-col a{color:var(--mist2);font-size:14px;text-decoration:none;transition:color .15s}
+.footer-col a:hover{color:var(--mist)}
+.footer-proof{text-align:center;margin-top:48px;padding-top:32px;border-top:1px solid var(--wall2)}
+.footer-proof-title{font-family:var(--display);font-size:14px;color:var(--mist2);letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px}
+.footer-proof-sub{font-size:13px;color:var(--mist3);margin:0 0 16px}
+.channels-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;margin-bottom:16px}
+.channel-link{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;overflow:hidden;border:2px solid var(--wall2);background:var(--ink2);transition:transform .15s,border-color .15s;flex:0 0 auto}
+.channel-link:hover{border-color:var(--accent);transform:scale(1.08)}
+.channel-link img{width:100%;height:100%;object-fit:cover;display:block}
+.channel-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--accent-bg);color:var(--accent);font-family:var(--body);font-weight:700;font-size:.95rem}
+.see-all-channels{display:inline-block;color:var(--mist2);font-size:.9rem;text-decoration:none;transition:color .15s}
+.see-all-channels:hover{color:var(--accent)}
+.proof-divider{border:none;border-top:1px solid var(--wall2);margin:24px auto;width:200px}
+.brand-socials{display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;color:var(--mist2)}
+.brand-socials a{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;color:var(--mist2);transition:color .15s,background .15s;text-decoration:none}
+.brand-socials a:hover{color:var(--accent);background:var(--accent-bg)}
+.brand-socials svg{width:20px;height:20px;display:block}
+.footer-bottom{margin-top:32px;padding-top:16px;border-top:1px solid var(--wall2);text-align:center;color:var(--mist3);font-size:13px}
+.footer-bottom div+div{margin-top:8px}
+@media(max-width:720px){.footer-grid{grid-template-columns:repeat(2,1fr);gap:24px}.section{padding:64px 20px}.proof-strip{padding:64px 20px}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}.channel-link{width:40px;height:40px}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="/index.html">Digi<em>Prompts</em></a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <ul class="nav" aria-label="Principal">
+    <li><a href="/herramientas.html">Herramientas</a></li>
+    <li class="has-dropdown">
+      <a href="/utilidades.html" class="dropdown-trigger">Utilidades <span class="caret">▾</span></a>
+      <div class="dropdown-menu" role="menu">
+        <a href="/tools/contador-caracteres.html"><span class="dd-emoji">📝</span> Contador caracteres</a>
+        <a href="/tools/miniaturas-youtube.html"><span class="dd-emoji">🎬</span> Miniaturas YouTube</a>
+        <a href="/tools/fancy-text.html"><span class="dd-emoji">✨</span> Fancy Text</a>
+        <a href="/tools/generador-qr.html"><span class="dd-emoji">📱</span> Generador QR</a>
+        <a href="/tools/redimensionador-imagenes.html"><span class="dd-emoji">📐</span> Redimensionar imágenes</a>
+        <hr />
+        <a href="/tools/compresor-imagenes.html"><span class="dd-emoji">🗜️</span> Compresor imágenes</a>
+        <a href="/tools/conversor-formato-imagen.html"><span class="dd-emoji">🔄</span> Conversor formato</a>
+        <a href="/tools/calculadora-engagement.html"><span class="dd-emoji">📊</span> Engagement rate</a>
+        <a href="/tools/calculadora-ingresos.html"><span class="dd-emoji">💰</span> Calculadora ingresos</a>
+        <a href="/tools/conversor-zonas-horarias.html"><span class="dd-emoji">🌍</span> Zonas horarias</a>
+        <a href="/tools/conversor-mayusculas.html"><span class="dd-emoji">🔤</span> Mayús/minús</a>
+      </div>
+    </li>
+    <li><a href="/chatbot.html">Chat IA ✦</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/canales.html">Canales</a></li>
+    <li><a href="/partners.html">Partners</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn-ghost" href="/chatbot.html">Chat IA gratis</a>
+    <a class="btn-cta" href="#newsletter">200 prompts gratis →</a>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html">Inicio</a>
+  <a href="/herramientas.html">Herramientas</a>
+  <a href="/utilidades.html">Utilidades</a>
+  <a href="/chatbot.html">Chat IA ✦</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/canales.html">Canales</a>
+  <a href="/partners.html">Partners</a>
+  <a href="/suscripcion-digiprompts.html" style="background:var(--accent);color:var(--ink);text-align:center;font-weight:600">200 prompts gratis →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Construyo · Pruebo · Comparto</div>
+    <h1>Construyo <em>productos</em> con IA.<br>Y los <span class="hl-sky">uso yo mismo.</span></h1>
+    <p class="hero-sub"><strong>14+ herramientas IA, 12 utilidades sin IA y 6 canales faceless</strong> automatizados con la misma IA que comparto. Sin humo, sin SaaS, sin registro: lo construyo, lo pruebo en mis canales y lo dejo gratis aquí.</p>
+    <div class="hero-stats"><span><em>6</em> canales</span> · <span><em>26+</em> herramientas</span> · <span><em>0€</em> · sin registro</span></div>
+    <div class="hero-btns">
+      <a class="btn-primary" href="/herramientas.html">Probar herramientas →</a>
+      <a class="btn-secondary" href="/canales.html">Ver mis canales</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF — Canales -->
+<section class="proof-strip">
+  <div class="proof-inner">
+    <div class="section-head">
+      <div class="eyebrow">Esto que ves… funciona</div>
+      <h2>6 canales faceless <em>automatizados</em></h2>
+      <p class="section-desc">Construidos con las mismas herramientas que comparto. Sin cara, sin equipo, en piloto automático.</p>
+    </div>
+    <div class="proof-grid">
+      <a class="proof-card" href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank" rel="noopener">
+        <div class="proof-head">
+          <div class="proof-logo"><img src="/assets/canales/estoico-loco.jpg" alt="Estoico Loco" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'proof-fallback',textContent:'EL'}))"></div>
+          <div><div class="proof-name">Estoico Loco</div><div class="proof-niche">Filosofía aplicada</div></div>
+        </div>
+        <p class="proof-desc">Marco Aurelio, Séneca y Epicteto en tu vida real. Vídeos largos y narración IA. Audiencia fiel y contenido evergreen.</p>
+        <div class="proof-foot"><span class="proof-link">Ver canal →</span></div>
+      </a>
+      <a class="proof-card" href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank" rel="noopener">
+        <div class="proof-head">
+          <div class="proof-logo"><img src="/assets/canales/leyendas-aterradoras.jpg" alt="Leyendas Aterradoras" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'proof-fallback',textContent:'LA'}))"></div>
+          <div><div class="proof-name">Leyendas Aterradoras</div><div class="proof-niche">Terror documentado</div></div>
+        </div>
+        <p class="proof-desc">Casos reales y leyendas verificadas. Investigación + voz IA + montaje automático. Alta retención y viralidad.</p>
+        <div class="proof-foot"><span class="proof-link">Ver canal →</span></div>
+      </a>
+      <a class="proof-card" href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" target="_blank" rel="noopener">
+        <div class="proof-head">
+          <div class="proof-logo"><img src="/assets/canales/historias-minuteras.jpg" alt="Historias Minuteras" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'proof-fallback',textContent:'HM'}))"></div>
+          <div><div class="proof-name">Historias Minuteras</div><div class="proof-niche">Storytelling corto</div></div>
+        </div>
+        <p class="proof-desc">Microhistorias y anécdotas curiosas. Guiones automáticos, voz IA, cadencia de publicación constante.</p>
+        <div class="proof-foot"><span class="proof-link">Ver canal →</span></div>
+      </a>
+      <a class="proof-card" href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" target="_blank" rel="noopener">
+        <div class="proof-head">
+          <div class="proof-logo"><img src="/assets/canales/pokercondatos.jpg" alt="PokerConDatos" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'proof-fallback',textContent:'PC'}))"></div>
+          <div><div class="proof-name">PokerConDatos</div><div class="proof-niche">Análisis con datos</div></div>
+        </div>
+        <p class="proof-desc">Análisis técnico de manos y ranges con datos reales. Gráficos IA y narración técnica para audiencia de nicho.</p>
+        <div class="proof-foot"><span class="proof-link">Ver canal →</span></div>
+      </a>
+      <a class="proof-card" href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" target="_blank" rel="noopener">
+        <div class="proof-head">
+          <div class="proof-logo"><img src="/assets/canales/neuralspot.jpg" alt="NeuralSpot" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'proof-fallback',textContent:'NS'}))"></div>
+          <div><div class="proof-name">NeuralSpot</div><div class="proof-niche">Acertijos · Retos mentales</div></div>
+        </div>
+        <p class="proof-desc">Acertijos y problemas matemáticos generados con DeepSeek. Pills de 30–90s con alto engagement y máxima viralidad.</p>
+        <div class="proof-foot"><span class="proof-link">Ver canal →</span></div>
+      </a>
+      <a class="proof-card" href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" target="_blank" rel="noopener">
+        <div class="proof-head">
+          <div class="proof-logo"><img src="/assets/canales/nev.jpg" alt="NEV" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'proof-fallback',textContent:'NE'}))"></div>
+          <div><div class="proof-name">NEV</div><div class="proof-niche">Noticias frescas faceless</div></div>
+        </div>
+        <p class="proof-desc">Monitorización 24/7 y publicación inmediata con narración IA. SEO en tiempo real y captura de tráfico al instante.</p>
+        <div class="proof-foot"><span class="proof-link">Ver canal →</span></div>
+      </a>
+    </div>
+    <div class="proof-cta">
+      <a class="btn-secondary" href="/canales.html">Ver todos los canales →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="section">
+  <div class="section-head">
+    <div class="eyebrow">Productos · Lo que ofrezco</div>
+    <h2>Las <em>herramientas</em> que uso<br>(y comparto gratis)</h2>
+    <p class="section-desc">Dos paquetes claros: las que usan IA real para crear contenido, y las utilidades sin IA para tu día a día como creador.</p>
+  </div>
+  <div class="products">
+
+    <article class="product-card">
+      <span class="product-tag tag-ai">✦ Con IA real</span>
+      <h3>Herramientas IA</h3>
+      <p>14+ generadores específicos por nicho: guiones, hooks, captions, hashtags, títulos, bios y análisis. Resultados específicos en segundos.</p>
+      <div class="product-list">
+        <div class="product-item"><span class="pi-icon">🎬</span> Guión Short 60s</div>
+        <div class="product-item"><span class="pi-icon">🪝</span> Hooks Anti-Scroll</div>
+        <div class="product-item"><span class="pi-icon">🏷️</span> Hashtags estratégicos</div>
+        <div class="product-item"><span class="pi-icon">🎯</span> Títulos YouTube CTR</div>
+        <div class="product-item"><span class="pi-icon">✍️</span> Captions virales</div>
+        <div class="product-item"><span class="pi-icon">🔍</span> Análisis de nicho</div>
+        <div class="product-item"><span class="pi-icon">👤</span> Bio que convierte</div>
+        <div class="product-item"><span class="pi-icon">📅</span> Calendario editorial</div>
+      </div>
+      <a class="btn-secondary" href="/herramientas.html">Ver todas las herramientas IA →</a>
+    </article>
+
+    <article class="product-card">
+      <span class="product-tag tag-noai">📐 Sin IA · 100% local</span>
+      <h3>Utilidades para creadores</h3>
+      <p>12 herramientas instantáneas que se ejecutan en tu navegador. Ni servidor, ni esperas, ni registro. Para los pequeños bloqueos del día a día.</p>
+      <div class="product-list">
+        <div class="product-item"><span class="pi-icon">📝</span> Contador caracteres</div>
+        <div class="product-item"><span class="pi-icon">🎬</span> Miniaturas YouTube</div>
+        <div class="product-item"><span class="pi-icon">📱</span> Generador QR</div>
+        <div class="product-item"><span class="pi-icon">📐</span> Redimensionar imágenes</div>
+        <div class="product-item"><span class="pi-icon">🗜️</span> Compresor imágenes</div>
+        <div class="product-item"><span class="pi-icon">🔄</span> Conversor formato</div>
+        <div class="product-item"><span class="pi-icon">📊</span> Engagement rate</div>
+        <div class="product-item"><span class="pi-icon">🌍</span> Zonas horarias</div>
+      </div>
+      <a class="btn-secondary" href="/utilidades.html">Ver todas las utilidades →</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- CHAT IA card -->
+<section class="section">
+  <div class="chat-card">
+    <span class="chat-icon">🤖</span>
+    <h2>Habla con DigiPrompts <em>directamente</em></h2>
+    <p>Pregúntame sobre el flujo, las herramientas, los canales o cualquier cosa de creación de contenido. Asistente IA gratuito, sin registro, sin límites.</p>
+    <a class="btn-primary" href="/chatbot.html">Probar Chat IA gratis →</a>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="section" id="newsletter">
+  <div class="nl-cta">
+    <div class="eyebrow">Newsletter semanal · Gratis</div>
+    <h2>Lo que <em>aprendo</em> construyendo<br>esto, en tu email</h2>
+    <p>Cada semana: nuevas herramientas, qué automatizaciones funcionan en mis canales y experimentos con IA. Sin humo, números reales. <strong>200 prompts gratis al suscribirte.</strong></p>
+    <a class="btn-primary" href="/suscripcion-digiprompts.html">Suscribirme gratis →</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="ftr-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="/herramientas.html">Generador de guiones</a></li>
+          <li><a href="/herramientas.html">Generador de hashtags</a></li>
+          <li><a href="/herramientas.html">Generador de captions</a></li>
+          <li><a href="/herramientas.html">Generador de bio</a></li>
+          <li><a href="/herramientas.html">Títulos YouTube</a></li>
+          <li><a href="/herramientas.html">Analizador de hooks</a></li>
+          <li><a href="/herramientas.html">Ideas de contenido</a></li>
+          <li><a href="/herramientas.html">Calendario editorial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletters</h4>
+        <ul><li><a href="/suscripcion-digiprompts.html">DigiPrompts</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>YouTube</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank" rel="noopener">Estoico Loco</a></li>
+          <li><a href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank" rel="noopener">Leyendas Aterradoras</a></li>
+          <li><a href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" target="_blank" rel="noopener">Historias Minuteras</a></li>
+          <li><a href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" target="_blank" rel="noopener">PokerConDatos</a></li>
+          <li><a href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" target="_blank" rel="noopener">NeuralSpot</a></li>
+          <li><a href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" target="_blank" rel="noopener">NEV</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contenido</h4>
+        <ul>
+          <li><a href="/blog.html">Blog IA</a></li>
+          <li><a href="/canales.html">Canales</a></li>
+          <li><a href="/herramientas.html">Herramientas</a></li>
+          <li><a href="/utilidades.html">Utilidades</a></li>
+          <li><a href="/chatbot.html">Chat IA</a></li>
+          <li><a href="/partners.html">Partners</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/politica-cookies-digiprompts.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-proof">
+      <div class="footer-proof-title">Canales faceless automatizados con IA</div>
+      <div class="footer-proof-sub">Esto que ves aquí… funciona. Aquí están nuestros canales reales:</div>
+      <div class="channels-row">
+        <a class="channel-link" href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank" rel="noopener" aria-label="Estoico Loco"><img src="/assets/canales/estoico-loco.jpg" alt="Estoico Loco" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'EL'}))"></a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank" rel="noopener" aria-label="Leyendas Aterradoras"><img src="/assets/canales/leyendas-aterradoras.jpg" alt="Leyendas Aterradoras" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'LA'}))"></a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" target="_blank" rel="noopener" aria-label="Historias Minuteras"><img src="/assets/canales/historias-minuteras.jpg" alt="Historias Minuteras" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'HM'}))"></a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" target="_blank" rel="noopener" aria-label="PokerConDatos"><img src="/assets/canales/pokercondatos.jpg" alt="PokerConDatos" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'PC'}))"></a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" target="_blank" rel="noopener" aria-label="NeuralSpot"><img src="/assets/canales/neuralspot.jpg" alt="NeuralSpot" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'NS'}))"></a>
+        <a class="channel-link" href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" target="_blank" rel="noopener" aria-label="NEV"><img src="/assets/canales/nev.jpg" alt="NEV" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'channel-fallback',textContent:'NE'}))"></a>
+      </div>
+      <a class="see-all-channels" href="/canales.html">Ver todos los canales →</a>
+      <hr class="proof-divider" />
+      <div class="brand-socials">
+        <span>Síguenos:</span>
+        <a href="https://www.tiktok.com/@digiprompts" target="_blank" rel="noopener" aria-label="DigiPrompts en TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.84-.55-1.46-1.4-1.74-2.4-.06-.21-.1-.42-.13-.64h-3.04v12.79c0 1.55-1.27 2.81-2.83 2.81-1.56 0-2.83-1.26-2.83-2.81 0-1.56 1.27-2.82 2.83-2.82.31 0 .61.05.89.14V9.84c-.29-.04-.59-.07-.89-.07C5.6 9.77 3 12.35 3 15.57s2.6 5.8 5.87 5.8c3.27 0 5.87-2.6 5.87-5.8V9.34c1.18.85 2.65 1.36 4.26 1.36V7.66c-.86 0-1.66-.26-2.4-.7-.34-.21-.66-.46-1-.74v-.4z"/></svg></a>
+        <a href="https://x.com/DigiPrompts_io" target="_blank" rel="noopener" aria-label="DigiPrompts en X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 DigiPrompts · Todos los derechos reservados</div>
+      <div>Hecho con 🤖 Inteligencia Artificial</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){var h=document.getElementById('hamburger');var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');if(h)h.classList.toggle('open');}
+(function(){var mql=window.matchMedia('(max-width:960px)');document.addEventListener('click',function(ev){var t=ev.target;if(!(t instanceof Element))return;var trigger=t.closest('.dropdown-trigger');if(trigger&&mql.matches){ev.preventDefault();trigger.parentElement.classList.toggle('is-open');return;}if(!t.closest('.has-dropdown'))document.querySelectorAll('.has-dropdown.is-open').forEach(function(d){d.classList.remove('is-open');});});})();
+</script>
+<script>if("serviceWorker"in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/cache-worker.js").catch(function(){});});}</script>
+</body>
+</html>
