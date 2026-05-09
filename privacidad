@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Privacy Policy — DigiPrompts</title>
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0; url=/privacidad.html">
+<link rel="canonical" href="https://www.digiprompts.io/privacidad.html">
+<style>
+  body{font-family:system-ui,sans-serif;background:#080c15;color:#dde6f5;display:grid;place-items:center;min-height:100vh;margin:0;padding:24px;text-align:center}
+  a{color:#A78BFA}
+</style>
+</head>
+<body>
+<p>Redirigiendo a la <a href="/privacidad.html">política de privacidad (ES)</a> · <a href="/privacy.html">Privacy Policy (EN)</a></p>
+<script>location.replace('/privacidad.html');</script>
+</body>
+</html>
