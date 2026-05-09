@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter IA Gratis — DigiPrompts</title>
+<meta name="description" content="Suscríbete gratis y recibe cada semana los mejores prompts, herramientas y estrategias de IA para creadores de contenido.">
+<meta property="og:title" content="Newsletter IA Gratis — DigiPrompts">
+<meta property="og:description" content="200 prompts gratis al suscribirte. Estrategias semanales de IA para creadores.">
+<meta property="og:url" content="https://digiprompts.io/suscripcion-digiprompts.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://digiprompts.io/suscripcion-digiprompts.html">
+<script defer data-domain="digiprompts.io" src="https://analytics.digiprompts.io/js/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#080c15;--ink2:#0d1117;--ink3:#111827;
+  --wall:#1a2235;--wall2:#232f45;
+  --mist:#dde6f5;--mist2:#8292b0;--mist3:#4a5a7a;
+  --accent:#A78BFA;--accent-bg:rgba(167,139,250,.06);--accent-bd:rgba(167,139,250,.18);
+  --sky:#5BBFFF;--coral:#FF7A5A;--gold:#FFD166;--green:#4ADE80;
+  --display:'Fraunces',Georgia,serif;
+  --body:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+  --t-fast:120ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--ink);color:var(--mist);min-height:100vh;display:flex;flex-direction:column;line-height:1.65}
+body::after{content:'';position:fixed;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(167,139,250,.04) 0%,transparent 70%);z-index:0;pointer-events:none}
+
+/* ── HEADER unificado ── */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(8,12,21,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--wall2);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-family:var(--display);font-size:22px;font-weight:600;color:var(--mist);text-decoration:none;letter-spacing:-.5px}
+.brand em{color:var(--accent);font-style:italic}
+.nav{display:flex;gap:4px;list-style:none;align-items:center}
+.nav a{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--mist2);text-decoration:none;padding:7px 14px;border-radius:6px;transition:all .15s}
+.nav a:hover{color:var(--accent);background:var(--accent-bg)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.btn-ghost{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:6px;text-decoration:none;color:var(--mist2);border:1px solid var(--wall2);transition:all .15s}
+.btn-ghost:hover{color:var(--accent);border-color:var(--accent-bd)}
+.btn-cta{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:8px 18px;border-radius:6px;text-decoration:none;background:var(--accent);color:var(--ink);border:1px solid var(--accent);transition:all .15s}
+.btn-cta:hover{filter:brightness(1.07)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent}
+.hamburger span{width:22px;height:2px;background:var(--mist2);border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(8,12,21,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--wall2);z-index:99;padding:20px 24px;flex-direction:column;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--mist2);text-decoration:none;padding:12px 16px;border-radius:8px;transition:all .15s}
+.mobile-menu a:hover{color:var(--accent);background:var(--accent-bg)}
+@media(max-width:960px){.nav,.nav-right{display:none}.hamburger{display:flex}}
+
+/* ── Dropdown Utilidades ── */
+.has-dropdown{position:relative;display:inline-flex;align-items:center}
+.dropdown-trigger{display:inline-flex;align-items:center;gap:4px;cursor:pointer}
+.dropdown-trigger .caret{font-size:.7em;transition:transform .18s;opacity:.7}
+.has-dropdown:hover .dropdown-trigger .caret,.has-dropdown.is-open .dropdown-trigger .caret{transform:rotate(180deg)}
+.has-dropdown::after{content:'';position:absolute;top:100%;left:0;right:0;height:14px}
+.dropdown-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-4px);background:rgba(8,12,21,.97);border:1px solid var(--wall2);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.42);padding:8px;min-width:250px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .16s,transform .16s;z-index:300;backdrop-filter:blur(20px)}
+.has-dropdown:hover .dropdown-menu,.has-dropdown:focus-within .dropdown-menu,.has-dropdown.is-open .dropdown-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.dropdown-menu a{display:flex !important;align-items:center;gap:10px;padding:8px 12px !important;border-radius:6px;color:var(--mist) !important;font-family:var(--body) !important;font-size:13px !important;font-weight:400 !important;letter-spacing:0 !important;text-transform:none !important;white-space:nowrap;background:transparent !important;border:none !important}
+.dropdown-menu a:hover{background:var(--accent-bg) !important;color:var(--accent) !important}
+.dd-emoji{font-size:1.05rem;width:1.4em;text-align:center;display:inline-block}
+.dropdown-menu hr{border:none;border-top:1px solid var(--wall2);margin:6px 8px}
+
+/* ── Hero suscripción ── */
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 20px;position:relative;z-index:1}
+.card{background:var(--ink2);border:1px solid var(--wall2);border-radius:18px;padding:48px 40px;max-width:560px;width:100%;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--sky))}
+.badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--accent);background:var(--accent-bg);border:1px solid var(--accent-bd);padding:5px 14px;border-radius:100px;margin-bottom:24px}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+.card-icon{font-size:48px;margin-bottom:20px;display:block}
+h1{font-family:var(--display);font-size:clamp(28px,5vw,38px);font-weight:600;letter-spacing:-1px;line-height:1.1;margin-bottom:14px;color:var(--mist)}
+h1 em{font-style:italic;color:var(--accent)}
+.subtitle{font-size:15px;color:var(--mist2);line-height:1.7;margin-bottom:28px}
+.subtitle strong{color:var(--mist)}
+
+.perks{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.perk{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--ink3);border:1px solid var(--wall2);border-radius:12px;transition:border-color .15s}
+.perk:hover{border-color:var(--accent-bd)}
+.perk-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.perk-title{font-size:14px;font-weight:600;color:var(--mist);margin-bottom:3px;font-family:var(--body)}
+.perk-desc{font-size:12.5px;color:var(--mist2);line-height:1.55}
+
+.form-group{margin-bottom:14px}
+.form-label{display:block;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--mist2);margin-bottom:8px}
+.form-input{width:100%;padding:14px 16px;background:var(--ink3);border:1.5px solid var(--wall2);border-radius:10px;font-family:var(--body);font-size:15px;color:var(--mist);outline:none;transition:border-color var(--t-fast),box-shadow var(--t-fast)}
+.form-input::placeholder{color:var(--mist3)}
+.form-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-bg)}
+
+.btn-submit{width:100%;padding:15px;background:var(--accent);color:var(--ink);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:10px;cursor:pointer;transition:filter var(--t-fast),transform var(--t-fast),box-shadow var(--t-fast);display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-submit:hover{filter:brightness(1.07);transform:translateY(-1px);box-shadow:0 0 30px rgba(167,139,250,.35)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-submit .spinner{width:16px;height:16px;border:2px solid rgba(8,12,21,.3);border-top-color:var(--ink);border-radius:50%;animation:spin .7s linear infinite;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.btn-submit.loading .spinner{display:block}
+.btn-submit.loading .btn-text{display:none}
+
+.legal{font-size:11px;color:var(--mist3);text-align:center;margin-top:14px;line-height:1.6}
+.legal a{color:var(--mist3);text-decoration:underline}
+
+.success{display:none;text-align:center;padding:32px 20px}
+.success-icon{font-size:56px;margin-bottom:16px;display:block}
+.success-title{font-family:var(--display);font-size:24px;font-weight:600;color:var(--green);margin-bottom:10px}
+.success-text{font-size:15px;color:var(--mist2);line-height:1.7}
+
+.error-msg{background:rgba(255,122,90,.08);border:1px solid rgba(255,122,90,.25);border-radius:8px;padding:12px 16px;font-size:13px;color:var(--coral);margin-bottom:16px;display:none}
+
+/* Footer simple */
+.site-footer{border-top:1px solid var(--wall2);padding:32px 24px;text-align:center;background:var(--ink2);font-size:13px;color:var(--mist3);display:flex;flex-direction:column;align-items:center;gap:14px}
+.site-footer .brand{font-size:18px}
+.site-footer .links{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+.site-footer .links a{color:var(--mist2);font-size:13px;text-decoration:none;transition:color .15s}
+.site-footer .links a:hover{color:var(--accent)}
+.site-footer .copy{font-family:var(--mono);font-size:11px;color:var(--mist3);letter-spacing:.5px}
+
+@media(max-width:600px){.card{padding:36px 24px}.site-header{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="/index.html">Digi<em>Prompts</em></a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <ul class="nav" aria-label="Principal">
+    <li><a href="/herramientas.html">Herramientas</a></li>
+    <li class="has-dropdown">
+      <a href="/utilidades.html" class="dropdown-trigger">Utilidades <span class="caret">▾</span></a>
+      <div class="dropdown-menu" role="menu">
+        <a href="/tools/contador-caracteres.html"><span class="dd-emoji">📝</span> Contador caracteres</a>
+        <a href="/tools/miniaturas-youtube.html"><span class="dd-emoji">🎬</span> Miniaturas YouTube</a>
+        <a href="/tools/fancy-text.html"><span class="dd-emoji">✨</span> Fancy Text</a>
+        <a href="/tools/generador-qr.html"><span class="dd-emoji">📱</span> Generador QR</a>
+        <a href="/tools/redimensionador-imagenes.html"><span class="dd-emoji">📐</span> Redimensionar imágenes</a>
+        <hr />
+        <a href="/tools/compresor-imagenes.html"><span class="dd-emoji">🗜️</span> Compresor imágenes</a>
+        <a href="/tools/conversor-formato-imagen.html"><span class="dd-emoji">🔄</span> Conversor formato</a>
+        <a href="/tools/calculadora-engagement.html"><span class="dd-emoji">📊</span> Engagement rate</a>
+        <a href="/tools/calculadora-ingresos.html"><span class="dd-emoji">💰</span> Calculadora ingresos</a>
+        <a href="/tools/conversor-zonas-horarias.html"><span class="dd-emoji">🌍</span> Zonas horarias</a>
+        <a href="/tools/conversor-mayusculas.html"><span class="dd-emoji">🔤</span> Mayús/minús</a>
+      </div>
+    </li>
+    <li><a href="/chatbot.html">Chat IA ✦</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/canales.html">Canales</a></li>
+    <li><a href="/partners.html">Partners</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn-ghost" href="/chatbot.html">Chat IA gratis</a>
+    <a class="btn-cta" href="#form">200 prompts gratis →</a>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html">Inicio</a>
+  <a href="/herramientas.html">Herramientas</a>
+  <a href="/utilidades.html">Utilidades</a>
+  <a href="/chatbot.html">Chat IA ✦</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/canales.html">Canales</a>
+  <a href="/partners.html">Partners</a>
+</div>
+
+<main>
+  <div class="card" id="form">
+    <div class="badge">Newsletter semanal · Gratis siempre</div>
+    <span class="card-icon">🤖</span>
+    <h1>Prompts e <em>IA</em> para creadores</h1>
+    <p class="subtitle">Cada semana en tu email: el prompt más efectivo de la semana, una herramienta de IA y estrategias que <strong>realmente funcionan</strong> en TikTok y YouTube.</p>
+
+    <div class="perks">
+      <div class="perk"><span class="perk-icon">🎁</span><div><div class="perk-title">200 prompts gratis al suscribirte</div><div class="perk-desc">PDF listo para descargar con los mejores prompts para creadores.</div></div></div>
+      <div class="perk"><span class="perk-icon">✦</span><div><div class="perk-title">Prompt de la semana</div><div class="perk-desc">El prompt más efectivo probado en producción real.</div></div></div>
+      <div class="perk"><span class="perk-icon">⚙️</span><div><div class="perk-title">Herramienta destacada</div><div class="perk-desc">Una herramienta concreta para mejorar tu flujo de producción.</div></div></div>
+      <div class="perk"><span class="perk-icon">📈</span><div><div class="perk-title">Estrategia aplicada</div><div class="perk-desc">Qué está funcionando ahora en TikTok, YouTube e Instagram.</div></div></div>
+    </div>
+
+    <div id="form-area">
+      <div class="error-msg" id="error-msg"></div>
+      <div class="form-group">
+        <label class="form-label" for="email">Tu email</label>
+        <input class="form-input" type="email" id="email" placeholder="tucorreo@gmail.com" autocomplete="email" required>
+      </div>
+      <button class="btn-submit" id="btn-submit" onclick="subscribe()">
+        <span class="btn-text">Conseguir 200 prompts gratis →</span>
+        <div class="spinner"></div>
+      </button>
+      <p class="legal">Sin spam · Baja cuando quieras · <a href="/privacidad.html">privacidad</a></p>
+    </div>
+
+    <div class="success" id="success-area">
+      <span class="success-icon">🎉</span>
+      <div class="success-title">¡Ya eres parte de DigiPrompts!</div>
+      <p class="success-text">Revisa tu email — te hemos enviado el PDF con los <strong>200 prompts gratis</strong> y el email de bienvenida. Si no lo ves, mira en spam.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <a class="brand" href="/index.html">Digi<em>Prompts</em></a>
+  <div class="links">
+    <a href="/index.html">Inicio</a>
+    <a href="/herramientas.html">Herramientas</a>
+    <a href="/utilidades.html">Utilidades</a>
+    <a href="/canales.html">Canales</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/privacidad.html">Privacidad</a>
+  </div>
+  <div class="copy">© 2026 DigiPrompts · Hecho con 🤖 IA</div>
+</footer>
+
+<script>
+function toggleMenu(){var h=document.getElementById('hamburger');var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');if(h)h.classList.toggle('open');}
+
+// ── Suscripción Mailerlite (lógica original conservada) ──
+var ML_API = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMTIzODM3OTRkODIzZThmN2ViNDA4ZWRhMGI3YzJjYTc2MTBlNmViNTI4YTI1NWQwNjMyOGY4OWRmOGM5MDE5ZjkyZjFmNGQzNjg5MTg5NmQiLCJpYXQiOjE3NzQzMDEzOTEuMTk1NDgyLCJuYmYiOjE3NzQzMDEzOTEuMTk1NDg2LCJleHAiOjQ5Mjk5NzQ5OTEuMTg4MDc2LCJzdWIiOiIyMTkwMTY0Iiwic2NvcGVzIjpbXX0.GPFPYAHX1WsvYjOvrVYRhgsEunkaUUXT2MaQPj0UNHOjDmYgf6fvoNaWnuPKwKIl-HahqzypwI2R0700-h92H9aIFYB1qX8_UHqS6vsFutWVe_mGSONc6UG6GbeCmd2Gsu98NVyTPTrmOz93mgBOr7DpGl7c7u9gZu4DB5CfOnar4MXzRG2xuZx3fkvE4amb12_nDbAKafj1VV_G1Kz6NIB291FHR6ilLTI9-z2pBJ7CtIf8f4fcTstsTRZw5QqiBoLhHFIvGZgs3Wg0mmsA3DNzbiovuFJz4D9PXkP8ZyGkyXibv-n9qZbv0pftdWAsjVMseqj7apmr1egmDasSA6TuBRTiedNnbXtyuXmOmHCIwSPuyN_hV46TFYkCbL4hJ_U-w16-TZ0idsx0jWQYfp18IjGhBoUXfm4hfPzOSFQ0Tx4DiOPI21YG_dud6kdR2nuIv0tBK0To2vq2AUV-OB7iqt15hdm9igza2MuOel_818bUWjSD_8cn2flKaFH3EoNbUYuTWf-CUeaPSppsYKCoRMRAaA3Z2U2j_a_zUhjgfnakvB7prwRJKwe4OsBI_s30YtvebDe8j6z0sqEWPunRZlFiwBYgorKn8p5A6cgeY-LxhumhON14-haGVU2XTlaMu2OC-RzjnxOV-4Vil27a0DE0BSxuguat7hWpwFw';
+var ML_GROUP = '181472318869997112';
+
+function subscribe() {
+  var email = document.getElementById('email').value.trim();
+  var errorEl = document.getElementById('error-msg');
+  var btn = document.getElementById('btn-submit');
+
+  errorEl.style.display = 'none';
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errorEl.textContent = 'Introduce un email válido.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.classList.add('loading');
+
+  fetch('https://connect.mailerlite.com/api/subscribers', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + ML_API
+    },
+    body: JSON.stringify({
+      email: email,
+      groups: [ML_GROUP]
+    })
+  }).then(function(res) {
+    if (res.ok || res.status === 200 || res.status === 201) {
+      document.getElementById('form-area').style.display = 'none';
+      document.getElementById('success-area').style.display = 'block';
+    } else {
+      return res.json().then(function(data) {
+        throw new Error(data.message || 'Error al suscribirse. Inténtalo de nuevo.');
+      });
+    }
+  }).catch(function(err) {
+    errorEl.textContent = err.message || 'Error de conexión. Inténtalo de nuevo.';
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.classList.remove('loading');
+  });
+}
+
+document.getElementById('email').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') subscribe();
+});
+
+// Dropdown click handler (móvil)
+(function(){
+  var mql=window.matchMedia('(max-width:960px)');
+  document.addEventListener('click',function(ev){
+    var t=ev.target;if(!(t instanceof Element))return;
+    var trigger=t.closest('.dropdown-trigger');
+    if(trigger&&mql.matches){ev.preventDefault();trigger.parentElement.classList.toggle('is-open');return;}
+    if(!t.closest('.has-dropdown'))document.querySelectorAll('.has-dropdown.is-open').forEach(function(d){d.classList.remove('is-open');});
+  });
+})();
+</script>
+</body>
+</html>
