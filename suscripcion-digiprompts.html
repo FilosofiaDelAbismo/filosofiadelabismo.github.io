@@ -215,9 +215,7 @@ h1 em{font-style:italic;color:var(--accent)}
 <script>
 function toggleMenu(){var h=document.getElementById('hamburger');var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');if(h)h.classList.toggle('open');}
 
-// ── Suscripción Mailerlite (lógica original conservada) ──
-var ML_API = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMTIzODM3OTRkODIzZThmN2ViNDA4ZWRhMGI3YzJjYTc2MTBlNmViNTI4YTI1NWQwNjMyOGY4OWRmOGM5MDE5ZjkyZjFmNGQzNjg5MTg5NmQiLCJpYXQiOjE3NzQzMDEzOTEuMTk1NDgyLCJuYmYiOjE3NzQzMDEzOTEuMTk1NDg2LCJleHAiOjQ5Mjk5NzQ5OTEuMTg4MDc2LCJzdWIiOiIyMTkwMTY0Iiwic2NvcGVzIjpbXX0.GPFPYAHX1WsvYjOvrVYRhgsEunkaUUXT2MaQPj0UNHOjDmYgf6fvoNaWnuPKwKIl-HahqzypwI2R0700-h92H9aIFYB1qX8_UHqS6vsFutWVe_mGSONc6UG6GbeCmd2Gsu98NVyTPTrmOz93mgBOr7DpGl7c7u9gZu4DB5CfOnar4MXzRG2xuZx3fkvE4amb12_nDbAKafj1VV_G1Kz6NIB291FHR6ilLTI9-z2pBJ7CtIf8f4fcTstsTRZw5QqiBoLhHFIvGZgs3Wg0mmsA3DNzbiovuFJz4D9PXkP8ZyGkyXibv-n9qZbv0pftdWAsjVMseqj7apmr1egmDasSA6TuBRTiedNnbXtyuXmOmHCIwSPuyN_hV46TFYkCbL4hJ_U-w16-TZ0idsx0jWQYfp18IjGhBoUXfm4hfPzOSFQ0Tx4DiOPI21YG_dud6kdR2nuIv0tBK0To2vq2AUV-OB7iqt15hdm9igza2MuOel_818bUWjSD_8cn2flKaFH3EoNbUYuTWf-CUeaPSppsYKCoRMRAaA3Z2U2j_a_zUhjgfnakvB7prwRJKwe4OsBI_s30YtvebDe8j6z0sqEWPunRZlFiwBYgorKn8p5A6cgeY-LxhumhON14-haGVU2XTlaMu2OC-RzjnxOV-4Vil27a0DE0BSxuguat7hWpwFw';
-var ML_GROUP = '181472318869997112';
+// ── Suscripción vía backend propio (API key en server) ──
 
 function subscribe() {
   var email = document.getElementById('email').value.trim();
@@ -235,25 +233,22 @@ function subscribe() {
   btn.disabled = true;
   btn.classList.add('loading');
 
-  fetch('https://connect.mailerlite.com/api/subscribers', {
+  fetch('https://api.iaprofesor.com/subscribe', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + ML_API
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      email: email,
-      groups: [ML_GROUP]
+      site:  'digiprompts',
+      email: email
     })
   }).then(function(res) {
-    if (res.ok || res.status === 200 || res.status === 201) {
-      document.getElementById('form-area').style.display = 'none';
-      document.getElementById('success-area').style.display = 'block';
-    } else {
-      return res.json().then(function(data) {
-        throw new Error(data.message || 'Error al suscribirse. Inténtalo de nuevo.');
-      });
-    }
+    return res.json().then(function(data) {
+      if (res.ok && data.ok) {
+        document.getElementById('form-area').style.display = 'none';
+        document.getElementById('success-area').style.display = 'block';
+      } else {
+        throw new Error(data.error || 'Error al suscribirse. Inténtalo de nuevo.');
+      }
+    });
   }).catch(function(err) {
     errorEl.textContent = err.message || 'Error de conexión. Inténtalo de nuevo.';
     errorEl.style.display = 'block';
