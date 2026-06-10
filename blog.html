@@ -479,6 +479,100 @@ footer{border-top:1px solid var(--wall);padding:40px 48px 28px;background:var(--
 
 <!-- NEW_ARTICLES_HERE -->
 
+    <div class="featured-wrap reveal" id="art-prompts-para-excel-que-incluir-para-eliminar-el-20260610">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-06-10">
+      <meta itemprop="dateModified" content="2026-06-10">
+      <meta itemprop="author" content="DigiPrompts">
+      <meta itemprop="publisher" content="DigiPrompts">
+      <div class="af-top-bar c-default"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-default">Prompts de productividad</span>
+          <time class="af-date" datetime="2026-06-10" itemprop="datePublished">10 Jun 2026</time>
+          <span class="af-read">· 7 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">Prompts para Excel: qué incluir para eliminar el trabajo manual</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">La IA puede generar fórmulas y macros complejos en segundos, pero solo si el prompt está bien construido. Esta guía te muestra exactamente qué información necesita para darte resultados profesionales.</p>
+        <div class="af-content" id="art-prompts-para-excel-que-incluir-para-eliminar-el-20260610-content">
+          <h3>Por qué la mayoría de prompts para Excel fallan</h3>
+<p>Pedir a una IA que "cree una fórmula para analizar mis ventas" es como pedirle a un consultor que resuelva un problema sin enseñarle los datos. El resultado será genérico, probablemente incorrecto para tu caso, y te hará perder más tiempo corrigiendo que si lo hubieras hecho manualmente.</p>
+<p>El patrón que se repite en quien obtiene malos resultados es siempre el mismo: prompts vagos, sin contexto, sin ejemplos. El patrón de quien automatiza tareas reales en minutos es el contrario: prompts densos en información específica y estructurada.</p>
+<p>Esta guía desglosa los componentes que hacen que un prompt para Excel funcione de verdad, tanto si buscas fórmulas avanzadas como si necesitas macros en VBA.</p>
+
+<h3>El rol: por qué importa cómo presentas a la IA</h3>
+<p>Antes de describir tu problema, establece el marco de trabajo. Indicar a la IA que actúe como "analista de datos senior especializado en Excel" o "experto en automatización con VBA" no es un truco cosmético: orienta el nivel técnico de la respuesta, el vocabulario que usará y el tipo de solución que priorizará.</p>
+<p>Sin este encuadre, la IA tiende a ofrecer soluciones básicas pensadas para usuarios sin experiencia. Con él, asume que puedes manejar funciones anidadas, referencias estructuradas o código moderadamente complejo.</p>
+
+<h3>Los cuatro bloques de información que no pueden faltar</h3>
+<p>Un prompt efectivo para Excel siempre contiene estas cuatro capas de información:</p>
+<ul>
+  <li><strong>Descripción del archivo:</strong> cuántas hojas tiene, qué contienen, cómo están organizadas las columnas y qué tipo de datos manejas (fechas, texto, valores numéricos, identificadores).</li>
+  <li><strong>El problema concreto:</strong> no "quiero analizar datos", sino "necesito identificar los clientes que han comprado más de tres veces en los últimos 90 días y cuya última compra supere un importe determinado".</li>
+  <li><strong>El formato de salida esperado:</strong> ¿quieres una fórmula directa? ¿Una macro que se ejecute con un botón? ¿Pasos con explicación para replicarlo? Especificarlo evita que la IA elija por ti y elija mal.</li>
+  <li><strong>Restricciones técnicas:</strong> versión de Excel (las funciones como XLOOKUP o LAMBDA no existen en versiones anteriores a 2019/365), si el archivo se comparte con usuarios de Mac, si hay celdas bloqueadas o si el entorno es Excel Online con limitaciones de VBA.</li>
+</ul>
+
+<div class="highlight">💡 El detalle que más mejora los resultados: incluir ejemplos de datos reales en el prompt. Aunque sean tres o cuatro filas representativas, la IA identifica patrones, tipos de dato y posibles inconsistencias que no podría inferir solo con una descripción textual.</div>
+
+<h3>Cómo describir tus datos sin ambigüedad</h3>
+<p>Uno de los errores más frecuentes es asumir que la IA "entiende" lo que significa tu columna "Estado" o tu campo "Ref". No lo entiende: interpreta. Y cuando interpreta sin información suficiente, genera fórmulas que funcionan en teoría pero no en tu hoja.</p>
+<p>Describe tus columnas con su letra o nombre exacto, el tipo de dato que contienen y los valores posibles si son categóricos. Por ejemplo: "Columna D, llamada 'Estado', contiene texto con tres valores posibles: Pendiente, En curso, Cerrado". Ese nivel de precisión elimina la ambigüedad y reduce las iteraciones necesarias.</p>
+<p>Si tienes datos con inconsistencias habituales —fechas en formato texto, celdas vacías que representan cero, valores duplicados con espacios distintos— menciónalo. La IA puede generar la lógica de limpieza dentro de la propia fórmula o macro si sabe que el problema existe.</p>
+
+<h3>Fórmulas vs. macros: cuándo pedir cada cosa</h3>
+<p>Una decisión que conviene tomar antes de escribir el prompt es si necesitas una fórmula o una macro. No es lo mismo y el prompt cambia según el caso.</p>
+<ul>
+  <li><strong>Fórmulas:</strong> son la opción cuando el cálculo es recurrente y debe actualizarse automáticamente con los datos. Son más portables, no requieren habilitar macros y funcionan sin fricción en entornos compartidos.</li>
+  <li><strong>Macros en VBA:</strong> son la opción cuando la tarea implica manipulación estructural del archivo: mover datos entre hojas, generar informes con formato, enviar correos automáticos, consolidar múltiples archivos. Todo lo que va más allá del cálculo puro.</li>
+</ul>
+<p>Cuando pidas una macro, añade al prompt si quieres que incluya manejo de errores, si debe ejecutarse sobre un rango seleccionado o sobre toda la hoja, y si necesitas que el código esté comentado para poder modificarlo después.</p>
+
+<div class="prompt-box">
+<strong>Ejemplo de prompt estructurado para una macro de consolidación:</strong><br><br>
+"Actúa como experto en VBA para Excel 365. Tengo una carpeta con entre 10 y 30 archivos .xlsx mensuales. Cada archivo tiene una hoja llamada 'Datos' con las columnas: A (Fecha, formato dd/mm/aaaa), B (Región, texto), C (Producto, texto), D (Unidades, número entero), E (Importe, número decimal). Necesito una macro que abra cada archivo de esa carpeta, copie el contenido de la hoja 'Datos' sin la fila de encabezado y lo pegue en una hoja maestra llamada 'Consolidado' en el archivo donde se ejecuta la macro. La macro debe añadir una columna F con el nombre del archivo de origen. Incluye manejo de errores para archivos que no tengan la hoja 'Datos' y comenta el código para que pueda modificarlo. No debe cerrar los archivos de origen si ya estaban abiertos antes de ejecutar la macro."
+</div>
+
+<h3>El ciclo de refinamiento: cómo iterar sin empezar de cero</h3>
+<p>Incluso con un prompt bien construido, la primera respuesta raramente es la definitiva. La diferencia entre un usuario eficiente y uno que pierde tiempo está en cómo gestiona esa iteración.</p>
+<p>Cuando la solución no funciona exactamente como esperabas, no reescribas el prompt completo. Describe el comportamiento que estás viendo frente al que esperabas: "La fórmula devuelve error en celdas vacías, necesito que devuelva 0 en ese caso" o "La macro funciona pero tarda más de dos minutos en archivos grandes, ¿hay forma de optimizarla?". Este tipo de corrección contextual es mucho más eficiente que empezar desde cero.</p>
+<p>Guarda los prompts que funcionan. Con el tiempo construyes una biblioteca de instrucciones reutilizables adaptadas a tus archivos y flujos de trabajo habituales, lo que reduce el tiempo de construcción en cada nuevo proyecto.</p>
+
+<h3>Lo que la IA no puede reemplazar</h3>
+<p>La IA genera la solución técnica. Tú aportas el conocimiento del negocio: saber que una columna de importes negativos no es un error sino una devolución, que ciertos clientes tienen condiciones especiales que no están en los datos, o que el informe mensual tiene excepciones que nunca están documentadas.</p>
+<p>Los mejores resultados aparecen cuando combinas ese conocimiento contextual con prompts precisos. La automatización amplifica tu expertise; no lo sustituye. Y cuanto mejor describes lo que sabes, mejor trabaja la IA con ello.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Necesito saber programación para usar prompts que generen macros en Excel?</div>
+              <div class="faq-a"><span>No. La IA genera el código por ti. Sí conviene entender qué hace el código a nivel general para poder corregirlo o adaptarlo si algo no funciona exactamente como esperabas.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué versión de Excel debo mencionar en el prompt?</div>
+              <div class="faq-a"><span>Siempre especifícala. Funciones como XLOOKUP, LAMBDA o SEQUENCE no están disponibles en versiones anteriores a Excel 2019 o Microsoft 365, y la IA generará soluciones incompatibles si no sabe con qué versión trabajas.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cuántos datos de ejemplo debo incluir en el prompt?</div>
+              <div class="faq-a"><span>Con tres a cinco filas representativas suele ser suficiente. Lo importante es que reflejen los distintos tipos de valores que puede contener cada columna, incluidas las inconsistencias habituales.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Es mejor pedir una fórmula o una macro para automatizar tareas repetitivas?</div>
+              <div class="faq-a"><span>Depende de la tarea. Las fórmulas son ideales para cálculos que deben actualizarse solos. Las macros son más adecuadas cuando necesitas manipular la estructura del archivo, generar informes formateados o trabajar con múltiples archivos a la vez.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué hago si la solución que genera la IA no funciona correctamente?</div>
+              <div class="faq-a"><span>No reescribas el prompt desde cero. Describe el comportamiento que obtienes frente al que esperabas y pide una corrección específica. La iteración contextual es mucho más eficiente que empezar de nuevo.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">prompts para Excel</span><span class="atag">automatización con IA</span><span class="atag">fórmulas Excel</span><span class="atag">macros VBA</span><span class="atag">productividad con IA</span></div>
+        <button class="af-link" onclick="toggleArticle('art-prompts-para-excel-que-incluir-para-eliminar-el-20260610-content',this)">Leer artículo completo →</button>
+      </div>
+    </article>
+    </div>
+
+
     <div class="featured-wrap reveal" id="art-prompts-para-excel-que-incluir-para-que-la-20260602">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-06-02">
