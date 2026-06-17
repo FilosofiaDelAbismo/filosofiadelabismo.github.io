@@ -479,6 +479,109 @@ footer{border-top:1px solid var(--wall);padding:40px 48px 28px;background:var(--
 
 <!-- NEW_ARTICLES_HERE -->
 
+    <div class="featured-wrap reveal" id="art-prompts-para-excel-formulas-datos-y-dashboards-con-20260617">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-06-17">
+      <meta itemprop="dateModified" content="2026-06-17">
+      <meta itemprop="author" content="DigiPrompts">
+      <meta itemprop="publisher" content="DigiPrompts">
+      <div class="af-top-bar c-default"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-default">Prompts de productividad</span>
+          <time class="af-date" datetime="2026-06-17" itemprop="datePublished">17 Jun 2026</time>
+          <span class="af-read">· 6 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">Prompts para Excel: fórmulas, datos y dashboards con IA</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Guía práctica con ejemplos reales de prompts que generan fórmulas, limpian datos y construyen dashboards automáticos. Sin programación previa.</p>
+        <div class="af-content" id="art-prompts-para-excel-formulas-datos-y-dashboards-con-20260617-content">
+          <h3>Por qué Excel y la IA son una combinación que ya no puedes ignorar</h3>
+<p>La mayoría de los profesionales pasan entre dos y cuatro horas diarias en hojas de cálculo: corrigiendo errores de formato, construyendo fórmulas anidadas o intentando que un gráfico cuente la historia correcta. El problema no es Excel. El problema es que muchas de esas tareas son repetitivas, predecibles y, por tanto, automatizables.</p>
+<p>Lo que he observado en equipos que ya trabajan con IA es un patrón claro: quienes aprenden a describir bien lo que necesitan obtienen resultados en minutos que antes les llevaban horas. No porque la IA sea mágica, sino porque actúa como un colaborador técnico que conoce la sintaxis que tú no tienes memorizada.</p>
+<p>Esta guía recorre tres áreas concretas —fórmulas, limpieza de datos y dashboards— con prompts reales que puedes adaptar hoy mismo.</p>
+
+<h3>Bloque 1: generar fórmulas sin memorizar sintaxis</h3>
+<p>El primer obstáculo en Excel suele ser la fórmula correcta para un cálculo específico. La IA resuelve esto bien siempre que el prompt incluya tres elementos: <strong>qué columnas están implicadas, qué quieres calcular y qué excepción o condición existe</strong>.</p>
+
+<div class="prompt-box">
+Actúa como experto en Excel. Tengo una hoja con estas columnas: A = fecha de venta, B = vendedor, C = importe. Necesito una fórmula que sume los importes de la columna C solo cuando el vendedor en la columna B sea "Laura" y la fecha en la columna A esté dentro del mes actual. Explícame la fórmula resultante línea a línea para que pueda adaptarla si cambian los nombres.
+</div>
+
+<p>Ese nivel de detalle —columnas concretas, condición doble, petición de explicación— es lo que diferencia un prompt que genera basura de uno que genera código útil. Sin el contexto de columnas y condiciones, la IA produce fórmulas genéricas que luego hay que reescribir de todas formas.</p>
+<p>Un patrón que funciona bien para fórmulas avanzadas es añadir al final: <em>"Si hay más de una forma de resolverlo, muéstrame dos opciones con sus ventajas"</em>. Eso expone alternativas —SUMIFS vs. QUERY en Google Sheets, por ejemplo— y te permite elegir según tu entorno.</p>
+
+<h3>Bloque 2: limpiar datos de forma sistemática</h3>
+<p>La limpieza de datos es donde más tiempo se pierde y donde los prompts tienen mayor impacto inmediato. Los problemas más frecuentes que aparecen en bases de datos reales son: espacios invisibles, formatos de fecha inconsistentes, valores duplicados y texto en columnas que deberían ser numéricas.</p>
+<p>El error habitual al pedir ayuda a la IA aquí es ser demasiado vago: <em>"limpia mis datos"</em> no funciona. Lo que sí funciona es describir el síntoma exacto.</p>
+
+<div class="prompt-box">
+Tengo una columna de teléfonos en Excel con formatos mezclados: algunos tienen prefijo +34, otros empiezan por 6 o 9 sin prefijo, algunos tienen espacios entre grupos de dígitos y otros tienen guiones. Necesito una fórmula o macro de VBA que estandarice todos los números al formato +34XXXXXXXXX sin espacios ni guiones. Muéstrame primero la solución con fórmulas y después, si es más eficiente, la versión en VBA con comentarios explicativos.
+</div>
+
+<p>Nótese la estructura: descripción del estado actual, descripción del estado deseado, preferencia por fórmulas antes que código, y petición de comentarios. Ese último punto es clave si no dominas VBA: los comentarios te permiten entender qué hace cada línea y modificarla sin romper el conjunto.</p>
+
+<div class="highlight">💡 Antes de pegar datos reales en cualquier IA pública, anonimízalos. Sustituye nombres, emails o cifras sensibles por valores ficticios que mantengan la estructura. La IA trabaja igual de bien con datos de ejemplo que con datos reales, y proteges la información de tu organización.</div>
+
+<h3>Bloque 3: construir dashboards que se actualizan solos</h3>
+<p>Un dashboard útil no es una colección de gráficos bonitos. Es una vista que responde preguntas concretas de negocio y que no requiere rehacerse cada semana. Aquí la IA puede ayudarte en dos fases distintas: el diseño lógico y la implementación técnica.</p>
+<p>Para el diseño lógico, el prompt debe partir de la pregunta de negocio, no de los datos:</p>
+
+<div class="prompt-box">
+Soy responsable de ventas de una empresa con 8 comerciales. Necesito un dashboard mensual en Excel que responda estas tres preguntas: ¿quién está por encima o por debajo de su objetivo?, ¿qué producto se vende más en cada región? y ¿cómo evoluciona el ticket medio semana a semana? Mis datos están en tres pestañas: Ventas, Objetivos y Catálogo. Propón qué gráficos usarías para cada pregunta, qué tablas dinámicas necesito crear primero y en qué orden montarías el dashboard para que sea fácil de mantener.
+</div>
+
+<p>Este tipo de prompt genera un plan de construcción, no solo código. Eso es valioso porque te permite detectar si la IA ha entendido mal la estructura antes de invertir tiempo en implementar.</p>
+<p>Para la fase técnica —conectar los gráficos a rangos dinámicos, crear segmentadores o automatizar la actualización— el prompt cambia de registro:</p>
+
+<div class="prompt-box">
+Tengo un gráfico de barras en Excel conectado a una tabla dinámica. Quiero que al cambiar el mes en una celda desplegable (celda B2), todos los gráficos del dashboard se actualicen automáticamente sin que el usuario tenga que refrescar manualmente. ¿Puedo hacerlo con fórmulas dinámicas o necesito una macro? Si necesito VBA, escribe el código con comentarios y explícame dónde pegarlo.
+</div>
+
+<h3>Qué distingue un prompt que funciona de uno que no</h3>
+<p>Después de analizar cientos de interacciones entre profesionales e IA en contextos de hojas de cálculo, los patrones de fallo se repiten:</p>
+<ul>
+  <li><strong>Prompts sin contexto de columnas:</strong> la IA inventa nombres de columnas y el resultado no es aplicable.</li>
+  <li><strong>Prompts que piden todo a la vez:</strong> mezclar limpieza, fórmulas y gráficos en una sola instrucción produce respuestas superficiales en cada área.</li>
+  <li><strong>Prompts sin condición de error:</strong> no especificar qué debe pasar si un valor está vacío o es incorrecto genera fórmulas que fallan en producción.</li>
+  <li><strong>Prompts sin versión de herramienta:</strong> una fórmula válida en Excel 365 puede no existir en Excel 2016. Especifica siempre tu versión.</li>
+</ul>
+<p>La corrección es sencilla en todos los casos: más contexto específico, menos ambigüedad, una tarea por prompt.</p>
+
+<h3>El siguiente paso</h3>
+<p>La automatización de hojas de cálculo con IA no requiere convertirse en programador. Requiere aprender a describir problemas con precisión. Esa habilidad —formular bien lo que necesitas— es transferible a cualquier herramienta y a cualquier tarea repetitiva de tu día a día.</p>
+<p>Empieza por la tarea que más tiempo te consume esta semana. Escribe un prompt siguiendo la estructura de esta guía, evalúa el resultado y refínalo. En pocas iteraciones tendrás un modelo reutilizable que cualquier miembro de tu equipo puede aplicar sin conocimientos técnicos.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Necesito saber programación para usar estos prompts en Excel?</div>
+              <div class="faq-a"><span>No. Los prompts están diseñados para que la IA genere las fórmulas o el código por ti. Tener nociones básicas de Excel ayuda a crear prompts más precisos, pero no es un requisito previo.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué herramienta de IA es mejor para trabajar con Excel?</div>
+              <div class="faq-a"><span>Depende de tu nivel. ChatGPT y Claude son ideales para principiantes por su capacidad de explicar paso a paso. GitHub Copilot encaja mejor con usuarios avanzados que trabajan con VBA. Excel Copilot, integrado en Microsoft 365, ofrece la conexión más directa con el archivo.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Puedo usar datos reales de mi empresa en estos prompts?</div>
+              <div class="faq-a"><span>Con precaución. La recomendación estándar es anonimizar los datos antes de pasarlos a una IA pública: sustituye valores sensibles por ficticios que mantengan la estructura. Consulta siempre la política de tu organización y usa herramientas aprobadas por tu departamento de TI.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Por qué mis prompts generan fórmulas que no funcionan en mi versión de Excel?</div>
+              <div class="faq-a"><span>Porque distintas versiones de Excel tienen funciones distintas. XLOOKUP o FILTER, por ejemplo, solo están disponibles desde Excel 365 o Excel 2019. Especifica siempre tu versión en el prompt para que la IA ajuste la solución a lo que tienes disponible.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cuántas tareas puedo pedir en un solo prompt?</div>
+              <div class="faq-a"><span>Una tarea bien descrita por prompt es lo que produce mejores resultados. Mezclar limpieza, fórmulas y diseño de dashboard en una sola instrucción genera respuestas superficiales. Divide el trabajo en prompts separados y encadénalos según avances.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">Excel</span><span class="atag">prompts</span><span class="atag">automatización</span><span class="atag">limpieza de datos</span><span class="atag">dashboards</span></div>
+        <button class="af-link" onclick="toggleArticle('art-prompts-para-excel-formulas-datos-y-dashboards-con-20260617-content',this)">Leer artículo completo →</button>
+      </div>
+    </article>
+    </div>
+
+
     <div class="featured-wrap reveal" id="art-prompts-para-excel-que-incluir-para-eliminar-el-20260610">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-06-10">
