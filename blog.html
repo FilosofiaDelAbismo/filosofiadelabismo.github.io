@@ -479,6 +479,111 @@ footer{border-top:1px solid var(--wall);padding:40px 48px 28px;background:var(--
 
 <!-- NEW_ARTICLES_HERE -->
 
+    <div class="featured-wrap reveal" id="art-instrucciones-claras-a-la-ia-formulas-y-macros-20260625">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-06-25">
+      <meta itemprop="dateModified" content="2026-06-25">
+      <meta itemprop="author" content="DigiPrompts">
+      <meta itemprop="publisher" content="DigiPrompts">
+      <div class="af-top-bar c-default"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-default">Prompts de productividad</span>
+          <time class="af-date" datetime="2026-06-25" itemprop="datePublished">25 Jun 2026</time>
+          <span class="af-read">· 7 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">Instrucciones claras a la IA: fórmulas y macros sin código</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Escribir bien un prompt marca la diferencia entre una fórmula que funciona y diez minutos perdidos corrigiendo errores. Esta guía muestra cómo estructurar instrucciones precisas para delegar tareas de Excel a la IA hoy mismo.</p>
+        <div class="af-content" id="art-instrucciones-claras-a-la-ia-formulas-y-macros-20260625-content">
+          <h3>Por qué la mayoría de prompts para Excel fallan</h3>
+<p>La promesa es clara: pedirle a una IA que genere una fórmula compleja o una macro y recibirla lista para pegar. La realidad, para quien no estructura bien la instrucción, suele ser diferente: respuestas genéricas, código que no encaja con la estructura real del archivo o fórmulas que devuelven errores desde la primera celda.</p>
+<p>El problema no está en la IA. Está en el prompt. Una instrucción vaga produce una respuesta vaga. Una instrucción precisa, con contexto real, produce código funcional. Esta guía explica cómo construir esa instrucción precisa, con ejemplos que puedes aplicar hoy.</p>
+
+<h3>Los cuatro componentes de un prompt que genera resultados</h3>
+<p>Independientemente de la herramienta que uses —ChatGPT, Claude, Copilot u otro asistente especializado—, los prompts que funcionan comparten la misma estructura:</p>
+<ul>
+  <li><strong>Rol asignado:</strong> Indica a la IA desde qué perspectiva debe responder. "Actúa como analista de datos senior especializado en Excel" orienta la respuesta hacia soluciones profesionales, no tutoriales básicos.</li>
+  <li><strong>Contexto del archivo:</strong> Describe qué columnas tienes, qué tipo de datos contienen y cómo está organizada la hoja. La IA no ve tu pantalla; necesita ese mapa.</li>
+  <li><strong>Tarea concreta:</strong> Especifica exactamente qué quieres automatizar. "Limpia los datos" es demasiado amplio. "Elimina espacios dobles, normaliza mayúsculas y marca en rojo las celdas vacías en la columna C" es accionable.</li>
+  <li><strong>Formato de salida:</strong> Aclara si necesitas una fórmula, un script VBA, pasos manuales o una combinación. Sin esta indicación, la IA elige por ti y no siempre acierta.</li>
+</ul>
+
+<div class="highlight">💡 Incluye siempre dos o tres filas de datos reales de ejemplo en el prompt. La IA detecta patrones concretos y genera soluciones más ajustadas que cuando trabaja con descripciones abstractas.</div>
+
+<h3>Errores frecuentes que he visto repetirse</h3>
+<p>Hay dos patrones que aparecen una y otra vez cuando alguien empieza a usar IA para automatizar Excel:</p>
+<ul>
+  <li><strong>Saltar directo a la automatización compleja.</strong> Pedir una macro que consolide diez hojas, aplique filtros dinámicos y envíe un correo automático es viable, pero no como primer intento. Las tareas pequeñas enseñan cómo responde la herramienta y permiten corregir el prompt antes de escalar.</li>
+  <li><strong>Descartar el prompt cuando falla una vez.</strong> Un prompt que produce un resultado incorrecto es información. El siguiente paso es refinar: añadir el error exacto que devuelve Excel, especificar la versión del software o aclarar la restricción que faltaba.</li>
+</ul>
+
+<h3>Tres tareas que puedes delegar hoy mismo</h3>
+<p>Estos son escenarios reales donde un prompt bien construido ahorra entre treinta minutos y varias horas de trabajo manual:</p>
+
+<p><strong>1. Limpieza y normalización de datos</strong><br>
+Cuando recibes un archivo con formatos inconsistentes —nombres en mayúsculas y minúsculas mezcladas, espacios extra, fechas en distintos formatos— un solo prompt puede generar el conjunto de fórmulas o el script VBA que lo resuelve de una vez. Es el caso de uso más inmediato y donde el retorno es más visible.</p>
+
+<p><strong>2. Informes mensuales repetitivos</strong><br>
+Si cada mes construyes el mismo informe con tablas dinámicas, gráficos y un resumen ejecutivo, ese proceso es automatizable. Un prompt que describa la estructura del informe, las métricas clave y el formato esperado puede generar la macro que lo construye desde los datos en bruto.</p>
+
+<p><strong>3. Validación de datos y alertas visuales</strong><br>
+Detectar celdas fuera de rango, duplicados o valores que incumplen una regla de negocio es tedioso de configurar manualmente. Con un prompt que describa la regla exacta, la IA genera la fórmula de formato condicional o el script que marca automáticamente las anomalías.</p>
+
+<div class="prompt-box">
+<strong>Ejemplo de prompt funcional — Limpieza de columna de nombres:</strong><br><br>
+Actúa como analista de datos experto en Excel. Tengo una hoja con una columna B llamada "Nombre_Cliente" que contiene entradas como "  juan garcía ", "MARÍA LÓPEZ", "pedro Martínez  ". Necesito una fórmula que elimine espacios al inicio y al final, convierta el texto a formato Nombre Propio (primera letra de cada palabra en mayúscula) y devuelva el resultado en la columna C. Estoy usando Excel 365. Dame solo la fórmula, sin explicación adicional.
+</div>
+
+<h3>Qué herramienta usar según la tarea</h3>
+<p>No todas las IAs responden igual ante el mismo prompt. Conocer las diferencias permite elegir la herramienta adecuada para cada tipo de tarea:</p>
+<ul>
+  <li><strong>ChatGPT y Claude</strong> destacan cuando necesitas fórmulas complejas acompañadas de una explicación que puedas adaptar. Son especialmente útiles si el resultado requiere ajuste manual posterior.</li>
+  <li><strong>GitHub Copilot</strong> rinde mejor en automatización con VBA y macros, donde la precisión del código es prioritaria sobre la explicación.</li>
+  <li><strong>Excel Copilot</strong> tiene la ventaja de integrarse directamente en la hoja de cálculo, lo que elimina el paso de copiar y pegar y reduce errores de implementación.</li>
+  <li><strong>Asistentes especializados en Excel</strong> pueden ofrecer respuestas más ajustadas cuando el contexto es muy específico del software.</li>
+</ul>
+
+<h3>El hábito que multiplica el valor de cada prompt</h3>
+<p>Cada prompt que produce un resultado útil es un activo reutilizable. Guardarlos en una biblioteca propia —aunque sea un documento de texto organizado por categorías— permite recuperarlos y adaptarlos en minutos cuando aparece una tarea similar. En la práctica, esto significa que el segundo informe automatizado cuesta una fracción del tiempo que costó el primero.</p>
+<p>Los profesionales que trabajan con datos de forma habitual y adoptan este hábito desde el principio construyen, sin darse cuenta, un repertorio de soluciones que los hace significativamente más rápidos que quienes empiezan desde cero cada vez.</p>
+
+<div class="highlight">💡 Organiza tu biblioteca de prompts por tipo de tarea: limpieza, informes, validación, visualización. Cuando llegue un proyecto nuevo, busca el prompt más cercano y ajusta solo los detalles específicos.</div>
+
+<h3>El siguiente paso lógico</h3>
+<p>La automatización con IA en Excel no requiere saber programar. Requiere saber describir. Cuanto más precisa es la descripción del problema, más útil es la solución que devuelve la IA. Empezar con una tarea pequeña esta semana —una columna que limpiar, un cálculo que automatizar— es suficiente para calibrar cómo funciona el proceso y ganar confianza antes de escalar a flujos más complejos.</p>
+<p>La curva de aprendizaje no está en la tecnología. Está en aprender a traducir el trabajo en instrucciones concretas. Y esa es una habilidad que se construye prompt a prompt.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Necesito saber programar para usar IA y generar macros en Excel?</div>
+              <div class="faq-a"><span>No. La IA genera el código por ti. Lo que necesitas es describir con precisión qué debe hacer ese código: qué columnas afecta, qué regla aplica y qué resultado esperas.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si la fórmula o macro que genera la IA no funciona?</div>
+              <div class="faq-a"><span>Es normal en las primeras iteraciones. Copia el mensaje de error exacto que muestra Excel, pégalo en el prompt y pide a la IA que lo corrija con ese contexto. La mayoría de errores se resuelven en una o dos rondas de refinamiento.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué herramienta de IA es mejor para automatizar Excel?</div>
+              <div class="faq-a"><span>Depende de la tarea. ChatGPT y Claude son sólidos para fórmulas con explicación. GitHub Copilot destaca en VBA. Excel Copilot ofrece integración directa en la hoja. Probar con una tarea concreta en cada una es la forma más rápida de identificar cuál se adapta mejor a tu flujo.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Puedo reutilizar los prompts que funcionan en otros proyectos?</div>
+              <div class="faq-a"><span>Sí, y es una de las prácticas más rentables. Guarda cada prompt exitoso en una biblioteca organizada por tipo de tarea. Para un proyecto nuevo, recupera el más cercano y ajusta solo los detalles específicos del nuevo contexto.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Por dónde debo empezar si nunca he usado IA para Excel?</div>
+              <div class="faq-a"><span>Por una tarea pequeña y repetitiva que ya conozcas bien: limpiar una columna, calcular un porcentaje condicional o formatear un rango. Dominar el prompt para esa tarea concreta te da la base para escalar a automatizaciones más complejas.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">prompts para Excel</span><span class="atag">automatización con IA</span><span class="atag">fórmulas con IA</span><span class="atag">macros Excel</span><span class="atag">productividad con IA</span></div>
+        <button class="af-link" onclick="toggleArticle('art-instrucciones-claras-a-la-ia-formulas-y-macros-20260625-content',this)">Leer artículo completo →</button>
+      </div>
+    </article>
+    </div>
+
+
     <div class="featured-wrap reveal" id="art-prompts-para-excel-formulas-datos-y-dashboards-con-20260617">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-06-17">
